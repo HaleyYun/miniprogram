@@ -1,0 +1,67 @@
+<view class="page" style="padding: {{statusBarHeight+44}}px 0 0 0;">
+  <van-dialog class="addinfodialog" use-slot show="{{ addInfoShow }}" showConfirmButton="{{false}}" width='582rpx'>
+    <image src="{{ossImg}}addforbtn.png" class="addinfobg" />
+    <view class="addinfobut-box">
+      <image src="{{ossImg}}addinfobtn.png" bindtap="toAddinfo" class="addinfobut" mode="" />
+    </view>
+    <view class="deleteicon">
+      <image src="{{ossImg}}deleteIcon.png" bindtap="deleteinfo" class="deleteItem" mode="" />
+    </view>
+  </van-dialog>
+
+  <view class="info" bindtap="goSystem">
+    <view class="in-left">
+      <view class="img">
+        <image class="bg" wx:if="{{userName!=''}}" src="{{userInfo.avatarUrl}}" mode="" />
+        <image class="bg" wx:else src="{{ossImg}}default-head.png" />
+      </view>
+      <view class="name-box">
+        <view class="nick-name" wx:if="{{userName!=''}}">{{userName}}
+          <image src="{{ossImg}}xy-bg.png" />
+        </view>
+        <view class="nick-name" wx:else catchtap="login">登陆/注册
+          <image src="{{ossImg}}xy-bg.png" />
+        </view>
+        <!-- <view class="bot">
+          <view class="sysbtn" style="background:{{userName!='' ? '#3476FF' : '#ddd'}}" bindtap="sysTurn">系统设置</view>
+          <view class="edit" bindtap="edit">
+            <image class="editbg" src="{{ossImg}}my-bianji-img.png"></image>
+            <view class="edit-title">编辑资料</view>
+          </view>
+          <view class="person" bindtap="bindPerson" wx:if="{{userName}}">
+            <image class="editbg" src="{{ossImg}}my-person-img.png"></image>
+            <text class="edit-title">员工授权</text>
+          </view>
+        </view> -->
+      </view>
+    </view>
+  </view>
+  <view class="serve">
+    <view class="serve-title">我的订单</view>
+    <view class="serve-list">
+      <view class="serve-one" wx:for="{{orderList}}" wx:key="id" data-item="{{item}}" bindtap="turnTo">
+        <image class="servebg" src="{{item.imgUrl}}"></image>
+        <view class="serve-text">{{item.name}}</view>
+      </view>
+    </view>
+  </view>
+  <view class="caide" style="background: url({{ossImg}}caide-bg.png) no-repeat center center; background-size: contain;" bindtap="goCaide"></view>
+  <view class="equity-center" wx:for="{{list}}" wx:key="id" data-item="{{item}}" bindtap="turnTo">
+    <view class="equity-left">
+      <image class="equity-img" src="{{item.imgUrl}}"></image>
+      <view>{{item.title}}</view>
+    </view>
+    <view class="equity-right">
+      <image class="equity-img" src="{{ossImg}}my-right-img.png"></image>
+    </view>
+  </view>
+  <view class="equity-center" bindtap="goEquity" wx:if="{{employeeId && userName}}">
+    <view class="equity-left">
+      <image class="equity-img" src="{{ossImg}}my-equity-img.png"></image>
+      <view>权益中心</view>
+    </view>
+    <view class="equity-right">
+      <image class="equity-img" src="{{ossImg}}my-right-img.png"></image>
+    </view>
+  </view>
+</view>

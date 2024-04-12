@@ -1,0 +1,92 @@
+<view class="page">
+  <van-dialog class="dialog" use-slot show="{{ dialog }}" showConfirmButton="{{false}}">
+    <image src="{{ossImg}}perfectbg.png" class="perfect-bg" mode="" />
+    <view class="perfect-but-box">
+      <image src="{{ossImg}}perfectbut.png" class="perfect-but" bindtap="goperfect" mode="" />
+    </view>
+    <view class="deleteicon" bindtap="close">
+      <image src="{{ossImg}}deleteIcon.png" class="deleteItem" mode="" />
+    </view>
+  </van-dialog>
+  <view class="model" wx:if="{{isShowModel == 1}}">
+    <image src="{{ossImg}}nobrina-bg.png" mode="" />
+    <view class="nobrina-text">您暂无生效干预方案</view>
+    <view class="btn" bindtap="goService">我要干预</view>
+  </view>
+  <view class="model" wx:if="{{isShowModel == 2}}">
+    <image src="{{ossImg}}nobrina-bg.png" mode="" />
+    <view class="nobrina-text">您的干预方案暂未开始</view>
+    <view class="btn" bindtap="goPlanList">立即查看</view>
+  </view>
+  <view wx:if="{{isShowModel==0}}">
+    <view class="schedule-cycle" style="background: url({{ossImg}}rectangle.png) no-repeat center center;background-size: contain;">
+      本次训练周期: {{hebdomad[0].date}}~{{hebdomad[6].date}}
+    </view>
+    <view class="hebdomad">
+      <view class="{{hebdomadActive==item.date?'hebdomad-item-active':'hebdomad-item'}}" wx:for="{{hebdomad}}" wx:key="id" data-date="{{item.date}}" data-state="{{item.state}}" data-istoday="{{item.isCurrent}}" bindtap="hebdomad">
+        <view class="{{hebdomadActive==item.date?'hebdomad-text-active':'hebdomad-text'}}">{{item.isCurrent==0?'今日':item.options}}</view>
+        <view class="{{item.state==2?'hebdomad-label-notstart':hebdomadActive==item.date?'hebdomad-label-active':'hebdomad-label'}}">{{item.state==2?'未开始':''||item.state==1?'已完成':''||item.state==0?item.isCurrent==0?'进行中':'未完成':''}}</view>
+      </view>
+    </view>
+    <view class="{{see==7?'kinds':'hidden'}}">
+      <view class="kinds-scheme" bindtap="goscheme">查看干预方案></view>
+      <view class="kinds-box">
+        <view class="kinds-edge">
+          <view class="edge-label">运动时长(分)</view>
+          <view class="edge-number">{{three.sportsTime}}/{{three.sportsTotalTime}}</view>
+        </view>
+        <view class="kinds-center">
+          <view class="kinds-top">
+            <view class="kinds-game">游戏训练(次)</view>
+            <view class="kinds-schedule">{{three.gameNum}}/{{three.gameTotalNum}}</view>
+          </view>
+          <view class="container">
+            <ec-canvas id="mychart-dom-gauge" canvas-id="mychart-gauge" ec="{{ ec }}" force-use-old-canvas="true" class="{{dialog?'hidden':''}}"></ec-canvas>
+          </view>
+        </view>
+        <view class="kinds-edge">
+          <view class="edge-label">膳食打卡(天)</view>
+          <view class="edge-number">{{three.dietNum}}/1</view>
+        </view>
+      </view>
+      <view class="status">
+        <image src="{{state?ossImg+'reach1.png':ossImg+'reach0.png'}}" class="status-img" mode="" />
+        <view class="status-content">
+          <view class="status-text">{{istoday?'当日':'今日'}}{{state?'已达成':'未达成'}}</view>
+          <view class="{{state?'status-article':'status-article-uncompleted'}}"></view>
+        </view>
+      </view>
+    </view>
+    <view class="game" wx:if="{{see==7||see==6||see==5||see==4}}">
+      <view class="game-title">
+        <view class="game-tag"></view>
+        <view class="game-label">当日训练任务</view>
+      </view>
+      <view class="game-text">数字化训练</view>
+      <view class="game-item" wx:for="{{taskList}}" wx:key="id">
+        <image src="{{item.gameImage}}" class="game-image" mode="" />
+        <view class="game-content">
+          <view class="game-content-title">{{item.gameName}}</view>
+          <view class="game-content-text">{{item.gameDesc}}</view>
+          <view class="game-but-box">
+            <view class="game-but" data-id="{{gameId}}" data-item="{{item}}" bindtap="goredirect">去训练</view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="types" wx:if="{{see!=4}}">
+      <view class="types-item" wx:if="{{see==3||see==7}}" style="background: url({{item.url}}) no-repeat center center; background-size: contain;" wx:for="{{types}}" wx:key="id" bindtap="goto" data-id="{{item.id}}">
+        <view class="types-text">脑健康</view>
+        <view class="types-label">{{item.options}}方案</view>
+      </view>
+      <view class="movement" wx:if="{{see==1||see==5}}" style="background: url({{ossImg}}movementbg1.png) no-repeat center center; background-size: contain;" bindtap="goto" data-id="{{'/packageTrain/pages/exercise/index'}}">
+        <view class="types-text">脑健康</view>
+        <view class="types-label">运动方案</view>
+      </view>
+      <view class="meals" wx:if="{{see==2||see==6}}" style="background: url({{ossImg}}mealsbg1.png) no-repeat center center; background-size: contain;" bindtap="goto" data-id="{{'/packageMy/pages/scale/index'}}">
+        <view class="types-text">脑健康</view>
+        <view class="types-label">膳食方案</view>
+      </view>
+    </view>
+  </view>
+</view>

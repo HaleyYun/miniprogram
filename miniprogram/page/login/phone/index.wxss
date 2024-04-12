@@ -1,0 +1,122 @@
+/* page/login/phone/index.wxss */
+.page {
+  background: #fff;
+}
+
+.cont {
+  margin: auto;
+}
+
+.img {
+  width: 750rpx;
+  height: 650rpx;
+}
+
+.btn {
+  width: 685rpx;
+  height: 300rpx;
+  margin: 155rpx auto 0rpx;
+}
+
+.register {
+  width: 614rpx;
+  height: 104rpx;
+  line-height: 104rpx;
+  text-align: center;
+  background: #F2F2F2;
+  border-radius: 47rpx;
+  font-size: 16px;
+  color: #222;
+  font-weight: bold;
+  border-radius: 30rpx;
+  border: 4rpx solid #5674F7;
+  margin: 0 auto;
+  font-size: 36rpx;
+  font-family: PingFangSC, PingFang SC;
+  font-weight: 600;
+  color: #3476FF;
+}
+
+.phone {
+  width: 622rpx;
+  height: 112rpx;
+  line-height: 112rpx;
+  text-align: center;
+  background: #3476FF;
+  border-radius: 30rpx;
+  font-size: 36rpx;
+  font-family: PingFangSC, PingFang SC;
+  font-weight: 600;
+  color: #FFFFFF;
+  margin: 44rpx auto 26rpx;
+}
+
+.text {
+  width: 600rpx;
+  margin: 0 auto;
+  font-size: 24rpx;
+  color: #494949;
+  line-height: 34rpx;
+  text-align: left;
+}
+
+.wx-checkbox-input {
+  width: 30rpx !important;
+  height: 30rpx !important;
+  margin: 0rpx !important;
+  border-radius: 50% !important;
+  /* background-image: url(../../../image/check.png); */
+}
+
+checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
+  width: 20rpx;
+  height: 20rpx;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 20rpx;
+  font-size: 0;
+  background-color: #3A85FF;
+  /* background-image: url(../../../image/check.png); */
+  transform: translate(-50%, -50%)scale(1);
+}
+
+.serve {
+  color: #3A85FF;
+}
+
+.desk {
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.art {
+  font-size: 15px;
+}
+
+.masg {
+  width: 90%;
+  height: 80%;
+  box-sizing: border-box;
+  box-shadow: 3px 3px 3px #aaa;
+  margin: 80px auto;
+  padding: 20px;
+  overflow-y: scroll;
+}
+
+.close {
+  width: 100rpx;
+  height: 35rpx;
+  line-height: 35rpx;
+  background: #3476FF;
+  color: #fff;
+  font-size: 13px;
+  text-align: center;
+  position: absolute;
+  right: 20rpx;
+  top: 20rpx;
+  border-radius: 10px;
+}

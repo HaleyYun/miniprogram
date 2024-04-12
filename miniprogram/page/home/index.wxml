@@ -1,0 +1,52 @@
+<view class="pages">
+  <van-dialog class="addinfodialog" use-slot show="{{ addInfoShow }}" showConfirmButton="{{false}}" width='582rpx'>
+    <image src="{{ossImg}}addforbtn.png" class="addinfobg" />
+    <view class="addinfobut-box">
+      <image src="{{ossImg}}addinfobtn.png" bindtap="toAddinfo" class="addinfobut" mode="" />
+    </view>
+    <view class="deleteicon">
+      <image src="{{ossImg}}deleteIcon.png" bindtap="deleteinfo" class="deleteItem" mode="" />
+    </view>
+  </van-dialog>
+  <!-- <view class="swiper">
+    <swiper class="box">
+      <block wx:for="{{list}}" wx:key="id">
+        <swiper-item>
+          <image class="img" src="{{item.imgUrl}}"></image>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view> -->
+  <view class="home-bg" style="background: url({{ossImg}}homebg2.png) no-repeat center center; background-size: contain;"></view>
+  <view class="native-list">
+    <view class="turnbg">
+      <view class="head-left" wx:for="{{titleList}}" wx:key="id" data-item="{{item}}" bindtap="turnTo" style="background: url({{item.imgUrl}}) no-repeat center center; background-size: contain;">
+        <view class="he-title">{{item.title}}</view>
+        <view class="he-text">{{item.text}}</view>
+      </view>
+    </view>
+    <view class="icon-list">
+      <view class="icon" wx:for="{{icoList}}" wx:key="id" data-item="{{item}}" bindtap="click" style="background: url({{item.imgUrl}}) no-repeat center center; background-size: contain;">
+        <view class="icontit">{{item.title}}</view>
+        <view class="icontext">{{item.text}}</view>
+      </view>
+    </view>
+  </view>
+  <!-- <view class="caide" style="background: url({{ossImg}}caide-bg.png) no-repeat center center; background-size: contain;" bindtap="goCaide"></view> -->
+  <view class="banner-bg" style="background: url({{ossImg}}banner-indexbg.png) no-repeat center center; background-size: contain;" bindtap="goMarket" wx:if="{{isShowMarket}}"></view>
+  <view class="video-box" wx:if="{{artcileList.length}}">
+    <view class="video-list">
+      <view class="box-title">
+        <view class="line"></view>
+        <view class="serve">热门资讯</view>
+      </view>
+      <view class="videobig" wx:for="{{artcileList}}" data-id="{{item.id}}" wx:key="index" bindtap="articleDetail">
+        <view class="article-title">{{item.theme}}</view>
+        <image class="videobg1" src="{{item.articleMold==1?item.mainImage:item.videoCover}}"></image>
+        <view class="video-address">{{item.articleSource}}</view>
+        <view class="article-releaseTime">发布时间：{{item.releaseTime}}</view>
+      </view>
+    </view>
+    <view class="bottom">— 已加载全部 —</view>
+  </view>
+</view>

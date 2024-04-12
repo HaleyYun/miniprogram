@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "预约订单",
+  "usingComponents": {
+    "van-dialog":"vant-weapp/dialog/index",
+    "load": "../../../components/load/load"
+  },
+  "window": {
+    "onReachBottomDistance": 10
+  }
+}

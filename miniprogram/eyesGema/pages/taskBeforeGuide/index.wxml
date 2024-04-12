@@ -1,0 +1,8 @@
+<!--eyesGema/pages/taskBeforeGuide/index.wxml-->
+<view class="people-correct-page">
+  <view class="box-content">
+    <view class="text-box">{{stepData.steps[0].elements[0].content}}</view>
+    <view class="timing-box" wx:if="{{countdownStatus}}">{{countdown}}</view>
+  </view>
+  <image class="btn" wx:if="{{stepState}}" src="https://zskjobject.oss-cn-beijing.aliyuncs.com/zskj_nbj_mini/games/images/cx-video-btn.png" bind:tap="backPage" mode="" />
+</view>

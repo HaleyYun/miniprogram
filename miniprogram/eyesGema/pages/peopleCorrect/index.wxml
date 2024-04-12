@@ -1,0 +1,6 @@
+<!--eyesGema/pages/peopleCorrect/index.wxml-->
+<view class="people-correct-page">
+  <image class="bj-img" src="{{stepData.steps[0].elements[0].content}}" mode="" />
+  <camera id="camera" class="camera" device-position="front" flash="off" frame-size="1200,1200"></camera>
+  <image class="btn" src="https://neuroweave.oss-cn-hangzhou.aliyuncs.com/zskj-app-test/img/eyesgema/next.png" bind:tap="nextPage" mode="" />
+</view>

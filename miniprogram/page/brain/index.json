@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "van-dialog":"vant-weapp/dialog/index",
+    "ec-canvas": "../../ec-canvas/ec-canvas"
+  },
+  "navigationBarTitleText": "脑健康干预"
+}

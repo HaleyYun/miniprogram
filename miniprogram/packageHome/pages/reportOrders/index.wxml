@@ -1,0 +1,70 @@
+<view class="page">
+  <image class="box-bg" src="{{ossImg}}report-orderTbg.png" mode="" />
+  <view class="box-content">
+    <view class="content">
+      <view class="top-cont" style="background-image: url({{ossImg}}report-orderbg.png);background-size: 100% 100%;">
+        <view class="times">
+          {{ countdown.minutes }}:{{ countdown.seconds }}
+        </view>
+        <view class="cont-pic">
+          <view class="pic-text">
+            <view class="pic-textO">完整报告解读</view>
+            <view class="pic-new">¥{{orderData.activityPrice}}</view>
+          </view>
+          <view class="pic-text">
+            <view class="pic-textT">脑健康综合报告+AD风险预测</view>
+            <view class="pic-old">¥{{orderData.product.prodPrice}}</view>
+          </view>
+        </view>
+        <view class="lock-number">
+          已有{{orderData.unlockNumber}}人解锁报告
+        </view>
+        <view class="amount-pic">
+          <view class="amount-top">
+            <view class="amount-textO">优惠立减</view>
+            <view class="amount-picO">-¥{{fullPrice}}</view>
+          </view>
+          <view class="amount-top">
+            <view class="amount-textT">合计：</view>
+            <view class="amount-picT">¥{{amountPrice}}</view>
+          </view>
+        </view>
+      </view>
+      <image class="middel-cont" src="{{ossImg}}report-orderTwbg.png" />
+      <view class="bottom-cont" style="background-image: url({{ossImg}}report-orderThbg.png);background-size: 100% 100%;">
+        <image src="{{ossImg}}erweim-bg.png" mode="" show-menu-by-longpress />
+      </view>
+    </view>
+  </view>
+
+  <view class="box-btn">
+    <button class="btn-one" bindtap="shareBtn" open-type="share">
+      <view class="sharText">分享好友立减30</view>
+      <view class="sharNum">({{orderData.shareTimes}}/3)</view>
+    </button>
+    <view class="btn-two" style="background-image: url({{ossImg}}report-btnbg.png);background-size: 100% 100%;" bindtap="payOrder"></view>
+  </view>
+
+  <view class="model" catchtouchmove='true' wx:if="{{isShowModel}}">
+    <view class="model-coupon" style="background: url({{ossImg}}market-couponbg.png) no-repeat center center; background-size: contain;" wx:if="{{isShowCoupon}}" bindtap="closeModel"></view>
+    <view class="model-success" style="background: url({{ossImg}}market-successbg.png) no-repeat center center; background-size: contain;" wx:if="{{isShowSuccess}}">
+      <view class="title">提示</view>
+      <view class="model-content">您已成功解锁完整报告</view>
+      <view class="btn-box">
+        <view class="clean" bindtap="goHome">返回首页</view>
+        <view class="confim" bindtap="goReportInfo">立即查看</view>
+      </view>
+    </view>
+    <view class="model-fail" style="background: url({{ossImg}}market-errorbg.png) no-repeat center center; background-size: contain;" wx:if="{{isShowfail}}">
+      <view class="title">提示</view>
+      <view class="model-content">您本次筛查报告
+        <text style="color: #EF0B0B;">【解锁失败】</text>
+        如需要获取报告请点击重新测试或返回首页
+      </view>
+      <view class="btn-box">
+        <view class="clean" bindtap="goHome">返回首页</view>
+        <view class="confim" bindtap="goRetest">重新测试</view>
+      </view>
+    </view>
+  </view>
+</view>

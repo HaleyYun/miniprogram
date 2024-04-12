@@ -1,0 +1,18 @@
+<view class="content" style="background-image: url({{ossHttpUrl}}images/bg.png);">
+  <view class="con-doc">
+    <view class="con-doctor" bindtap="touch">
+      <image src="{{ossHttpUrl}}images/doctor.png" />
+    </view>
+    <view class="con-text">你好，我是脑博士。我来帮你做一个简单的测试,来测试一下你的记忆力。</view>
+  </view>
+
+  <!-- <view class="hand animate__animated animate__bounceIn animate__infinite" wx:if="{{show}}">
+    <image src="{{ossHttpUrl}}images/hand.png" />
+  </view> -->
+  <div class="con-down">
+    <image src="{{ossHttpUrl}}images/down.png" />
+  </div>
+  <view class="con-start animate__animated animate__infinite" bindtap="change">
+    <image src="{{ossHttpUrl}}images/start.png" />
+  </view>
+</view>

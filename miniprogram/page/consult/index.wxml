@@ -1,0 +1,22 @@
+<view class="page">
+  <view class="home-bg" style="background: url({{ossImg}}homebg2.png) no-repeat center center; background-size: contain;"></view>
+  <!-- <view class="video-box"> -->
+  <scroll-view class="title-list" scroll-x="true" :show-scrollbar="false">
+    <view class="scroll-view-item_H" bindtap="change" data-id="{{item.id}}" wx:for="{{artcileTypeList}}" wx:key="id">
+      <view class="tab">
+        <view class="tab-text">{{item.categoryName}}</view>
+        <view class="tab-label" wx:if="{{item.id===indexId}}"></view>
+      </view>
+    </view>
+  </scroll-view>
+  <view class="video-list">
+
+    <view class="videobig" wx:for="{{artcileList}}" data-id="{{item.id}}" wx:key="index" bindtap="articleDetail">
+      <view class="article-title">{{item.theme}}</view>
+      <image class="videobg1" src="{{item.articleMold==1?item.mainImage:item.videoCover}}"></image>
+      <view class="video-address">{{item.articleSource}}</view>
+      <view class="article-releaseTime">发布时间：{{item.releaseTime}}</view>
+    </view>
+  </view>
+  <!-- </view> -->
+</view>

@@ -1,0 +1,9 @@
+<!--eyesGema/pages/procedureEnd/index.wxml-->
+<navigationBar title="脑健康体检">
+  <view slot="contentMain" class="procedureEnd">
+    <view class="popup-box">
+      <image class="out-home" src="https://zskjobject.oss-cn-beijing.aliyuncs.com/zskj_nbj_mini/img/Home3x.png" bind:tap="nextPage" data-type="1" mode="" />
+      <image class="go-details" src="https://zskjobject.oss-cn-beijing.aliyuncs.com/zskj_nbj_mini/img/details3x.png"  bind:tap="nextPage" data-type="2" mode="" />
+    </view>
+  </view>
+</navigationBar>

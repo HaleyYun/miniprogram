@@ -1,0 +1,19 @@
+<!--packageScale/pages/ad8Index/index.wxml-->
+<view class="ad8-index-c">
+  <image class="out-btn" bind:tap="outPage" style="top:{{outBtntop}}px" src="https://zskjobject.oss-cn-beijing.aliyuncs.com/zskj_nbj_mini/img/scale/ad8/out.png" mode="" />
+  <view class="content-v">
+    <video src="https://zskjobject.oss-cn-beijing.aliyuncs.com/zskj_nbj_mini/img/scale/ad8/index_video.mp4" show-fullscreen-btn="{{false}}" show-bottom-progress="{{false}}" play-btn-position="center" autoplay="{{true}}" enable-progress-gesture="{{false}}"></video>
+    <view class="content-v-t">
+      <view>
+        <image src="https://zskjobject.oss-cn-beijing.aliyuncs.com/zskj_nbj_mini/img/scale/ad8/note.png" mode="" />
+        <text>自评/家属帮测</text>
+      </view>
+      <view>
+        <image src="https://zskjobject.oss-cn-beijing.aliyuncs.com/zskj_nbj_mini/img/scale/ad8/alarm_clock.png" mode="" />
+        <text>预估3分钟(共8题)</text>
+      </view>
+    </view>
+  </view>
+  <view class="content-btn" bind:tap="goEvaluation"></view>
+  <view class="content-text">感谢参与认知健康测评。结果基于专业量表。我们致力于提供最优质的服务，保障您的脑健康。</view>
+</view>

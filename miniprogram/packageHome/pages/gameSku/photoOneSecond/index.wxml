@@ -1,0 +1,20 @@
+<view class="photo-content" style="background-image: url({{ossHttpUrl}}images/bg.png);">
+  <view class="bigDiv animate__bounceIn">
+    <view class="picture">
+      <view class="ph-picture" style="background-image: url({{ossHttpUrl}}images/picture.png);" wx:for="{{picArr}}" wx:key="index" data-index="{{index}}" bindtap="chooseTureType">
+        <view>{{item.question}}</view>
+        <image src="{{item.url}}" class="pic" />
+        <view class="desk" style="background: {{currentIndex===index && isChooseTypeTure ?'green':currentIndex===index&& !isChooseTypeTure?'red':''}}"></view>
+      </view>
+    </view>
+    <view class="picture-all">
+      <view class="all-picture" style="background-image: url({{ossHttpUrl}}images/ablums.png);"></view>
+    </view>
+  </view>
+  <view class="doctor">
+    <view class="doctor-text">这四张照片里有一张照片是我们刚才见过的，是哪张呢？把它找出来</view>
+    <view class="doctor-bg">
+      <image src="{{ossHttpUrl}}images/doctor-left.png" />
+    </view>
+  </view>
+</view>

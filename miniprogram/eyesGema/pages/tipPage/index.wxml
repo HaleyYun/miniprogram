@@ -1,0 +1,4 @@
+<!--eyesGema/pages/tipPage/index.wxml-->
+<view class="people-correct-page">
+  <view>{{stepData.steps[0].elements[0].content}}</view>
+</view>

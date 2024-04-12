@@ -1,0 +1,80 @@
+<view class="page">
+  <view class="search">
+    <view class="search-box">
+      <image class="search-icon" src="{{ossImg}}search.png"></image>
+      <input class="search-input"  placeholder="搜索服务关键词" bindblur="search"/>
+    </view>
+  </view>
+<view class="load" wx:if="{{ doctor }}">
+  <load status="{{ loadStatus }}" schedule="{{ schedule }}"></load>
+</view>
+  <view class="cont">
+    <!-- <view wx:if="{{!doctor}}">
+      <view class="top">
+      <view class="title">信息统计</view>
+      <view class="text">2023年1月1日 - 2023年12月31日 365天的身体数据统计</view>
+    </view>
+    <view class="count">
+      <view class="count-one">
+        <view class="count-text">评估人</view>
+        <view class="count-num">5.3万人</view>
+      </view>
+      <view class="count-one line">
+        <view class="count-text">频次</view>
+        <view class="count-num">--</view>
+      </view>
+      <view class="count-one">
+        <view class="count-text">最新评估时间</view>
+        <view class="count-num">2023.01.05</view>
+      </view>
+    </view>
+    </view> 
+
+     <view class="card" wx:for="{{list}}" wx:key="id">
+      <view class="card-top">
+        <view class="top-name">
+          <view class="name">{{item.customName}}</view>
+
+          <view wx:if="{{item.type==1}}">
+            <view class="status">已完成</view>
+          </view>
+          <view wx:else="{{item.type==2}}">
+            <!---1评估中，2数据解析，3评估完成，4评估失败--
+            <view class="status {{ item.status=='2' ? '':'orange'}}" wx:if="{{item.type==1?true:''||item.type==2?false:''||item.type==3?false:''}}">
+              {{item.status=='1'?'评估中':''||item.status=='2'?'数据解析':''||item.status=='3'?'评估完成':''||item.status=='4'?'评估失败':''}}
+            </view>
+          </view>
+        </view>
+        <view class="top-time">{{item.estimateTime}}</view>
+      </view>
+      <view class="card-count">
+        <view class="remarks">
+          <view class="remarks-text">{{item.type==1?'脑健康体检筛查风险值':''||item.type==2?'BHI报告解读':''||item.type==3?'BHI报告解读':''}}</view>
+          <view class="remarks-text" wx:if="{{item.type==1?true:''||item.type==2?false:''||item.type==3?false:''}}">{{item.estimateServeName}}</view>
+        </view>
+        <view class="green" wx:if="{{item.type==1?true:''||item.type==2?false:''||item.type==3?false:''}}">{{item.riskValue}}</view>
+      </view>
+      <view class="button" data-data="{{item}}" bindtap="showReport">查看报告</view>
+    </view> -->
+
+
+    <view class="card" wx:if="{{!doctor}}">
+      <view class="card-top">
+        <view class="top-name">
+          <view class="name">{{customName}}</view>
+        </view>
+        <view class="top-time">{{estimateTime}}</view>
+      </view>
+      <view class="card-count">
+        <view class="remarks">
+          <view class="remarks-text">BHI报告解读</view>
+        </view>
+      </view>
+      <view class="button" bindtap="showReport">查看报告</view>
+    </view>
+
+    <view class="bot" wx:if="{{!doctor}}">
+      <image class="botbg" src="{{ossImg}}bottom.png"></image>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,14 @@
+<!--eyesGema/pages/albumMemory/index.wxml-->
+<view class="albumMemory">
+  <camera id="camera" class="camera" style="width: {{width}}px; height: {{height}}px;" device-position="front" flash="off" resolution="low" frame-size="{{frameSize}}"></camera>
+  <view class="loading-mask" wx:if="{{stepNum === 3}}">
+    <van-loading type="spinner" color="#1989fa" size="54px" />
+  </view>
+  <!-- <view class="loading-mask" wx:if="{{stepNum === 3}}">
+    <image src="https://zskjobject.oss-cn-beijing.aliyuncs.com/zskj_nbj_mini/games/images/game-loading.png" mode="" />
+  </view> -->
+  <view class="schedule-box" wx:if="{{stepNum === 1}}">{{imagesIndex + 1 + "/"+images.length}}</view>
+  <view wx:for="{{images}}" wx:if="{{stepNum === 2 && imagesIndex == index}}" wx:key="index">
+    <image wx:for="{{item}}" wx:for-item="val" wx:for-index='i' wx:key="i" src="{{val.content}}" style="top: {{val.y}}rpx;left: {{val.x}}rpx; width: {{val.imageSize}}rpx;" mode="aspectFit" />
+  </view>
+</view>

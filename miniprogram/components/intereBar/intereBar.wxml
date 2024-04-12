@@ -1,0 +1,9 @@
+<view class="nav-bar-page">
+  <view class="nav-bar" style="height:{{navBarHeight}}px; padding-top:{{navBarHeight-44}}px;" bindtap="goReport">
+    <!-- <image src="{{ossImg}}xz-bg.png" mode="" /> -->
+    <view style="width:{{textCenter}}px;text-align: center;"> {{title}} </view>
+  </view>
+  <view style="height:100%; width: 100%;">
+    <slot name="contentMain"></slot>
+  </view>
+</view>

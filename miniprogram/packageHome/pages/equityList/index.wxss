@@ -1,0 +1,135 @@
+.page {
+  height: 100vh;
+  background: #F3F4F6;
+}
+
+.equity-box {
+  height: 500rpx;
+  padding: 30rpx;
+  margin-top: 140rpx;
+}
+
+.item-content {
+  width: 688rpx;
+  height: 394rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.states {
+  width: 186rpx;
+  height: 74rpx;
+  font-size: 32rpx;
+  font-family: PingFangSC, PingFang SC;
+  font-weight: bold;
+  color: #FFFFFF;
+  text-align: center;
+  line-height: 70rpx;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  position: absolute;
+  left: 0;
+  top: 15rpx;
+}
+
+.item-name {
+  font-size: 32rpx;
+  font-family: PingFang-SC, PingFang-SC;
+  font-weight: bold;
+  color: #222222;
+  margin-top: 30rpx;
+  padding: 20rpx 80rpx;
+}
+
+image{
+  width: 238rpx;
+  height: 102rpx;
+}
+.procedureEnd {
+  width: 100vw;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.77);
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+.contentTips{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100rpx;
+  background: rgba(0, 0, 0, 0.77);
+  position: fixed;
+  top: 10%;
+  left: 0;
+  z-index: 99999;
+}
+.tips{
+  color: #fff;
+}
+.popup-box {
+  width: 602rpx;
+  height: 492rpx;
+  background-image: url(https://zskjobject.oss-cn-beijing.aliyuncs.com/zskj_nbj_mini/img/sc-model.png);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 25%;
+  left: 70rpx;
+}
+.title {
+  display: flex;
+  justify-content: center;
+  font-size: 32rpx;
+  font-family: PingFang-SC-Bold, PingFang-SC;
+  font-weight: bold;
+  color: #222222;
+  margin: 16rpx 0;
+}
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20rpx 40rpx;
+  margin-top: 100rpx;
+}
+.btn-box {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 100rpx;
+  padding: 0 20rpx;
+}
+.confim {
+  width: 260rpx;
+  height: 76rpx;
+  background: #3476FF;
+  border-radius: 16rpx;
+  line-height: 76rpx;
+  font-size: 28rpx;
+  font-family: PingFang-SC, PingFang-SC;
+  font-weight: bold;
+  color: #FFFFFF;
+  text-align: center;
+}
+.title-name {
+  font-size: 36rpx;
+  font-family: PingFang-SC, PingFang-SC;
+  font-weight: bold;
+  color: #222222;
+  text-align: center;
+  margin-top: 34rpx;
+}
+
+.popup-content {
+  font-size: 36rpx;
+  font-family: PingFang-SC, PingFang-SC;
+  font-weight: bold;
+  color: #222222;
+  line-height: 56rpx;
+  padding: 80rpx 40rpx;
+  text-align: center;
+}

@@ -1,0 +1,51 @@
+<view class="page">
+  <view class="subscribe-map">
+    <view class="top">
+      <scroll-view scroll-x="true" class="scroll-view_H" >
+        <view wx:for="{{serveTypeList}}" wx:key="id" data-id="{{item.id}}" bindtap="tabToggle" class="scroll-view-item_H">
+          <view class="tab">
+            <view class="{{item.id==id?'tab-text-active':'tab-text'}}">{{item.option}}</view>
+            <view class="tab-label" wx:if="{{item.id==id}}"></view>
+          </view>
+        </view>
+      </scroll-view>
+    </view>
+    <view class="load" wx:if="{{ serveList.length==0 }}">
+      <image src="{{ossImg}}notdata.png" class="reminder" mode=""/>
+      <view class="coupon">您还没有优惠券~</view>
+    </view>
+    <!-- class="{{item.id==id?'tab-text-active':'tab-text'}}" -->
+    <view class="map" wx:for="{{serveList}}" wx:key="id">  
+    <!-- <view class="addres-map" style="background: url("{{ossImg}}{{item.status==0?'fold.png':'notfold.png'}}"),background-size:692rpx 225rpx"> -->
+      <view class="addres-map" style="background: url({{ossImg}}notfold.png);background-size:692rpx 225rpx">
+      <view  class="{{item.status==0 ? 'eye-card' :'eye-card-active'}}" wx:if="{{ item.couponType==2 }}"> <view class="discountText">满减券</view></view>
+      <view  class="{{item.status==0 ? 'eye-card' :'eye-card-active'}}" wx:if="{{ item.couponType==1 }}"> <view class="discountText">折扣券</view></view>
+      <view class="eyes-box"  bindtap="goCommodityDetails" data-id="{{item.id}}">
+      <view class="eyes-img"><view class="{{item.status==0 ? 'eyesbg' :'eyesbg-active'}}" wx:if="{{ item.couponType==2 }}">{{item.discount}}</view>
+      <view class="{{item.status==0 ? 'eyesbg' :'eyesbg-active'}}" wx:if="{{ item.couponType==1 }}">{{item.discount}}折</view>
+        <view class="{{item.status==0 ? 'eyeTitie' :'eyeTitie-active'}}" >满￥{{item.afterDiscountPrice}}使用</view>
+        </view>
+        <view class="eyeline"></view>
+        <view class="eye-serve">
+          <view class="{{item.status==0 ? 'eyes-title' :'eyes-title-active'}}">{{item.couponName}}</view>
+          <view class="{{item.status==0 ? 'eyes-text' :'eyes-text-active'}}">{{item.beginTime}}-{{item.endTime}}</view>
+          <view wx:if="{{item.status==0}}" class="eyes-count" data-item=
+          '{{item}}' bindtap="choose">
+          <text class="small" >去使用</text>
+          </view>
+          <view wx:if="{{item.status==1}}" class="eyes-use">
+          <text class="small" >已使用</text>
+          </view>
+          <view wx:if="{{item.status==2}}" class="eyes-out">
+          <text class="small" >已过期</text>
+          </view>
+        </view>
+      </view>
+    </view>
+    
+  </view>
+    </view>
+
+
+
+</view>

@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "load": "../../../components/load/load"
+  },
+  "window": {
+    "onReachBottomDistance": 45
+  }
+}

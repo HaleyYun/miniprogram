@@ -1,0 +1,31 @@
+/* page/login/start/index.wxss */
+.loginbg{
+  width:100%;
+  height:720rpx;
+  background-image: url(https://zskjobject.oss-cn-beijing.aliyuncs.com/zskj_nbj_mini/img/login-bg.png);
+  background-size: 100% 100%;
+}
+.title{
+  font-family: PingFangSC, PingFang SC;
+  font-weight: 400;
+  font-size: 28rpx;
+  color: #414141;
+  text-align: center;
+  line-height: 40rpx;
+  text-align: center;
+  font-style: normal;
+}
+.login{
+  position: fixed;
+  bottom: 100rpx;
+  left:5%;
+  background:#3476FF;
+  width:90%;
+  height:80rpx;
+  text-align: center;
+  line-height: 80rpx;
+  color:#fff;
+  border-radius: 10px;
+  font-size: 18px;
+  font-weight: bold;
+}

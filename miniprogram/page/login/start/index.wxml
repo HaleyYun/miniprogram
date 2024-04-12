@@ -1,0 +1,7 @@
+<view class="page">
+  <view class="start">
+    <view class="loginbg"></view>
+    <view class="title">您还未登录，请您先登录</view>
+    <view class="login" bind:tap="login">立即登录</view>
+  </view>
+</view>

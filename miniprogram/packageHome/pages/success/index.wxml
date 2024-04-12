@@ -1,0 +1,82 @@
+<view class="page">
+  <view class="search">
+    <view class="success">
+      <image class="successbg" src="{{ossImg}}right2.png"></image>
+    </view>
+    <view class="succesful">{{payType=='serve'?'购买成功':'预约成功'}}</view>
+  </view>
+
+  <view class="subscribe-map">
+    <view class="top">
+      <view class="title">{{payType!='serve'?'被服务人信息':'购买人信息'}}</view>
+    </view>
+    <view class="map">
+      <view class="map-title">{{order.clientName}} {{order.phone}}</view>
+      <view class="eyes-box">
+        <view class="eyes-img"><image class="eyesbg" src="{{order.product.mainPic}}"></image></view>
+        <view class="eye-serve">
+          <view class="eyes-title">{{order.product.prodName}}</view>
+          <view class="eyes-text">{{order.product.prodDescribe}}</view>
+          <view class="eyes-count"><text class="small">￥</text>{{order.product.prodPrice}}</view>
+        </view>
+      </view>
+      <view class="map-text" wx:if="{{payType!='serve'}}">
+        <view class="map-addres">预约时间：</view>
+        <view class="addres">
+          <text>{{order.bookingTime}}</text> 
+          <!-- <view class="choose">
+            <text>修改</text>
+            <image class="img" src="{{ossImg}}right.png"></image>
+          </view> -->
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="subscribe-map height450"  wx:if="{{payType!='serve'}}">
+    <view class="top">
+      <view class="title">机构信息</view>
+    </view>
+    <view class="map height300">
+      <view class="map-title">{{order.institutionName}}</view>
+      <view class="map-text">
+        <view class="map-addres top20">预约地址：</view>
+        <view class="addres">
+          <view class="addres-box"> {{order.institutionAddress}}</view> 
+          <!-- <view class="choose">
+            <text>修改</text>
+            <image class="img" src="{{ossImg}}right.png"></image>
+          </view> -->
+        </view>
+        <view class="phone" data-phone="{{order.phone}}" bindtap="call">
+          <image class="phonebg" src="{{ossImg}}phone.png"  data-phone="{{order.institutionPhone}}"  bindtap="call"></image>
+          <view class="phone-text">电话咨询</view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="subscribe-map height450">
+    <view class="top">
+      <view class="title">订单信息</view>
+    </view>
+    <view class="map height200">
+      <view class="order"  wx:if="{{payType!='serve'}}">
+        <view class="order-label">预约地址：</view>
+        <view class="order-info">{{order.institutionAddress}}</view>
+      </view>
+      <view class="order">
+        <view class="order-label">下单时间：</view>
+        <view class="order-info">{{order.createTime}}</view>
+      </view>
+      <view class="order">
+        <view class="order-label">支付方式：</view>
+        <view class="order-info">在线支付</view>
+      </view>
+    </view>
+  </view>
+  <view class="bot">
+    <view class="default" bindtap="home">返回首页</view>
+    <!-- <button class="btn" bindtap="downloadImg">保存截图</button> -->
+  </view>
+</view>

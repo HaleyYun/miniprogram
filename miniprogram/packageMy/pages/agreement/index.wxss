@@ -1,0 +1,67 @@
+/* .page{
+  width: 100%;
+  background:#F3F4F6;
+}
+.tabs{
+  width:380rpx;
+  height:80rpx;
+  margin:30rpx auto;
+  display: flex;
+  line-height:80rpx;
+  justify-content: space-between;
+}
+.tab-one{
+  width:150rpx;
+  height:80rpx;
+  text-align: center;
+  color:#333;
+  font-size: 15px;
+  font-weight: bold;
+}
+.active{
+  color:#3476FF;
+  border-bottom:2px solid #3476FF;
+}
+.con{
+  width:650rpx;
+  min-width: 600rpx;
+  background-color: #fff;
+  margin: auto;
+  border-radius:5px;
+  padding:20rpx;
+} */
+
+.page {
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  padding: 20rpx 50rpx 200rpx;
+  font-size: 28rpx;
+  font-family: PingFang-SC-Bold, PingFang-SC;
+  font-weight: bold;
+}
+
+.btn {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 750rpx;
+  height: 176rpx;
+  background: #FFFFFF;
+  box-shadow: 0rpx -6rpx 16rpx 0rpx rgba(0, 0, 0, 0.12);
+}
+
+button {
+
+  width: 588rpx;
+  height: 100rpx;
+  background: #3476FF;
+  border-radius: 50rpx;
+  font-size: 32rpx;
+  font-family: PingFang-SC-Bold, PingFang-SC;
+  font-weight: bold;
+  color: #FFFFFF;
+  line-height: 100rpx;
+}

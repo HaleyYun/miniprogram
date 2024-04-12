@@ -1,0 +1,29 @@
+<view class="nav-bar-page">
+  <view class="procedureEnd"  wx:if="{{isShow}}" style="height:100%; width: 100%;  padding-top:{{navBarHeight-44}}px;">
+    <view class="err-box" wx:if="{{isShow}}">
+    <image class="err-bj-i" src="https://zskjobject.oss-cn-beijing.aliyuncs.com/zskj_nbj_mini/img/Resume3x.png" mode="" />
+    <image class="close" src="https://zskjobject.oss-cn-beijing.aliyuncs.com/zskj_nbj_mini/img/Later.png" bind:tap="commits" mode="" />
+    <image class="anew" src="https://zskjobject.oss-cn-beijing.aliyuncs.com/zskj_nbj_mini/img/evaluate3x.png" bind:tap="confimTrue" mode="" />
+  </view>
+    <!-- <view class="procedureEnd" wx:if="{{isShow}}" slot="content" style="width: 100%;height: 100%;">
+      <view class="popup-box">
+        <view class="title">提示</view>
+        <view class="content">
+          <view>您当前服务包还存在未完成的服务！</view>
+        </view>
+        <view class="btn-box">
+          <view class="confim" bindtap="commits">稍后继续</view>
+          <view class="confim" bindtap="confimTrue">继续</view>
+        </view>
+      </view>
+    </view> -->
+  </view>
+  <view class="nav-bar" style="height:{{navBarHeight}}px; padding-top:{{navBarHeight-44}}px;" bindtap="goReport">
+    <image src="{{ossImg}}xz-bg.png" mode="" />
+    <!-- <view class="reportTitle">报告列表</view> -->
+  </view>
+  <view style="height:100%; width: 100%;">
+    <slot name="contentMain"></slot>
+  </view>
+
+</view>

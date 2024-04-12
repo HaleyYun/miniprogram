@@ -1,0 +1,163 @@
+/* eyesGema/index.wxss */
+page {
+  /* height: 100%; */
+}
+
+.eyes-gema-page-index {
+  width: 100vw;
+  height: 1456rpx;
+  background-image: url(https://zskjobject.oss-cn-beijing.aliyuncs.com/zskj_nbj_mini/img/i_bg_3.png);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  display: flex;
+  justify-content: center;
+}
+
+.eyes-gema-page-index .btn-img {
+  width: 494rpx;
+  height: 204rpx;
+  position: absolute;
+  top: 1150rpx;
+  left: 128rpx;
+}
+
+.video-box {
+  width: 530rpx;
+  height: 640rpx;
+  /* position: relative;
+  top: 318rpx;
+  left: 118rpx; */
+  margin-top: 318rpx;
+  border: 7rpx solid #292929;
+  padding: 5rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.eyes-gema-page-index video {
+  width: 530rpx;
+  height: 640rpx;
+  border: none;
+  background: transparent;
+  /* position: absolute; */
+  /* top: 318rpx;
+  left: 118rpx; */
+  /* top: 0;
+  left: 0; */
+}
+
+.model {
+  width: 520rpx;
+  height: 630rpx;
+  position: absolute;
+  /* top: 0; */
+  /* left: 0; */
+  background: #121212;
+  opacity: 0.5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.video-btn {
+  width: 91rpx;
+  height: 91rpx;
+  z-index: 999;
+}
+
+.img-gif {
+  width: 342rpx;
+  height: 150rpx;
+  position: absolute;
+  bottom: -125rpx;
+  left: 100rpx;
+}
+
+.err-box,
+.tip-box {
+  width: 100%;
+  height: 100%;
+  background-color: #000000;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.err-bj-i {
+  width: 638rpx;
+  height: 888rpx;
+  position: absolute;
+  top: 135rpx;
+  left: 56rpx;
+  z-index: 1;
+}
+
+.close {
+  width: 228rpx;
+  height: 100rpx;
+  position: absolute;
+  top: 890rpx;
+  left: 80rpx;
+  z-index: 2;
+}
+.anew{
+  width: 340rpx;
+  height: 100rpx;
+  position: absolute;
+  top: 890rpx;
+  left: 340rpx;
+  z-index: 2;
+}
+.continue-btn-i,
+.know-btn-i {
+  width: 280rpx;
+  height: 100rpx;
+}
+
+.continue-btn-i {
+  position: absolute;
+  top: 870rpx;
+  left: 72rpx;
+  z-index: 2;
+}
+
+.know-btn-i {
+  position: absolute;
+  top: 870rpx;
+  left: 398rpx;
+  z-index: 2;
+}
+
+.schedule-box {
+  width: 530rpx;
+  height: 86rpx;
+  background-image: url(https://neuroweave.oss-cn-hangzhou.aliyuncs.com/zskj-app-test/img/eyesgema/schedule-bg.png);
+  background-size: 100% 100%;
+  text-align: center;
+  font-size: 32rpx;
+  font-family: SourceHanSansCN-Bold, SourceHanSansCN;
+  font-weight: bold;
+  color: #FEFFFC;
+  line-height: 80rpx;
+  letter-spacing: 2rpx;
+  text-shadow: 0px 0px 2rpx rgba(102, 48, 0, 0.7);
+  position: absolute;
+  left: 110rpx;
+  top: 1150rpx;
+  z-index: 1;
+}
+
+.schedule-box view {
+  height: 48rpx;
+  background: linear-gradient(180deg, #F8E64E 0%, #F59831 100%);
+  box-shadow: 0px 2rpx 12rpx 0px rgba(0, 0, 0, 0.59), inset 0px -2px 2px 2px rgba(217, 102, 32, 1);
+  border-radius: 26rpx;
+  position: absolute;
+  top: 14rpx;
+  left: 18rpx;
+  z-index: -1;
+}

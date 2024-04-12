@@ -1,0 +1,22 @@
+<!--eyesGema/pages/calibration/index.wxml-->
+<view class="calibration-page">
+  <camera id="camera" bindrecordstart="handleRecordStart" bindinitdone="changeStep" class="camera" style="width: {{width}}px; height: {{height}}px;" device-position="front" flash="off" resolution="low" frame-size="{{frameSize}}"></camera>
+  <view class="text-box" wx:if="{{stepIndex === 1}}"><text>{{text}}</text></view>
+
+  <view class="animation-box" wx:for="{{checkPoints}}" wx:key="index" style="width: {{checkPoints[checkPointsIndex].size}}rpx; height: {{checkPoints[checkPointsIndex].size}}rpx; top: {{item.animationTop ? item.animationTop + 'rpx' : '' }}; left: {{item.animationLeft ? item.animationLeft + 'rpx' : ''}};" hidden="{{!(stepIndex===2 && checkPointsIndex === index)}}">
+    <image class="round-dot-img-1" style="width: {{item.size}}rpx; height: {{item.size}}rpx;" wx:if="{{animationIndex===1}}" src="{{item.pointContent}}" mode="" />
+    <image class="round-dot-img" style="width: {{item.size}}rpx; height: {{item.size}}rpx;animation-duration: {{item.pointTime + 'ms'}}" wx:if="{{animationIndex===2}}" src="{{item.pointContent}}" mode="" />
+    <image class="fork" style="width: {{item.size}}rpx; height: {{item.size}}rpx;animation-duration: {{item.crossTime + 'ms'}}" wx:if="{{animationIndex===3}}" src="{{item.crossContent}}" mode="" />
+    <image class="explosion" style="width: {{item.size}}rpx; height: {{item.size}}rpx;animation-duration: {{item.boomTime  + 'ms'}}" wx:if="{{animationIndex===4}}" src="{{item.boomContent}}" mode="" />
+  </view>
+
+  <view class="loading-mask" wx:if="{{loadingShow}}">
+    <van-loading type="spinner" color="#1989fa" size="54px" vertical>眼动校准数据分析中请稍等...</van-loading>
+    <!-- <image src="https://zskjobject.oss-cn-beijing.aliyuncs.com/zskj_nbj_mini/games/images/game-loading.png" mode="" /> -->
+  </view>
+
+  <view class="text-boxt" wx:if="{{stepIndex === 3}}"><text>{{stepData.steps[0].elements[4].content}}</text></view>
+  <view class="timing-box" wx:if="{{stepIndex === 3 && countdownStatus}}">{{timingText}}</view>
+  <image class="calibration-err-t-i" wx:if="{{stepIndex === 4}}" src="https://neuroweave.oss-cn-hangzhou.aliyuncs.com/zskj-app-test/img/eyesgema/calibration-err-t-i.png" mode="" />
+  <image class="calibration-err-btn" wx:if="{{stepIndex === 4}}" bind:tap="recalibration" src="https://neuroweave.oss-cn-hangzhou.aliyuncs.com/zskj-app-test/img/eyesgema/calibration-err-btn.png" mode="" />
+</view>

@@ -1,0 +1,88 @@
+/* packageScale/pages/ad8Index/index.wxss */
+.ad8-index-c {
+  width: 100%;
+  height: 100%;
+  background-image: url(https://zskjobject.oss-cn-beijing.aliyuncs.com/zskj_nbj_mini/img/scale/ad8/ad8_i_bg.png);
+  background-size: 100% 100%;
+  position: relative;
+}
+
+.out-btn {
+  width: 42rpx;
+  height: 40rpx;
+  position: absolute;
+  left: 20rpx;
+}
+
+.content-v {
+  width: 638rpx;
+  height: 558rpx;
+  background-image: url(https://zskjobject.oss-cn-beijing.aliyuncs.com/zskj_nbj_mini/img/scale/ad8/ad8_i_c_bg.png);
+  background-size: 100% 100%;
+  position: absolute;
+  top: 202rpx;
+  left: 56rpx;
+}
+
+.content-v video {
+  width: 602rpx;
+  height: 362rpx;
+  display: block;
+  margin: 116rpx auto 0;
+}
+
+.content-v-t {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18rpx 20rpx;
+}
+
+.content-v-t view {
+  display: flex;
+  align-items: center;
+}
+
+.content-v-t view image {
+  width: 38rpx;
+  height: 40rpx;
+  position: relative;
+  top: 4rpx;
+}
+
+.content-v-t view text {
+  height: 40rpx;
+  font-family: SourceHanSansCN, SourceHanSansCN;
+  font-weight: bold;
+  font-size: 26rpx;
+  color: #fff;
+  line-height: 40rpx;
+  text-shadow: 0px 4rpx 6rpx rgba(0, 0, 0, 0.12);
+  text-align: center;
+  font-style: normal;
+}
+
+.content-btn {
+  width: 562rpx;
+  height: 104rpx;
+  background-image: url(https://zskjobject.oss-cn-beijing.aliyuncs.com/zskj_nbj_mini/img/scale/ad8/ad8_i_btn.png);
+  background-size: 100% 100%;
+  position: absolute;
+  bottom: 258rpx;
+  left: 94rpx;
+}
+
+.content-text {
+  width: 572rpx;
+  height: 64rpx;
+  font-family: PingFang-SC, PingFang-SC;
+  font-weight: 500;
+  font-size: 22rpx;
+  color: #2B2B2B;
+  line-height: 32rpx;
+  text-align: center;
+  font-style: normal;
+  position: absolute;
+  bottom: 154rpx;
+  left: 94rpx;
+}

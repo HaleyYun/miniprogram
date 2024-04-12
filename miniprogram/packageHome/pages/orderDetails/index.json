@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "van-steps": "../../../miniprogram_npm/vant-weapp/steps",
+    "van-icon": "../../../miniprogram_npm/vant-weapp/icon"
+
+  }
+}

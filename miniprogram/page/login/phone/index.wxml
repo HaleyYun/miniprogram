@@ -1,0 +1,23 @@
+<!--page/login/phone/index.wxml-->
+<view class="page">
+  <view class="cont">
+    <image src="{{ossImg}}login-bg.png" class="img"></image>
+  </view>
+  <view class="btn">
+    <view class="register" bindtap="phonePage">手机号登录/注册</view>
+    <button class="phone" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">
+      手机号快捷登录
+    </button>
+    <view class="text">
+      <checkbox class="check" checked="{{checked}}" bindtap="change" />
+      我已阅读并同意
+      <text class="serve" bindtap="serve" data-id="{{index}}" wx:for="{{conment}}" wx:key="index">《{{item.agreementName}}》<text style="color: #8C8C8C;" wx:if="{{index!=conment.length-1}}">和</text></text>
+    </view>
+  </view>
+  <!-- <view class="desk" hidden="{{show}}" bindtap="close">
+    <view class="close" bindtap="close">确定</view>
+    <view class="masg">
+      <rich-text class="art" nodes="{{richContent}}"></rich-text>
+    </view>
+  </view> -->
+</view>

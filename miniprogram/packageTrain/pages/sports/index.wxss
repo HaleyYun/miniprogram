@@ -1,0 +1,177 @@
+/* packageHome/pages/sports/index.wxss */
+.page{
+  background: #F5F6FA;
+}
+.video-box{
+  width: 694rpx;
+  height: 400rpx;
+  margin:  0 auto;
+  border-radius: 24rpx;
+  overflow: hidden;
+}
+#video{
+  width: 694rpx;
+  height: 400rpx;
+  margin:  0 auto;
+  display: block;
+  border-radius: 24rpx;
+}
+.sportsData{
+  width: 694rpx; 
+  height: 256rpx;
+  margin: 24rpx auto 0;
+  padding: 36rpx;
+  box-sizing: border-box;
+}
+.sportsData-title{
+  display: flex;
+  align-items: center;
+  font-size: 32rpx;
+  font-family: PingFangSC-Semibold, PingFang SC;
+  font-weight: 600;
+  color: #222222;
+  margin-bottom: 20rpx;
+}
+.dataPoint{
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 20rpx;
+}
+.sportsData-list{
+  display: flex;
+}
+.sportsData-each{
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-right: 2rpx solid;
+  border-image: linear-gradient(180deg, rgba(255, 255, 255, 0), rgba(213, 213, 213, 1), rgba(255, 255, 255, 0)) 2 2;
+}
+.sportsData-each:nth-child(3){
+  border: none;
+}
+.sportsData-quantity{
+  font-size: 50rpx;
+  font-family: AlimamaShuHeiTi-Bold, AlimamaShuHeiTi;
+  font-weight: bold;
+  color: #222222;
+}
+.sportsData-option{
+  font-size: 28rpx;
+  font-weight: 400;
+  color: #898989;
+}
+.box{
+  height: 20rpx;
+}
+.training-title{
+  font-size: 32rpx;
+  font-weight: 600;
+  color: #222222;
+  margin: 28rpx 28rpx 20rpx 28rpx;
+  -webkit-line-clamp: 1;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.training{
+  padding-bottom: 20rpx;
+}
+.training-card{
+  width: 694rpx;
+  height: 280rpx;
+  background: #FFFFFF;
+  border-radius: 20rpx;
+  margin: 0 auto;
+  padding: 26rpx;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+}
+.training-card-border{
+  border: 4rpx solid #3476FF;
+}
+.training-image{
+  width: 228rpx;
+  height: 228rpx;
+  border-radius: 20rpx;
+}
+.training-content{
+  flex-grow: 1;
+  margin-left: 16rpx;
+}
+.training-content-project{
+  font-size: 32rpx;
+  font-weight: 600;
+  color: #222222;
+  margin: 6rpx 0;
+  -webkit-line-clamp: 1;				/* 文本位置只保留两行 */
+  text-overflow: ellipsis;			/* 溢出文本省略号代替 */
+  display: -webkit-box;				/*  */
+  -webkit-box-orient: vertical;		/*  */
+  overflow: hidden;					/* 溢出隐藏 */
+}
+.training-content-label{
+  display: flex;
+  height: 34rpx;
+}
+.training-content-tag{
+  border-radius: 4rpx;
+  font-size: 20rpx;
+  font-weight: 400;
+  display: flex;
+  padding: 3rpx 8rpx;
+  margin:0  10rpx 0 0;
+  -webkit-line-clamp: 1;				/* 文本位置只保留两行 */
+  text-overflow: ellipsis;			/* 溢出文本省略号代替 */
+  display: -webkit-box;				/*  */
+  -webkit-box-orient: vertical;		/*  */
+  overflow: hidden;					/* 溢出隐藏 */
+}
+.group{
+  color: #714721;
+  background: #FCEFDF;
+}
+.stretch{
+  background: #EEF4F4;
+  color: #33757D;
+}
+.healthy{
+  color: #3C5BCE;
+  background: #EDEDFC;
+}
+.training-content-article{
+  width: 398rpx;
+  font-size: 22rpx;
+  line-height: 32rpx;
+  font-weight: 400;
+  color: #898989;
+  -webkit-line-clamp: 5;				/* 文本位置只保留两行 */
+  text-overflow: ellipsis;			/* 溢出文本省略号代替 */
+  display: -webkit-box;				/*  */
+  -webkit-box-orient: vertical;		/*  */
+  overflow: hidden;					/* 溢出隐藏 */
+}
+.start-box{
+  width: 100%;
+  background-color: white;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+}
+.start{
+  width: 600rpx;
+  height: 92rpx;
+  background: #327CFF;
+  border-radius: 46rpx;
+  font-size: 32rpx;
+  font-family: PingFangSC-Semibold, PingFang SC;
+  font-weight: bold;
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 40rpx auto;
+}

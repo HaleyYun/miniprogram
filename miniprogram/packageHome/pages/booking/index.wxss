@@ -1,0 +1,238 @@
+/* packageHome/pages/booking/index.wxss */
+.popup{
+  width: 602rpx;
+  height: fit-content;
+  background: url('https://neuroweave.oss-cn-hangzhou.aliyuncs.com/zskj-app-test/img/popupbg.png') no-repeat center center;
+  background-size: cover;
+  padding: 34rpx;
+  box-sizing: border-box;
+}
+.load{
+  height: 582rpx;
+  width: 100%;
+  margin-top: 20vh;
+}
+.doctor-box{
+  width: fit-content;
+  margin: 0 auto;
+  margin-top: 200rpx;
+  display: flex;
+  flex-direction: column;
+}
+.doctortext{
+  margin-top: 50rpx;
+  font-size: 32rpx;
+  font-weight: 400;
+  color: #666666;
+  text-align: center;
+}
+.doctor{
+  width: 378rpx;
+  height: 320rpx;
+  margin: 0 auto;
+  transform: translate(-60rpx);
+}
+.van-scale-enter-to{
+  width: fit-content !important;
+}
+.van-popup {
+  border-radius: 24px !important;
+}
+.popup-title{
+  font-size: 36rpx;
+font-weight: bold;
+color: #222222;
+text-align: center;
+}
+.popup-tag{
+  font-size: 28rpx;
+font-weight: bold;
+color: #222222;
+text-align: center;
+margin: 50rpx 0 16rpx 0;
+}
+.popup-amount{
+  font-size: 82rpx;
+font-weight: bold;
+color: #222222;
+text-align: center;
+}
+.popup-amount::before{
+  content: '¥';
+  font-size: 42rpx;
+font-weight: bold;
+color: #222222;
+}
+.popup-instructions{
+  font-size: 28rpx;
+font-weight: 400;
+color: #222222;
+margin: 10rpx 0 30rpx;
+}
+.popup-annotation{
+  width: 436rpx;
+height: 64rpx;
+background: #FEF7DB;
+border-radius: 12rpx;
+font-size: 20rpx;
+font-weight: bold;
+color: #222222;
+text-align: center;
+margin: 0 auto;
+line-height: 64rpx;
+}
+.popup-but{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 50rpx;
+}
+.popup-cancel{
+  width: 244rpx;
+height: 74rpx;
+border-radius: 16rpx;
+border: 1rpx solid #BABABA;
+font-size: 28rpx;
+font-weight: bold;
+color: #222222;
+text-align: center;
+line-height: 74rpx;
+}
+.popup-verify{
+  width: 246rpx;
+height: 76rpx;
+background: #3476FF;
+border-radius: 16rpx;
+color: white;
+font-size: 28rpx;
+font-weight: bold;
+text-align: center;
+line-height: 74rpx;
+}
+.booking{
+  width: 686rpx;
+  background: #FFFFFF;
+  border-radius: 16rpx;
+  margin: 20rpx auto;
+  padding: 24rpx;
+  box-sizing: border-box;
+}
+.name-state{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.name{
+  font-size: 28rpx;
+  font-family: PingFang-SC-Bold, PingFang-SC;
+  font-weight: bold;
+  color: #222222;
+}
+.state{
+  height: 28rpx;
+  font-size: 20rpx;
+  font-weight: 400;
+}
+.state-appointment{
+  color: #3476FF;
+}
+.state-complete{
+  color: #959595;
+}
+.contact,
+.order{
+  font-size: 28rpx;
+  font-family: PingFang-SC-Bold, PingFang-SC;
+  font-weight: bold;
+  color: #222222;
+}
+.card{
+  width: 638rpx;
+  height: 194rpx;
+  background: #F6F6F6;
+  border-radius: 16rpx;
+  display: flex;
+  padding: 16rpx;
+  box-sizing: border-box;
+  justify-content: space-between;
+}
+.card-image{
+  width: 160rpx;
+  height: 160rpx;
+  border-radius: 16rpx;
+}
+.card-content{
+  width: 430rpx;
+}
+.card-title{
+  font-size: 28rpx;
+  font-weight: bold;
+  color: #222222;
+  white-space: nowrap;/* 文本不换行，一行展示 */
+  overflow: hidden;/* 溢出隐藏 */
+  text-overflow: ellipsis;/* 溢出文本省略号代替 */
+}
+.card-introduce{
+  height: 60rpx;
+  font-size: 16rpx;
+  font-weight: bold;
+  color: #222222;
+  -webkit-line-clamp: 2;				/* 文本位置只保留两行 */
+  text-overflow: ellipsis;			/* 溢出文本省略号代替 */
+  display: -webkit-box;				/*  */
+  -webkit-box-orient: vertical;		/*  */
+  overflow: hidden;					/* 溢出隐藏 */
+}
+.price{
+  font-size: 40rpx;
+  font-family: Oswald-Medium, Oswald;
+  font-weight: bold;
+  color: #222222;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+.price::before{
+  margin: 0 0 6rpx 0;
+  content: '¥';
+  font-size: 28rpx;
+  font-family: PingFang-SC-Bold, PingFang-SC;
+  font-weight: bold;
+  color: #222222;
+}
+.concrete{
+  display: flex;
+  font-size: 22rpx;
+  justify-content: space-between;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #808080;
+  margin-top: 20rpx;
+}
+.concrete-content{
+  width: 352rpx;
+  display: flex;
+  justify-content: flex-end;
+  font-size: 22rpx;
+  text-align: end;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #222222;
+}
+.box-refund{
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20rpx;
+}
+.refund{
+  width: 220rpx;
+  height: 68rpx;
+  background-color: #3476FF;
+  border-radius: 34rpx;
+  font-size: 28rpx;
+  font-family: PingFang-SC-Bold, PingFang-SC;
+  font-weight: bold;
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

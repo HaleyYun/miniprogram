@@ -1,0 +1,62 @@
+.page {
+  width: 750rpx;
+  height: 100vh;
+}
+
+.addinfodialog {
+  position: relative;
+  width: 582rpx;
+}
+
+.van-scale-enter-to {
+  width: fit-content !important;
+}
+
+.van-dialog {
+  background: none !important;
+}
+
+.van-popup {
+  border-radius: 24px !important;
+}
+
+.addinfobg {
+  width: 582rpx;
+  height: 650rpx;
+}
+
+.deleteicon {
+  position: absolute;
+  top: 14rpx;
+  left: 18rpx;
+  width: 50rpx;
+  height: 50rpx;
+}
+
+.deleteItem {
+  width: 50rpx;
+  height: 50rpx;
+}
+
+.addinfobut-box {
+  height: 0;
+  position: relative;
+}
+
+.addinfobut {
+  position: absolute;
+  top: -164rpx;
+  left: 44rpx;
+  width: 498rpx;
+  height: 122rpx;
+}
+
+
+
+.btn {
+  width: 682rpx;
+  height: 144rpx;
+  bottom: 150rpx;
+  position: absolute;
+  left: 34rpx;
+}

@@ -1,0 +1,108 @@
+/* page/login/message/index.wxss */
+.page{
+  background: #fff;
+}
+.message,.password{
+  width:560rpx;
+  height:320rpx;
+  margin:150rpx auto;
+}
+.cont{
+  width:235rpx;
+  margin: auto;
+}
+.img{
+    width:235rpx;
+    height:295rpx;
+}
+.message-text,.password-text{
+  font-size:16px;
+  color:#666;
+  line-height:55rpx;
+  margin-top:100rpx;
+}
+.message-select,.password-select{
+  width:560rpx;
+  height:80rpx;
+  line-height: 80rpx;
+  display: flex;
+  margin-top: 10rpx;
+  border-bottom: 1px solid #979797;
+}
+
+.message-select input,.password-select input{
+  font-size: 13px;
+  color:#222;
+  height:60rpx;
+  margin:10rpx 0rpx 0rpx 20rpx;
+}
+
+.send{
+  width: 560rpx;
+  height: 85rpx;
+  background: #49C265;
+  border-radius: 20px;
+  text-align: center;
+  line-height:85rpx;
+  font-size: 16px;
+  color:#fff;
+  margin-top:40rpx;
+}
+.pass{
+  width: 200rpx;
+  height:35rpx;
+  font-size: 13px;
+  margin: auto;
+  color:#666;
+  text-align: center;
+  margin-top:10rpx;
+}
+
+
+.insert-code{
+  padding: 48rpx;
+  margin-top:230rpx;
+}
+.v-code{
+  margin-top: 100rpx;
+}
+.insert-title{
+  font-size: 32rpx;
+  color: #222;
+}
+.insert-tips{
+  font-size: 24rpx;
+  color: #959191;
+  margin-top: 20rpx;
+}
+.v-code input{
+  width: 75rpx;
+  height: 72rpx;
+  margin-right: 30rpx;
+  padding-bottom: 8rpx;
+  border-bottom: 2rpx solid #cccccd;
+  text-align: center;
+  color: #333333;
+  font-size: 38rpx;
+}
+.flex-content{
+  display: flex;
+  align-items: center;
+}
+.is-input{
+  border-color: #079aff !important;
+}
+.ipt{
+  height: 0;
+  width: 0;
+}
+.c-blue{
+  color: #079aff;
+}
+.again-tip{
+  font-size: 28rpx;
+  color: #959191;
+}
+.next-btn{
+  margin-top: 80rpx;
+}

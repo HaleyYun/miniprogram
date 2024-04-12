@@ -1,0 +1,25 @@
+/* eyesGema/pages/underAnalysis/index.wxss */
+.underAnalysis {
+  width: 100%;
+  height: 100%;
+  background-image: url(https://neuroweave.oss-cn-hangzhou.aliyuncs.com/zskj-app-test/img/eyesgema/flow-path-bj.png);
+  background-size: 100% 100%;
+}
+
+.text-box {
+  width: 360rpx;
+  font-size: 60rpx;
+  font-family: SourceHanSansCN-Bold, SourceHanSansCN;
+  font-weight: bold;
+  color: #7D4E1F;
+  line-height: 100rpx;
+  text-align: left;
+  position: absolute;
+  top: 500rpx;
+  left: 226rpx;
+}
+
+.text-box view {
+  text-align: center;
+  width: 300rpx;
+}

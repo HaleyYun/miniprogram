@@ -1,0 +1,21 @@
+/* eyesGema/pages/tipPage/index.wxss */
+.people-correct-page {
+  width: 100vw;
+  height: 100vh;
+  background-image: url(https://zskjobject.oss-cn-beijing.aliyuncs.com/zskj_nbj_mini/games/images/tip-bg.png);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: 0 0;
+}
+
+view {
+  width: 620rpx;
+  font-size: 60rpx;
+  font-family: SourceHanSansCN, SourceHanSansCN;
+  font-weight: bold;
+  color: #7D4E1F;
+  line-height: 100rpx;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+}

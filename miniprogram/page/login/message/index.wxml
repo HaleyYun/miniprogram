@@ -1,0 +1,52 @@
+<!--page/login/message/index.wxml-->
+<view class="page">
+  <view class="message" hidden="{{show}}">
+    <view class="cont">
+      <image src="../../../image/icobg.png" class="img"></image>
+    </view>
+    <view class="message-text">
+      输入手机号
+    </view>
+    <view class="message-select">
+      +86 <input type="number"  maxlength="11" placeholder="请输入手机号" bindinput="phoneInt"/>
+    </view>
+    <view class="send" bindtap="sendMessage">获取短信验证码</view>
+    <!-- <view class="pass" bindtap="password">密码登录</view> -->
+  </view>
+
+  <view class="password" hidden="{{isShow}}">
+    <view class="cont">
+      <image src="../../../image/icobg.png" class="img"></image>
+    </view>
+    <view class="password-text">
+      输入手机号
+    </view>
+    <view class="password-select">
+      +86 <input type="number" placeholder="请输入手机号" />
+    </view>
+    <view class="password-select">
+       <input type="number"  placeholder="请输入登录密码" />
+    </view>
+    <view class="send">登录</view>
+  </view>
+
+  <view class="insert-code" hidden="{{send}}">
+        <view class="insert-title">验证码已通过短信发送至 +86{{phoneNum}}</view>
+          <view class="bg">
+            <view class="v-code flex-content">
+              <block wx:for="{{6}}" wx:key="item">
+                  <input data-code="v" class="{{vCodeValue.length === index && isVFocus ? 'is-input' : ''}}" type="number" value="{{vCodeValue.length>=index+1 ? vCodeValue[index] : ''}}" disabled catchtap="tapFn"></input>
+              </block>
+          </view>
+          <input type="number" class="ipt" maxlength="6" focus="{{isVFocus}}" bindinput="showVCode"></input>
+          </view>
+    </view>
+
+   
+
+
+</view>
+
+
+
+

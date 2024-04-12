@@ -1,0 +1,140 @@
+<view class="pages">
+  <view class="contentTips" wx:if="{{isSupport}}"><view class="tips">{{checkService}}量表筛查终止，评估记录请在报告查询查看~</view></view>
+  <view class="page">
+    <view class="info-card">
+      <view class="info-title">
+        <view class="shu"></view>
+        <view class="title-text">基础信息</view>
+      </view>
+      <view class="info-content">
+        <view class="info-content-left">
+          <text class="name">姓名：</text>
+          <text class="name-content">{{order.clientName?order.clientName:'- -'}}</text>
+        </view>
+        <view class="info-content-right">
+          <text class="name">性别：</text>
+          <text class="name-content">{{order.sex==1?'男':'女'}}</text>
+        </view>
+      </view>
+      <view class="info-content">
+        <view class="info-content-left">
+          <text class="name">年龄：</text>
+          <text class="name-content">{{order.age?order.age:'- -'}}岁</text>
+        </view>
+        <view class="info-content-right">
+          <text class="name">联系电话：</text>
+          <text class="name-content">{{order.phone?order.phone:'- -'}}</text>
+        </view>
+      </view>
+    </view>
+    <view class="info-card">
+      <view class="info-title">
+        <view class="shu"></view>
+        <view class="title-text">工单信息</view>
+      </view>
+      <view class="order-state inth-code1" wx:if="{{order.status==0}}">已核销</view>
+      <view class="order-state inth-code2" wx:if="{{order.status==1}}">使用中</view>
+      <view class="order-state inth-code3" wx:if="{{order.status==2}}">已完成</view>
+      <view class="order-content">
+        <view class="order-cont">
+          <view class="titles">工单编号：</view>
+          <view class="conts">{{order.ticketsEquityCode?order.ticketsEquityCode:'- -'}}</view>
+        </view>
+        <view class="order-cont">
+          <view class="titles">服务次数：</view>
+          <view class="conts">{{order.checkedCount}}/{{order.sumCheckCount?order.sumCheckCount:'- -'}}</view>
+        </view>
+      </view>
+      <view class="order-content">
+        <view class="order-cont">
+          <view class="titles">工单来源：</view>
+          <view class="conts">{{order.source?order.source:'- -'}}端</view>
+        </view>
+        <view class="order-cont">
+          <view class="titles">激活码：</view>
+          <view class="conts">{{order.activeCode?order.activeCode:'- -'}}</view>
+        </view>
+      </view>
+      <view class="order-content">
+        <view class="order-cont">
+          <view class="titles">操作人员：</view>
+          <view class="conts">{{order.source=='lite'?'i小织':order.createUser}}</view>
+        </view>
+        <view class="order-cont">
+          <view class="titles">核销时间：</view>
+          <view class="conts">{{order.begnTime?order.begnTime:'- -'}}</view>
+        </view>
+      </view>
+      <view class="order-content">
+        <view class="order-cont" style="width:100%">
+          <view class="titles">权益有效期：</view>
+          <view class="conts">
+            {{order.begnTime}}~{{order.endTime}}
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="info-card">
+      <view class="info-title">
+        <view class="shu"></view>
+        <view class="title-text">关联服务产品</view>
+      </view>
+      <view class="srv-product">
+        <view class="srv-content" bindtap="goEquiyDetails">
+          <image src="{{order.mainPic}}" mode="" />
+          <view class="cont-right">
+            <view class="cont-tit">{{order.equityName}}</view>
+            <view class="cont-des">{{order.describe}}</view>
+            <view class="price">{{order.price}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="info-card">
+      <view class="info-title">
+        <view class="shu"></view>
+        <view class="title-text">服务记录</view>
+      </view>
+      <view class="card">
+        <view class="assistance-steps" style="height: {{stepsHeight}}rpx;">
+          <view class="assistance-steps-box">
+            <view class="assistance-steps-cont">
+              <view class="assistance-steps-line" style="height: {{stepsHeight-50}}rpx;"></view>
+              <view class="assistance-steps-item-cont">
+                <view class="assistance-steps-item" wx:for="{{steps}}" wx:for-item="item" wx:key="index">
+                  <view class="item-title">
+                    <view class="assistance-steps-item-idx">{{ index + 1 }}</view>
+                    <view class="assistance-steps-item-name">
+                      <view class="ste">{{ item.content }} {{ item.createTime }}</view>
+                    </view>
+                  </view>
+                  <view class="oper">
+                    <text>{{item.content=='核销成功'?'核销人员：':'操作人员：'}}</text>
+                    <text>{{ item.createUser }}</text>
+                  </view>
+                  <view class="notes" wx:if="{{item.remark}}">
+                    <text>备注：</text>
+                    <text>{{ item.remark?item.remark:''}}</text>
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="btn">
+    <view class="btn-two" wx:if="{{(order.status==0 || order.status==1)&& order.type==1}}">
+      <button class="phone-cust" bindtap="call" data-phone="4000125600">联系客服 4000125600</button>
+      <button class="btn-use" bindtap="goEquiyList" disabled="{{order.status==2}}">立即使用</button>
+    </view>
+    <view class="btn-two" wx:if="{{order.type==2}}">
+      <button class="phone-cust" bindtap="call" data-phone="4000125600">联系客服 4000125600</button>
+      <button class="btn-use" bindtap="goEquiyList"  disabled="true">立即使用</button>
+    </view>
+    <view wx:if="{{order.status==2 && order.type==1}}">
+      <button class="phone-cust-hui" bindtap="call" data-phone="4000125600">联系客服 4000125600</button>
+    </view>
+  </view>
+</view>

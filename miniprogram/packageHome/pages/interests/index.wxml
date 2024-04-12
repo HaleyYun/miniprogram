@@ -1,0 +1,120 @@
+<van-dialog class="addinfodialog" use-slot show="{{ addInfoShow }}" showConfirmButton="{{false}}" width='582rpx'>
+  <image src="{{ossImg}}addforbtn.png" class="addinfobg" />
+  <view class="addinfobut-box">
+    <image src="{{ossImg}}addinfobtn.png" bindtap="toAddinfo" class="addinfobut" mode="" />
+  </view>
+  <view class="deleteicon">
+    <image src="{{ossImg}}deleteIcon.png" bindtap="deleteinfo" class="deleteItem" mode="" />
+  </view>
+</van-dialog>
+<view class="contentTips" wx:if="{{isSupport}}"><view class="tips">{{checkService}}量表筛查终止，评估记录请在报告查询查看~</view></view>
+<van-toast id="van-toast" />
+
+<view class="pages">
+<!-- 生成失败isFailure -->
+<view class="procedureEnd"  wx:if="{{false}}">
+    <view class="err-box">
+    <image class="err-bj-i" src="https://zskjobject.oss-cn-beijing.aliyuncs.com/zskj_nbj_mini/img/failure3x.png" mode="" />
+    <image class="close"  data-phone="4000125600" src="https://zskjobject.oss-cn-beijing.aliyuncs.com/zskj_nbj_mini/img/service3x.png"  bind:tap="nextPage" mode="" />
+    <image class="anew" src="https://zskjobject.oss-cn-beijing.aliyuncs.com/zskj_nbj_mini/img/OK@3x.png"  bind:tap="changePage" mode="" />
+  </view>
+  </view>
+  <!-- 生成成功isSuccessful -->
+  <view class="procedureEnd"  wx:if="{{isSuccessful}}">
+    <view class="err-box">
+    <image class="err-bj-i" src="https://zskjobject.oss-cn-beijing.aliyuncs.com/zskj_nbj_mini/img/generated3x.png" mode="" />
+    <image class="closes"  src="https://zskjobject.oss-cn-beijing.aliyuncs.com/zskj_nbj_mini/img/OK@3x.png"  bind:tap="confirm" mode="" />
+    <image class="anews" src="https://zskjobject.oss-cn-beijing.aliyuncs.com/zskj_nbj_mini/img/train3x.png"  bind:tap="cancel" mode="" />
+  </view>
+  </view>
+  <view class="procedureEnd"  wx:if="{{isShowicon}}">
+    <view class="err-box">
+      <image class="box-icon" src="https://zskjobject.oss-cn-beijing.aliyuncs.com/zskj_nbj_mini/img/loading.gif" mode="" />
+      <view class="box-title">数据加载中</view>
+    </view>
+ 
+  </view>
+  <view class="page">
+    <view class="search">
+      <view class="search-input">
+        <image src="{{ossImg}}search.png" class="search-image" mode="" />
+        <input class="input" placeholder-class="placeholderStyle" type="text" model:value="{{equity}}" placeholder="请输入权益激活码～" />
+        <view class="exchange" bindtap="exchange">立即兑换</view>
+      </view>
+    </view>
+    <view class="head">
+      <view class="tab">
+        <view class="tab-option {{tab==item.id?'tab-option-active':''}}" wx:for="{{tabList}}" wx:key="id" bindtap="tab" data-id="{{item.id}}">
+          {{item.option}}
+        </view>
+      </view>
+    </view>
+    <view class="load" wx:if="{{ setMeal.length==0 }}">
+      <load status="{{ loadStatus }}" schedule="{{ schedule }}"></load>
+    </view>
+    <view class="data-list">
+      <view class="setMeal" wx:for="{{setMeal}}" wx:key="equityId" bindtap="check" data-item="{{item}}">
+        <view class="setMeal-title {{item.status==2?'defunct-setMeal-title':'activated-setMeal-title'}}" style="background-image: url({{ossImg}}hexiao-headerlan.png);background-size: 100% 100%;">
+          <view class="setName">{{item.equityNameApplet}}</view>
+          <view class="setdes">{{item.describe}}</view>
+          <view class="jiao" style="background-image: url({{item.type==1?xians:xianx}});background-size: 100% 100%;">
+            {{item.type==1?'线上':'线下'}}
+          </view>
+        </view>
+        <view class="setContent">
+          <view class="intitle" wx:if="{{item.status==0 || item.status==1}}">
+            <view class="introduce">
+              <view class="lable">筛查次数：</view>
+              <view class="period">{{item.checkedCount}}/{{item.sumCheckCount}}</view>
+            </view>
+            <view class="price">
+              {{item.price}}
+            </view>
+          </view>
+          <view class="inth">
+            <view class="inth-state">状态:</view>
+            <view class="inth-code inth-code1" wx:if="{{item.status==0}}">已核销</view>
+            <view class="inth-code inth-code2" wx:if="{{item.status==1}}">使用中</view>
+            <view class="inth-code inth-code3" wx:if="{{item.status==2}}">已完成</view>
+          </view>
+          <view class="int-time">
+            <view class="lable">有效期：</view>
+            <view class="period">
+              {{item.begnTime}}~{{item.endTime}}
+            </view>
+          </view>
+        </view>
+        <view wx:if="{{item.type==1}}">
+          <view class="operation {{item.status==0?'activated-operation':''}}" wx:if="{{item.status==0?true:false}}" data-item="{{item}}" catchtap="use">
+            立即使用
+          </view>
+          <view class="operation {{item.status==1 || item.status==2?'used-operation':''}}" wx:if="{{item.status==1 || item.status==2?true:false}}" data-item="{{item}}">
+            查看详情
+          </view>
+          <view class="operation {{item.type==2?'used-operation':''}}" wx:if="{{item.type==2?true:false}}" data-item="{{item}}">
+            查看详情
+          </view>
+        </view>
+        <view wx:if="{{item.type==2}}">
+          <view class="operation used-operation" wx:if="{{item.type==2?true:false}}" data-item="{{item}}">
+            查看详情
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+<!-- isShowModel -->
+  <view class="model" catchtouchmove='true' wx:if="{{isShowModel}}">
+    <view class="model-info" style="background: url({{ossImg}}empower-bg.png) no-repeat center center; background-size: contain;">
+      <view class="title">提示</view>
+      <view class="content">
+        <view>太棒了！</view>
+        <view>您已成功获得【{{equityName}}】权益卡</view>
+      </view>
+      <view class="btn-box">
+        <view class="confim" bindtap="commits">我已知晓</view>
+      </view>
+    </view>
+  </view>
+</view>

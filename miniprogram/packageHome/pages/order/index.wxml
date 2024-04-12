@@ -1,0 +1,217 @@
+<view class="page">
+    <view class="person" wx:if="{{personShow}}">
+        <image class="bg" src="{{avatarUrl}}"></image>
+        <view class="person-title">
+          <view class="name">{{userInfo.name}}</view>
+          <view class="phone">联系方式：{{userInfo.phone}}</view>
+        </view>
+    </view>
+
+
+  <view class="subscribe-map">
+    <view class="top">
+      <view class="title">预约机构</view>
+      <!-- <navigator url="/packageHome/pages/organization/index?longitude={{longitude}}&latitude={{latitude}}" hover-class="none">
+        <view class="text">
+          请选择
+          <image class="img" src="{{ossImg}}right.png" mode=""/>
+        </view>
+      </navigator> -->
+    </view>
+    <view class="mechanism" wx:if="{{instituShow}}">
+      <view class="mechanism-map" wx:if="{{isShowCheck}}">
+        <map 
+              id="map" 
+              class="map-image"
+              longitude="{{longitude}}" 
+              latitude="{{latitude}}" 
+              scale="16" 
+              show-location="true" 
+              markers="{{markers}}" 
+              polyline="{{polyline}}"
+              show-scale="true"></map>
+      </view>
+      <view class="mechanism-message">
+        <view class="score">
+          <view class="score-title">
+            <view class="score-score">{{organData.score}}</view>
+            <view class="score-c"></view>
+          </view>
+          <view class="distance" wx:if="{{isShowCheck}}">距离{{organData.distance}}km</view>
+        </view>
+        <view class="party">{{organData.organName}}</view>
+        <view class="tag">
+          <view class="tag-one" wx:for="{{organData.label}}" wx:key="*this">{{item}}</view>
+        </view>
+        <view class="details">
+          机构描述：{{organData.description}}
+        </view>
+        <view class="details">
+          服务时间：<text class="blue">{{organData.amTime}} {{organData.amTime && organData.pmTime  ? ',' :''}}{{organData.pmTime}}</text>
+        </view>
+        <view class="details">
+          服务地址：<text class="black">{{organData.address}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+
+  <view class="subscribe-map">
+    <!-- <view class="top">
+      <view class="title">预约服务</view>
+      <navigator url="/packageHome/pages/serve/index?longitude={{longitude}}&latitude={{latitude}}&type=book" hover-class="none">
+        <view class="text">
+         去选择
+         <image class="img" src="{{ossImg}}right.png"></image>
+        </view>
+      </navigator>
+    </view> -->
+    <view class="map" wx:if="{{serveShow}}">
+      <view class="eyes-box">
+        <image class="eyesbgimg" src="{{serveData.mainPic}}"></image>
+        <view class="eye-serve">
+          <view class="eyes-title">{{serveData.prodName}}</view>
+          <view class="eyes-text">{{serveData.prodDescribe}}</view>
+          <view class="eyes-count">
+            <text class="small">￥</text>{{serveData.prodPrice}}
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+
+  <view class="subscribe-time">
+    <view class="top">
+      <view class="title">预约时间</view>
+    </view>
+
+    <view class="day">
+      <view class="day-list">
+        <view class="list-one {{checkId==item.id?'active':''}}"  wx:for="{{weekList}}" data-id="{{item}}" wx:key="index" bindtap="change">
+          <view class="week">{{item.week}}</view>
+          <view class="date">{{item.date}}</view>
+        </view>
+      </view>
+      <view class="reach">到机构时间段</view>
+      <view class="show-time" wx:if="{{first}}">
+        <view class="{{checkAfter!='上午'?'days-one':'days-one-select'}} {{amFirstCheck?'':'default-one'}}">
+          <view class="after {{amFirstCheck?'':'default-color'}}">上午</view>
+          <view class="after-time {{amFirstCheck?'':'default-color'}}">{{amTime}}</view>
+          <view class="after-btn {{amFirstCheck?'':'defaultbg'}}" data-time="{{amTime}}" data-date="上午" bindtap="amMake">{{amFirstCheck?'可预约':'不可预约'}}</view>
+        </view>
+        <view class="{{checkAfter!='下午'?'days-one':'days-one-select'}} {{pmFirstCheck?'':'default-one'}}">
+          <view class="after {{pmFirstCheck?'':'default-color'}}">下午</view>
+          <view class="after-time {{pmFirstCheck?'':'default-color'}}">{{pmTime}}</view>
+          <view class="after-btn {{pmFirstCheck?'':'defaultbg'}}" data-time="{{pmTime}}" data-date="下午"  bindtap="pmMake">{{pmFirstCheck?'可预约':'不可预约'}}</view>
+        </view>
+      </view>
+
+      <view class="show-time" wx:else>
+        <view class="{{checkAfter!='上午'?'days-one':'days-one-select'}} {{amCheck?'':'default-one'}}">
+          <view class="after {{amCheck?'':'default-color'}}">上午</view>
+          <view class="after-time {{amCheck?'':'default-color'}}">{{amTime}}</view>
+          <view class="after-btn {{amCheck?'':'defaultbg'}}" data-time="{{amTime}}" data-date="上午" bindtap="amMake">{{amCheck?'可预约':'不可预约'}}</view>
+        </view>
+        <view class="{{checkAfter!='下午'?'days-one':'days-one-select'}} {{pmCheck?'':'default-one'}}">
+          <view class="after {{pmCheck?'':'default-color'}}">下午</view>
+          <view class="after-time {{pmCheck?'':'default-color'}}">{{pmTime}}</view>
+          <view class="after-btn {{pmCheck?'':'defaultbg'}}" data-time="{{pmTime}}" data-date="下午" bindtap="pmMake">{{pmCheck?'可预约':'不可预约'}}</view>
+        </view>
+      </view>
+      <view class="choose-time">
+        您当前选中服务时间
+        <text class="blue-color"> {{checkDate}}{{checkAfter}}{{checkTime}}</text>
+      </view>
+    </view>
+  </view>
+<!-- 价格明细 -->
+<view class="method">
+    <view class="method-title">
+      价格明细
+    </view>
+  <view class="amount">商品金额 <view class="goodamount">￥{{serveData.prodPrice}}</view></view>
+  <view class="favorable" >
+  用券优惠
+   <view wx:if="{{serveList.length}}" class="goodfavorable" bindtap="showModal">
+   <text wx:if="{{showPrice}}">-￥{{sealPrice}}</text>
+   <text class="goodPrice" wx:if="{{!showPrice}}">请选择</text>
+  <image class="goodicon" bindtap="showModal" src="{{ossImg}}iuicon.png" mode=""/>
+   </view>
+   <view wx:if="{{serveList.length<1}}" class="goodNot">
+    暂无优惠券
+   </view>
+   </view>
+
+
+   <view class="total">合计<view class="goodtotal">￥{{conutAll}}</view></view>
+  </view>
+  <view class="method">
+    <view class="method-title">
+      支付方式
+    </view>
+    <view class="method-list" wx:for="{{methodList}}" wx:key="id">
+      <view class="method-mode">
+        <image src="{{item.iconUrl}}" class="method-icon" mode=""/>
+        <view>{{item.option}}</view>
+      </view>
+      <view class="tick {{method==item.option?'tick-active':'tick-deactive'}}" bindtap="method" data-id="{{item.id}}">
+        <image src="{{ossImg}}tick.png" wx:if="{{method==item.option}}" class="tick-image" mode=""/>
+      </view>
+    </view>
+  </view>
+  <view class="thod">
+    
+  </view>
+  <!-- 合计 -->
+    <!--弹出  -->
+    <view class="wrap">
+  <view class="modal modal-bottom-dialog" hidden="{{hideFlag}}">
+    <view class="modal-cancel" bindtap="hideModal"></view>
+    <view class="bottom-dialog-body bottom-positon" animation="{{animationData}}">
+        <scroll-view  scroll-y="true" style="height: 750rpx;padding-bottom: 140rpx;">
+          <view class="chooseorder">优惠券</view>
+          <view class="maplet"  wx:for="{{serveList}}" wx:key="id">
+       <view class="addres-map" style="background: url({{ossImg}}notfold.png);background-size:692rpx 243rpx">
+        <view  class="eye-card" wx:if="{{ item.couponType==2 }}">满减券</view>
+      <view  class="eye-card" wx:if="{{ item.couponType==1 }}">折扣券</view>
+      <view class="eyes-box"  bindtap="goCommodityDetails" data-id="{{item.id}}">
+      <view class="eyes-img"><view class="eyesbg" wx:if="{{ item.couponType==2 }}">{{item.discount}}</view>
+      <view class="eyesbg" wx:if="{{ item.couponType==1 }}">{{item.discount}}折</view>
+        <view class="eyeTitie" >满￥{{item.afterDiscountPrice}}使用</view>
+        </view>
+        <view class="eye-serves">
+        <view class="eye-conpon">
+          <view class="eyes-titles">{{item.couponName}}</view>
+          <view class="eyes-texts">{{item.beginTime}}-{{item.endTime}}</view>
+        </view>
+          <view class="eyes-count" data-item='{{item}}' bindtap="choose">
+            <label class="radio">
+              <radio value="r1" checked="{{item.couponCode==ischeckId}}"/>
+             </label>
+          </view>
+        </view>
+      </view>
+       </view>
+        </view>
+      </scroll-view>
+      <view wx:if="{{serveList.length>0}}" class='Mcancel' bindtap='mCancel'>
+        <text>不使用</text>
+         </view>
+    </view>
+  </view>
+ 
+</view>
+  <!-- 啊实打实打算  -->
+
+  <view class="bottom">
+    <view class="link" data-phone="{{organData.phone}}" mode="" bindtap="call">
+      <image class="conbg" src="{{ossImg}}contact.png"></image>
+      <view class="con-text">联系客服</view>
+    </view>
+    <view class="con-btn" bindtap="pay">
+      确认预约并支付{{conutAll==undefined?'':'¥'}}{{conutAll}}
+    </view>
+  </view>
+</view>

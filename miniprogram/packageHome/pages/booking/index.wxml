@@ -1,0 +1,70 @@
+<!--packageHome/pages/booking/index.wxml-->
+<view class="page">
+  <van-dialog
+  class="addinfodialog"
+  use-slot
+  show="{{ popup }}"
+  showConfirmButton="{{false}}"
+>
+  <view class="popup">
+    <view class="popup-title">退款确认</view>
+    <view class="popup-tag">套餐总金额为</view>
+    <view class="popup-amount">{{currentItem.money}}</view>
+    <view class="popup-instructions">退款申请提交后此订单会取消，该操作无法撤回，请您确认是否要对此订单申请退款。</view>
+    <view class="popup-annotation">注：提交申请后您将在48小时内收到退款</view>
+    <view class="popup-but">
+      <view class="popup-cancel" bindtap="cancel">取消</view>
+      <view class="popup-verify" bindtap="verify">确认</view>
+    </view>
+  </view>
+</van-dialog>
+<view class="load" wx:if="{{ list.length==0 }}">
+  <load status="{{loadStatus}}" schedule="{{schedule}}"></load>
+</view>
+  <view class="booking" wx:for="{{list}}" wx:key="id">
+    <view class="name-state">
+      <view class="name">{{item.clientName}}</view>
+      <!-- 2 待服务  3 已服务  4 待退款 5 已退款  6 订单已关闭  ---预约工单 -->
+      <view class="state {{item.status =='2'?'state-appointment':''||item.status =='3'?'state-appointment':''||item.status =='4'?'state-appointment':''||item.status =='5'?'state-complete':''||item.status =='6'?'state-complete':''}}">{{item.status =='2'?'待服务':''||item.status =='3'?'已服务':''||item.status =='4'?'待退款':''||item.status =='5'?'已退款':''||item.status =='6'?'订单已关闭':''}}</view>
+    </view>
+    <view class="contact">
+      联系方式：<text>{{item.phone}}</text>
+    </view>
+    <view class="order ">
+      服务单号：<text>{{item.ticketsBookingCode}}</text>
+    </view>
+    <view class="card"  data-code="{{item.ticketsBookingCode}}" bindtap="detail">
+      <image src="{{item.product.mainPic}}" class="card-image" mode=""/>
+      <view class="card-content">
+        <view class="card-title">
+          {{item.product.prodName}}
+        </view>
+        <view class="card-introduce">
+          {{item.product.prodDescribe}}
+        </view>
+        <view class="price">
+          {{item.product.prodPrice}}
+        </view>
+      </view>
+    </view>
+    <view>
+      <view  class="concrete">
+        预约时间：<view class="concrete-content">{{item.bookingTime}}</view>
+      </view>
+      <view  class="concrete">
+        预约机构：<view class="concrete-content">{{item.institutionName}}</view>
+      </view>
+      <view  class="concrete">
+        预约地址：<view class="concrete-content">{{item.institutionAddress}}</view>
+      </view>
+      <view  class="concrete">
+        下单时间：<view class="concrete-content">{{item.createTime}}</view>
+      </view>
+    </view>
+    <view class="box-refund" wx:if="{{item.status=='2'?true:false}}">
+      <view class="refund" data-item="{{item}}" bindtap="refund">
+        申请退款
+      </view>
+    </view>
+  </view>
+</view>

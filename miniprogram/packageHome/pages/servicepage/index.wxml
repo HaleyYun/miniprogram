@@ -1,0 +1,164 @@
+<view class="page">
+<view class="content">
+  <view class="search">
+    <view class="search-box">
+      <image class="search-icon" src="{{ossImg}}search3x.png" bindtap="search"></image>
+      <input class="search-input" placeholder-class="placeholderStyle" model:value="{{search}}" bindblur="search" placeholder="请输入关键字搜索~"/>
+    </view> 
+  </view>  
+
+  <view class="subscribe-map" wx:if="{{addressCode!=''}}">
+    <view class="mechanism" wx:if="{{instituShow}}">
+      <view class="mechanism-map">
+        <map 
+              id="map" 
+              class="map-image"
+              longitude="{{longitude}}" 
+              latitude="{{latitude}}" 
+              scale="16" 
+              show-location="true" 
+              markers="{{markers}}" 
+              polyline="{{polyline}}"
+              show-scale="true"></map>
+      </view>
+    </view>
+  </view>
+  <view class="subscr-map">
+    <view class="top" wx:if="{{addressCode!=''}}">
+      <image  class="phonebg" src="{{ossImg}}locations3x.png"></image>
+      <view class="phone-text">{{addressCode}}</view>
+    </view>
+    <!-- <view class="top" wx:if="{{addressCode==''}}">
+      获取定位失败，请重新获取地理位置！
+    </view> -->
+  </view>
+</view>
+
+<view class="activeList">
+  <view class="notCon"  wx:if="{{loadShow}}">
+      <image class="notContent" src="{{ossImg}}notContent.png"></image>
+    </view>
+  <scroll-view class="title-list"  scroll-y="true" style="width: 208rpx;">
+      <view wx:if="{{!results}}" class="{{item.dictValue==indexId ?'active-btn':'default-btn'}}" 
+      bindtap="changeHome"
+      data-id="{{item.dictValue}}"
+      wx:for="{{artcileTypeList}}" 
+      wx:key="dictValue">
+      {{item.dictLabel}}
+    </view>
+    <view class="title-results" wx:if="{{results && artcileList.length}}">
+      <image  class="resultsbg" src="{{ossImg}}sousuox.png"></image>
+    搜索结果</view>
+    </scroll-view>
+  <scroll-view   scroll-top="{{scrollTop}}" class="video-list" bindscrolltolower="bindMake" scroll-y="true" style="width: 520rpx; height: {{scrollHeight}}px;">
+    <view class="load" wx:if="{{ artcileList.length==0 }}">
+  <load status="{{ loadStatus }}" schedule="{{ schedule }}"></load>
+</view>
+ <view wx:if="{{ artcileList.length!=0 }}" class="videobig" wx:for="{{artcileList}}" wx:key="organizationId">
+      <view class="topbg-box"><image class="topbg" src="{{item.theme}}"></image></view>
+      <view class="lis-cont">
+      
+        <view class="cont-title">{{item.organName}}</view>
+        <view class="tags-list">
+          <view class="tags-org" wx:for="{{item.label}}" wx:key="*this">{{item}}</view>
+        </view>
+        <view class="cont-remark top20">
+            <view class="label">机构描述：</view>
+            <view class="remarks">{{item.description}}</view>
+        </view>
+        <view class="cont-remark">
+            <view class="label">服务时间:</view>
+            <view class="time">
+          {{item.amTime}}
+          {{item.amTime && item.pmTime  ? ',' :''}}
+          {{item.pmTime}}
+            </view>
+        </view>
+        <view class="cont-remark">
+            <view class="label">服务地址:</view>
+            <view class="address">{{item.address}}</view>
+        </view>
+        <view class="botname">
+          <view class="distance" wx:if="{{addressCode!=''}}">距离{{item.distance}}km</view>
+          <view class="distance" wx:if="{{addressCode==''}}"></view>
+          <view class="phone">
+            <image class="phonebg" src="{{ossImg}}phone.png"></image>
+            <view class="phone-text" bindtap="tel" data-phone="{{item.phone}}">电话咨询</view>
+          </view>
+          <!-- <view class="btn" data-id="{{item.organNum}}" bindtap="checkOne" wx:if="{{url!=''?false:true}}">选择机构</view> -->
+        </view>
+      </view>
+      <view class="videoOrganNum" wx:for="{{item.productList}}" wx:key="organNum" data-id="{{item.organNum}}">
+        <view class="rganNum-box"><image class="rganNumbg" src="{{item.picUrl}}"></image></view>
+        <view class="rganNum-concent">
+          <view class="concent-title" >
+            <view class="title-left"  bindtap="appointment" data-ment="{{item}}">
+            <view class="title-prodName">{{item.prodName}}</view>
+          <image class="goodicon" src="{{ossImg}}my-right-img.png" mode=""/>
+        </view>
+        </view>
+        <view class="conMeal">{{item.prodDescribe}}
+       </view>
+       <view class="vouchers" bindtap="showModal" data-item="{{item}}" wx:if="{{item.haveCoupon}}">
+        <image class="vouchers"   src="{{ossImg}}vouchers.png" mode=""/>
+       </view>
+        <view class="content-bottom">
+        <view class="price">￥{{item.prodPrice}}</view>
+        <view class="appointment"  bindtap="getAppointment" data-item="{{item}}">立即预约</view>
+        </view>
+        </view>
+      
+      </view>
+    </view>
+ <!-- <view class="botttom" wx:if="{{switch}}">
+      <image class="botbg" src="{{ossImg}}bottom.png"></image>
+    </view> -->
+</scroll-view>
+
+</view>
+ 
+
+
+
+
+   <!--弹出  -->
+   <view class="wrap">
+  <view class="modal modal-bottom-dialog" hidden="{{hideFlag}}">
+    <view class="modal-cancel" bindtap="hideModal"></view>
+    <view class="bottom-dialog-body bottom-positon" animation="{{animationData}}">
+        <scroll-view  scroll-y="true" style="height: 750rpx;padding-bottom: 60rpx;">
+          <view class="chooseorder">优惠券</view>
+          <view class="maplet" style="background: url({{ossImg}}notfold.png);background-size:692rpx 243rpx" wx:for="{{serveList}}" wx:key="id">
+       
+      <view  class="eye-card" wx:if="{{ item.couponType==2 }}">满减券</view>
+      <view  class="eye-card" wx:if="{{ item.couponType==1 }}">折扣券</view>
+      <view class="eyes-box"  bindtap="goCommodityDetails" data-id="{{item.id}}">
+      <view class="eyes-img"><view class="eyesbg" wx:if="{{ item.couponType==2 }}">{{item.discount}}</view>
+      <view class="eyesbg" wx:if="{{ item.couponType==1 }}">{{item.discount}}折</view>
+        <view class="eyeTitie" >满￥{{item.afterDiscountPrice}}使用</view>
+        </view>
+        <view class="eye-serves">
+          <view class="eyes-titles">{{item.couponName}}</view>
+          <view class="eyes-texts">{{item.beginTime}}-{{item.endTime}}</view>
+         
+        </view>
+      </view>
+      
+        </view>
+        <view class='Mcancel' wx:if="{{serveList.length>0}}"  bindtap='mCancel'>
+        <text>确定</text>
+         </view>
+      </scroll-view>
+      
+
+      <!-- <view class='Mcancel' bindtap='mCancel'>
+        <text>确定</text>
+      </view> -->
+ 
+    </view>
+  </view>
+ 
+</view>
+  <!-- 啊实打实打算  -->
+
+</view>

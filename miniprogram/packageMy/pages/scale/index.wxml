@@ -1,0 +1,155 @@
+<!--page/brain/index.wxml-->
+<van-dialog
+  class="dialog"
+  use-slot
+  show="{{ dialog }}"
+  showConfirmButton="{{false}}"
+>
+  <view class="dialog-box" style="background: url({{ossImg}}dialogbox.png) no-repeat center top; background-size: cover;">
+    <view class="dialog-title">{{dietPlanName=='MEDITERRANEAN_DIET'?'地中海饮食的标准食材比例':''||dietPlanName=='MIND_DIET'?'MIND利脑饮食的标准食材比例':''||dietPlanName=='DASH_DIET'?'DASH防升压饮食的标准食材比例':''||dietPlanName=='OLD_DIET'?'均衡饮食标准的标准食材比例':''}}</view>
+    <view class="dialog-content">{{dietPlanName=='MEDITERRANEAN_DIET'?'地中海饮食出现在健康饮食的候选之中是从1960年代开始，人们发现在地中海国家中由冠心病死亡的人数比美国和北欧相比低很多。在接下来的研究中发现，地中海饮食和减少心血管疾病的风险因素息息相关。除了对心血管系统的好处，地中海饮食还能够降低罹患阿尔兹海默症的几率1。通过比较坚持地中海饮食的人群和传统西方饮食的人群的大脑影像，科学家发现传统西方饮食人群的大脑在研究开始时和结束时含有更多的淀粉样蛋白沉积——阿尔兹海默症的标志之一2。因此，对于同时有认知症和心脑血管疾病风险的人群，脑倍佳+推荐地中海饮食。':''||dietPlanName=='MIND_DIET'?'MIND利脑饮食是一种专门针对于降低罹患阿尔兹海默症风险、结合了两种健康饮食（地中海饮食和DASH防升压饮食）的综合饮食方案1。MIND利脑饮食中强烈推荐的树莓类水果，富含抗氧化物质，被认为能够缓解大脑的过度氧化状态。和地中海饮食和DASH防升压饮食相比，研究人员更是发现，只需要中等程度的坚持MIND利脑饮食，就可以显著地降低罹患阿尔兹海默症的风险3。因此，对于有认知症风险的用户，脑倍佳+会针对性地推荐MIND利脑饮食。':''||dietPlanName=='DASH_DIET'?'DASH防升压饮食是由美国国立卫生研究院推荐、针对于防止血压升高、改善胆固醇含量、最终降低心脏疾病风险的一种饮食方案，它也多次入围健康饮食方案榜单。DASH防升压饮食时，在严格控盐的基础上，选择只含有低量或者不含有饱和脂肪和反式脂肪、富含钾、钙、镁、膳食纤维和蛋白质的食物也是关键。对于DASH防升压饮食的研究主要在于心血管疾病上，当和严格控盐相结合后，遵从DASH防升压饮食一个月，高血压患者的收缩压血压能够可观地降低大概11.5 mm Hg左右4。因此，对于有心脑血管风险的用户，特别是高血压患者，脑倍佳+推荐DASH防升压饮食。':''||dietPlanName=='OLD_DIET'?'均衡饮食/老年人膳食指导是在由国家卫计委发布的、规定了老年人膳食指导原则、能量及营养素参考摄入量和食物选择。应用近年来老年营养领域的新理念和新技术，改膳食指导补充了适应老年人特点的膳食指导内容，从而帮助老年人更好地适应身体机能的改变，做到合理膳食、均衡营养、减少和延缓疾病的发生和发展，延长健康的生命时间5。其关键推荐为：少量多餐细软，预防营养缺乏；主动足量饮水，积极户外活动；延缓肌肉衰减，维持适宜体重；摄入充足食物，鼓励陪伴进餐。':''}}</view>
+    <view class="dialog-back" bindtap="hidden">返回</view>
+  </view>
+</van-dialog>
+<!-- <view class="page"  style="padding: {{statusBarHeight+44}}px 0 0 0;"> -->
+<view class="page">
+  <view class="title-box">
+    <view class="title">{{dietPlanName=='MEDITERRANEAN_DIET'?'地中海饮食的标准食材比例':''||dietPlanName=='MIND_DIET'?'MIND利脑饮食的标准食材比例':''||dietPlanName=='DASH_DIET'?'DASH防升压饮食的标准食材比例':''||dietPlanName=='OLD_DIET'?'均衡饮食标准的标准食材比例':''}}</view>
+    <image src="{{ossImg}}question.png" class="title-image" bindtap="reveal" mode=""/>
+  </view>
+
+  <view class="meals" style="background: url({{ossImg}}ingredientbg.png)  no-repeat center top; background-size: contain;">
+    <view class="meals-food">
+      <view class="vegetable">蔬菜：{{meals.V}}</view>
+      <view class="meat">红肉：{{meals.R}}</view>
+      <view class="grain">谷物：{{meals.G}}</view>
+      <view class="fruit">水果：{{meals.F}}</view>
+      <view class="nut">坚果：{{meals.N}}</view>
+      <view class="seafood">海鲜：{{meals.S}}</view>
+      <view class="milk">奶类：{{meals.D}}</view>
+      <view class="birds">禽类：{{meals.P}}</view>
+    </view>
+    <view class="meals-introduce">
+      请评价一下您今天的饮食与标准比例的匹配程度
+    </view>
+    <view class="meals-options">
+      <view class="{{optionsActive==item.id?'meals-item-active':'meals-item'}}" bindtap="option" data-id="{{item.id}}" wx:for="{{options}}" wx:key="id">{{item.label}}</view>
+    </view>
+  </view>
+
+  <view class="area">
+    <image src="{{ossImg}}analyzebg.png" class="area-bg" mode=""/>
+    <view class="area-box">
+      <image src="{{ossImg}}analyzebut.png" class="area-but" bindtap="gofood" mode=""/>
+    </view>
+  </view>
+  
+  <view class="{{showRegion?'card':'hidden'}}" >
+    <view class="title-t">
+      <view class="left">
+        <image src="{{ossImg}}records.png" class="card-image" mode=""/>
+        <view class="card-title">AI饮食分析结果（当日）</view>
+      </view>
+    </view>
+    <view class="result">
+      <view class="result-left" style="background: url({{ossImg}}ecbg.png) no-repeat center center; background-size: contain;">
+        <view class="container">
+          <ec-canvas id="mychart-dom-gauge" canvas-id="mychart-gauge" ec="{{ ec }}" force-use-old-canvas="true" class="{{dialog?'hidden':''}}"></ec-canvas>
+        </view>
+        <view class="date">
+          <view class="date-date">{{date[5]}}{{date[6]}}.{{date[8]}}{{date[9]}}</view>
+          <view class="date-text">日期</view>
+        </view>
+      </view>
+      <view class="result-right">
+        <view class="result-right-title">
+         <view class="result-right-title-one">分类名称</view>
+         <view class="result-right-title-one">上传/干预份数</view>
+         <view class="result-right-title-one">得分/总分</view>
+        </view>
+        <view class="result-right-tabel">
+          <view class="result-right-tabel-one" wx:for="{{food}}" wx:key="name">
+            <view class="result-right-tabel-name">
+              <i class="color" style="background-color: {{item.color}};"></i>
+              <view class="result-right-tabel-name-text">{{item.name}}</view>
+            </view>
+            <view class="result-right-tabel-copies">{{item.upload}}/{{item.copies}}</view>
+            <view class="result-right-tabel-standard">
+              <view class="result-right-tabel-standard-text {{item.upload==item.copies?'green':''||item.upload>item.copies?'orange':''||item.upload<item.copies?'red':''}}">{{item.upload==item.copies?'正常':''||item.upload>item.copies?'过多':''||item.upload<item.copies?'过少':''}}</view>
+              <image src="{{item.upload==item.copies?'':''||item.upload>item.copies?ossImg+'more.png':''||item.upload<item.copies?ossImg+'less.png':''}}" class="result-right-tabel-standard-img" mode=""/>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+
+  <view class="card">
+    <view class="title-t">
+      <view class="left">
+        <image src="{{ossImg}}weeks.png" class="card-image" mode=""/>
+        <view class="card-title">我的周干预情况</view>
+      </view>
+      <view class="right">
+        {{interventionWeekStart}}~{{interventionWeekEnd}}
+      </view>
+    </view>
+    <view class="vs {{ unpack?'height1588':'height742' }}" style="{{unpack?'background: url('+ossImg+'vsbg2.png) no-repeat center center; background-size: contain;':'background: url('+ossImg+'vsbg1.png) no-repeat center center;background-size: contain;'}}">
+      <view class="vs-content">
+        <view class="vs-content-left">
+          <image src="{{ossImg}}vsSuggestion1.png" class="left-title" mode=""/>
+          <view class="vs-content-left-content">
+            <view class="vs-content-left-one" wx:for="{{vsleft}}" wx:key="name">
+              <image src="{{item.url}}" class="vsicon"  mode=""/>
+              <view class="vs-content-left-one-text">
+                <view class="vs-content-left-one-text-name">{{item.name}}</view>
+                <view class="vs-content-left-one-text-scale">{{item.upload}}</view>
+              </view>
+            </view>
+          </view>
+        </view>
+        <view class="vs-content-right">
+          <image src="{{ossImg}}vsSuggestion2.png" class="right-title" mode=""/>
+          <view class="vs-content-right-content">
+            <view class="vs-content-left-one" wx:for="{{vsright}}" wx:key="name">
+              <image src="{{item.url}}" class="vsicon"  mode=""/>
+              <view class="vs-content-left-one-text">
+                <view class="vs-content-right-one-text-name">{{item.name}}</view>
+                <view class="vs-content-right-one-text-scale">{{item.upload}}</view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="vs-but">
+      <image bind:tap="unpack" src="{{unpack?ossImg+'vsUnpack2.png':ossImg+'vsUnpack1.png'}}" class="vs-but-img" mode=""/>
+    </view>
+    <view class="vs-bottom">
+      <view class="vs-bottom-title">
+        <view class="vs-bottom-tag"></view>
+        <view class="vs-bottom-text">饮食建议</view>
+      </view>
+      <view class="vs-bottom-content">
+        “合理饮食对脑健康至关重要。通过改善饮食习惯，您可以降低认知患病率，提高生活质量。
+      </view>
+    </view>
+  </view>
+
+  <view class="card">
+    <view class="title-t">
+      <view class="left">
+        <image src="{{ossImg}}recommended.png" class="card-image" mode=""/>
+        <view class="card-title">膳食推荐</view>
+      </view>
+    </view>
+    <scroll-view scroll-x="true" class="recommended">
+      <view class="recommended-item" wx:for="{{recommended}}" wx:key="id" data-id="{{item.id}}" bindtap="goDishesDetails">
+        <image src="{{item.picUrl}}" class="recommended-image" mode=""/>
+        <view class="recommended-name">{{item.name}}</view>
+      </view>
+    </scroll-view>
+  </view>
+  <view style="height: 40rpx;"></view>
+</view>

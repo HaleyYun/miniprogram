@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "navigationBar": "../../../components/speciBar/index"
+  },
+  "navigationStyle": "custom",
+  "navigationBarTitleText": "规范告知说明"
+}

@@ -1,0 +1,31 @@
+<view class="page">
+  <view class="load" wx:if="{{ dataList.length==0 }}" style="margin-top: 50%;">
+    <load status="{{ loadStatus }}" schedule="{{ schedule }}"></load>
+  </view>
+  <view class="box-list" wx:for="{{dataList}}" data-item="{{item}}" wx:key="index">
+    <view class="list-title">
+      <image wx:if="{{item.status==1}}" src="{{ossImg}}exchange-lan.png" />
+      <image wx:if="{{item.status==2}}" src="{{ossImg}}exchange-hui.png" />
+      <image wx:if="{{item.status==3}}" src="{{ossImg}}exchange-hu.png" />
+      <view class="list-time">{{item.begnTime}}-{{item.endTime}}</view>
+    </view>
+    <view class="list-content">
+      <view class="list-item">
+        <view>客户姓名：</view>
+        <view>{{item.userName}}</view>
+      </view>
+      <view class="list-item">
+        <view>联系电话：</view>
+        <view>{{item.phone}}</view>
+      </view>
+      <view class="list-item">
+        <view>兑换日期：</view>
+        <view>{{item.begnTime}}</view>
+      </view>
+      <view class="list-item" wx:if="{{item.status==2}}">
+        <view>使用日期：</view>
+        <view>{{item.useTime}}</view>
+      </view>
+    </view>
+  </view>
+</view>

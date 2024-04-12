@@ -1,0 +1,187 @@
+<view class="page" style="padding-top: 200rpx;" wx:if="{{skip!='12'}}">
+  <view class="info">
+    <view class="headImg" bindtap="changeAvatar">
+      <image src="{{avatarUrl}}" class="head" mode="" />
+      <!-- <image class="head" src="{{avatarUrl}}"></image> -->
+      <view class="title">点击更换头像</view>
+    </view>
+  </view>
+
+  <view class="infomation">
+    <view class="basic">基本信息</view>
+    <view class="cont">
+      <view class="name">姓名:</view>
+      <view class="cont-text">
+      <input class="inputName" maxlength="20" value="{{username}}" bindinput="changeName" placeholder="请输入姓名" type="text" /></view>
+    </view>
+
+    <view class="cont">
+      <view class="name">联系方式:</view>
+      <view class="cont-text"><input class="inputName" value="{{phone}}"  placeholder="请输入手机号"  /></view>
+    </view>
+
+    <view class="cont">
+      <view class="name">性别:</view>
+      <!-- <view class="cont-text none">      
+        <radio-group bindchange="chooseSex">
+				  <radio class="radio_class" color="#3476FF" wx:for="{{sexList}}" value="{{item.id}}" checked="{{item.checked}}">{{item.name}}</radio>
+			  </radio-group>
+      </view> -->
+      <view class="gender">
+        <view class="gender-option {{gender == item.id?'genderActive':''}}" wx:for="{{genderList}}" wx:key="id" bindtap="gender" data-id="{{item.id}}">
+          <image src="{{gender == item.id?item.activeUrl:item.url}}" class="gender-image" mode="" />
+          {{item.option}}
+        </view>
+      </view>
+    </view>
+
+    <view class="cont">
+      <view class="name">学历:</view>
+      <!-- <view class="relationship-option" wx:for="{{educationList}}" wx:key="id" bindtap="education" data-id="{{item.id}}">
+      {{item.option}}
+    </view> -->
+
+      <view class='select_box'>
+        <view class='select' catchtap='selectTap'>
+          <text class='select_text'>{{selectData[index].option}}</text>
+          <image class='select_img {{show&&"select_img_rotate"}}' src="{{avatarIcon}}"></image>
+        </view>
+        <view class='option_box' style='height:{{show?(selectData.length>5?300:selectData.length*60):0}}rpx;'>
+          <text class='option' style='{{index==selectData.length-1&&"border:0;"}}' wx:for='{{selectData}}' wx:key='this' data-index='{{index}}' catchtap='optionTap'>{{item.option}}</text>
+        </view>
+      </view>
+
+
+    </view>
+
+    <view class="cont">
+      <view class="name">出生日期:</view>
+      <picker mode="date" bindchange="bindDateChange" value="{{date}}" start='1900-01-01' end='{{getData}}'>
+        <view class="cont-text">
+          <view class="picker">
+            {{date}}
+          </view>
+        </view>
+
+      </picker>
+      <!-- <view class="contcon">
+     <input class="inputdata" value="{{2022}}" bindinput="changeName" type="text" />
+      <view class="year">年</view>  
+     <input class="inputdata" value="{{09}}" bindinput="changeName" type="text" /> <view class="year">月</view>  
+     <input class="inputdata" value="{{09}}" bindinput="changeName"  type="text" /> <view class="year">日</view>  
+      </view> -->
+
+    </view>
+
+    <view class="cont">
+      <view class="name">身高:</view>
+      <view class="cont-text"><input class="inputName" maxlength="3" type='digit' value="{{height}}" bindinput="changeHeight" placeholder="请输入用户身高" />
+        <view class="cont-unit">CM</view>
+      </view>
+    </view>
+
+    <view class="cont">
+      <view class="name">体重:</view>
+      <view class="cont-text"><input class="inputName" maxlength="3" type='digit' value="{{weight}}" bindinput="changeWeight" placeholder="请输入用户体重" />
+        <view class="cont-unit">KG</view>
+      </view>
+
+    </view>
+    <view class="basictitle">健康档案</view>
+    <view class="basicsubheading">如果您有以下疾病或者症状，请选中对应的选项</view>
+    <!-- 患病 -->
+    <view class="medical">
+      <view class="medical-option {{item.state == true?'medicalActivate':''}}" wx:for="{{medicalList}}" wx:key="*this" bindtap="medical" data-id="{{item.id}}" style="background: url('{{item.state == true?item.activateUrl:item.url}}') no-repeat center center; background-size: contain;">
+        <!-- <image src="{{item.state == true?item.activateUrl:item.url}}" class="medical-image" mode=""/> -->
+        {{item.option}}
+      </view>
+      <view class="agreement">
+        我们非常重视您的使用体验，并希望为您提供最优质的服务。为了让您更好地使用我们的产品/服务，我们建议您填写完整的信息描述，我们非常注重保护您的个人隐私，所有的信息都将被严格保密。
+      </view>
+    </view>
+  </view>
+  <!-- .... -->
+  <view class="btn">
+    <!-- <view class="no">版本号 V2.0</view> -->
+    <view class="button" bindtap="save">一键保存</view>
+  </view>
+</view>
+
+<navigationBar wx:if="{{skip=='12'}}" path="{{path}}" style="width: 100%;height: 100%;">
+  <view style="padding-top: 200rpx;" slot="contentMain">
+    <view class="info">
+      <view class="headImg" bindtap="changeAvatar">
+        <image src="{{avatarUrl}}" class="head" mode="" />
+        <view class="title">点击更换头像</view>
+      </view>
+    </view>
+    <view class="infomation">
+      <view class="basic">基本信息</view>
+      <view class="cont">
+        <view class="name">姓名:</view>
+        <view class="cont-text"><input class="inputName" maxlength="20" value="{{username}}" bindinput="changeName" placeholder="请输入姓名" type="text" /></view>
+      </view>
+      <view class="cont">
+        <view class="name">联系方式:</view>
+        <view class="cont-text"><input class="inputName" value="{{phone}}" disabled="disabled" placeholder="请输入手机号" /></view>
+      </view>
+      <view class="cont">
+        <view class="name">性别:</view>
+        <view class="gender">
+          <view class="gender-option {{gender == item.id?'genderActive':''}}" wx:for="{{genderList}}" wx:key="id" bindtap="gender" data-id="{{item.id}}">
+            <image src="{{gender == item.id?item.activeUrl:item.url}}" class="gender-image" mode="" />
+            {{item.option}}
+          </view>
+        </view>
+      </view>
+      <view class="cont">
+        <view class="name">学历:</view>
+        <view class='select_box'>
+          <view class='select' catchtap='selectTap'>
+            <text class='select_text'>{{selectData[index].option}}</text>
+            <image class='select_img {{show&&"select_img_rotate"}}' src="{{avatarIcon}}"></image>
+          </view>
+          <view class='option_box' style='height:{{show?(selectData.length>5?300:selectData.length*60):0}}rpx;'>
+            <text class='option' style='{{index==selectData.length-1&&"border:0;"}}' wx:for='{{selectData}}' wx:key='this' data-index='{{index}}' catchtap='optionTap'>{{item.option}}</text>
+          </view>
+        </view>
+      </view>
+      <view class="cont">
+        <view class="name">出生日期:</view>
+        <picker mode="date" bindchange="bindDateChange" value="{{date}}" start='1900-01-01' end='{{getData}}'>
+          <view class="cont-text">
+            <view class="picker">
+              {{date}}
+            </view>
+          </view>
+        </picker>
+      </view>
+      <view class="cont">
+        <view class="name">身高:</view>
+        <view class="cont-text"><input class="inputName" maxlength="3" type='digit' value="{{height}}" bindinput="changeHeight" placeholder="请输入用户身高" />
+          <view class="cont-unit">CM</view>
+        </view>
+      </view>
+      <view class="cont">
+        <view class="name">体重:</view>
+        <view class="cont-text"><input class="inputName" maxlength="3" type='digit' value="{{weight}}" bindinput="changeWeight" placeholder="请输入用户体重" />
+          <view class="cont-unit">KG</view>
+        </view>
+      </view>
+      <view class="basictitle">健康档案</view>
+      <view class="basicsubheading">如果您有以下疾病或者症状，请选中对应的选项</view>
+      <!-- 患病 -->
+      <view class="medical">
+        <view class="medical-option {{item.state == true?'medicalActivate':''}}" wx:for="{{medicalList}}" wx:key="*this" bindtap="medical" data-id="{{item.id}}" style="background: url('{{item.state == true?item.activateUrl:item.url}}') no-repeat center center; background-size: contain;">
+          {{item.option}}
+        </view>
+        <view class="agreement">
+          我们非常重视您的使用体验，并希望为您提供最优质的服务。为了让您更好地使用我们的产品/服务，我们建议您填写完整的信息描述，我们非常注重保护您的个人隐私，所有的信息都将被严格保密。
+        </view>
+      </view>
+    </view>
+    <view class="btn">
+      <view class="button" bindtap="save">一键保存</view>
+    </view>
+  </view>
+</navigationBar>

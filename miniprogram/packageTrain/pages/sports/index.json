@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "t-video": "plugin://t-video/t-video"
+  }
+}

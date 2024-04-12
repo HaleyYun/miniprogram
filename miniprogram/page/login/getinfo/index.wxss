@@ -1,0 +1,32 @@
+.page{
+  background-color: #fff;
+}
+.logo{
+  width:235rpx;
+  height:295rpx;
+  margin:200rpx auto;
+}.img{
+  width:235rpx;
+  height:295rpx;
+}
+.bottom{
+  width:750rpx;
+  height:265rpx;
+  position: fixed;
+  bottom:0;
+}
+.botimg{
+  width:750rpx;
+  height:265rpx;
+}
+.login{
+  width:450rpx;
+  height:80rpx;
+  margin: auto;
+}
+.btn{
+  background:#3476FF;
+  color:#fff;
+  font-size: 18px;
+  font-weight: bold;
+}

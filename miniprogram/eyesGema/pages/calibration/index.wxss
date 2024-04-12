@@ -1,0 +1,169 @@
+/* eyesGema/pages/calibration/index.wxss */
+.calibration-page {
+  background-image: url(https://neuroweave.oss-cn-hangzhou.aliyuncs.com/zskj-app-test/img/eyesgema/flow-path-bj.png);
+  background-size: 100% 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.text-box {
+  padding: 0 130rpx;
+  text-align: center;
+  font-size: 60rpx;
+  font-family: SourceHanSansCN-Bold, SourceHanSansCN;
+  font-weight: bold;
+  color: #7D4E1F;
+  line-height: 100rpx;
+  margin-bottom: 20rpx;
+}
+.text-boxt {
+  padding: 0 160rpx;
+  text-align: center;
+  font-size: 60rpx;
+  font-family: SourceHanSansCN-Bold, SourceHanSansCN;
+  font-weight: bold;
+  color: #7D4E1F;
+  line-height: 100rpx;
+  margin-bottom: 20rpx;
+}
+
+.animation-box {
+  width: 120rpx;
+  height: 120rpx;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 0.1s ease;
+}
+
+.animation-box img {
+  width: 100%;
+  height: 100%;
+}
+
+.displacement {
+  top: 600rpx;
+  left: 600rpx;
+}
+
+.round-dot-img-1,
+.round-dot-img,
+.fork,
+.explosion {
+  width: 120rpx;
+  height: 120rpx;
+}
+
+.round-dot-img {
+  animation: myzoom 0.5s;
+}
+
+.fork {
+  animation: myrotate 0.3s;
+}
+
+.explosion {
+  animation: myrezoom 0.4s;
+}
+
+@keyframes myzoom {
+  0% {
+    transform: scale(1);
+  }
+
+  40% {
+    transform: scale(1);
+  }
+
+  70% {
+    transform: scale(0.5);
+  }
+
+  100% {
+    transform: scale(0.8);
+  }
+}
+
+@keyframes myrotate {
+  0% {
+    transform: rotateX(0);
+  }
+
+  50% {
+    transform: rotateZ(180deg);
+  }
+
+  100% {
+    transform: rotateZ(0);
+  }
+}
+
+@keyframes myrezoom {
+  0% {
+    transform: scale(0.1);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+.timing-box {
+  width: 218rpx;
+  height: 216rpx;
+  background-image: url(https://neuroweave.oss-cn-hangzhou.aliyuncs.com/zskj-app-test/img/eyesgema/timing-bj.png);
+  background-size: 100%;
+  font-size: 120rpx;
+  line-height: 216rpx;
+  color: #FFFFFF;
+  text-align: center;
+  font-weight: bold;
+  /* position: absolute;
+  top: 744rpx;
+  left: 266rpx; */
+
+}
+
+.calibration-err-t-i {
+  width: 398rpx;
+  height: 448rpx;
+  position: absolute;
+  left: 172rpx;
+  top: 354rpx;
+}
+
+.calibration-err-btn {
+  width: 412rpx;
+  height: 148rpx;
+  position: absolute;
+  left: 166rpx;
+  bottom: 142rpx;
+}
+
+.loading-mask {
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.24);
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* .loading-mask image {
+  width: 222rpx;
+  height: 232rpx;
+} */
+
+.camera {
+  position: absolute;
+  left: 0;
+  top: -9999rpx;
+}

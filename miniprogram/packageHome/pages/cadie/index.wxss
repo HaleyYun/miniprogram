@@ -1,0 +1,487 @@
+.page {
+  height: 100vh;
+  background: #F3F4F6;
+}
+
+.addinfobg {
+  width: 750rpx;
+  height: 1660rpx;
+  position: relative;
+}
+
+.scroll-box {
+  height: 100%;
+  /* position: absolute;
+  top: 200rpx; */
+}
+
+.cadie-list {
+  position: absolute;
+  top: 200rpx;
+  width: 100%;
+}
+
+.cadie-title {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0 45rpx;
+
+}
+
+.shu {
+  width: 10rpx;
+  height: 29rpx;
+  background: #0066FF;
+  border-radius: 5rpx;
+  margin-right: 15rpx;
+}
+
+.title-text {
+  font-size: 36rpx;
+  font-family: SourceHanSansCN, SourceHanSansCN;
+  font-weight: bold;
+  color: #222222;
+  line-height: 54rpx;
+}
+
+.cadie-contnent {
+  width: 722rpx;
+  height: 188rpx;
+  margin: 20rpx auto 0;
+}
+
+.info-texts {
+  width: 88%;
+  padding: 40rpx 0 0 50rpx;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.info-name {
+  font-size: 44rpx;
+  font-family: SourceHanSansCN, SourceHanSansCN;
+  font-weight: bold;
+  color: #222222;
+  line-height: 66rpx;
+}
+
+.info-time {
+  font-size: 28rpx;
+  font-family: SourceHanSansCN, SourceHanSansCN;
+  font-weight: 500;
+  color: #212121;
+  line-height: 42rpx;
+}
+
+.bian {
+  margin-top: 12rpx;
+  font-size: 28rpx;
+  font-family: SourceHanSansCN, SourceHanSansCN;
+  font-weight: 500;
+  color: #FFFFFF;
+}
+
+.fen {
+  font-size: 32rpx;
+  font-family: SourceHanSansCN, SourceHanSansCN;
+  font-weight: 500;
+  color: #1D2658;
+  margin: 20rpx auto;
+  text-align: center;
+}
+
+.fen text {
+  font-size: 40rpx;
+  font-family: SourceHanSansCN, SourceHanSansCN;
+  font-weight: 800;
+  color: #1D2658;
+  line-height: 60rpx;
+}
+
+.cadie-zhi {
+  margin: 260rpx auto 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.cadie-zhi image {
+  width: 296rpx;
+  height: 296rpx;
+}
+
+.image-zhi {
+  position: relative;
+  top: -200rpx;
+}
+
+.zhi-num {
+  font-size: 56rpx;
+  font-family: MiSans, MiSans;
+  font-weight: bold;
+  color: #E37009;
+  line-height: 74rpx;
+  text-align: center;
+  letter-spacing: 1px;
+  margin-top: -10rpx;
+}
+
+.zhi-text {
+  font-size: 16rpx;
+  font-family: PingFang-SC, PingFang-SC;
+  font-weight: bold;
+  color: #323232;
+  line-height: 22rpx;
+  margin-top: -10rpx;
+}
+
+.cadie-fen {
+  width: 184rpx;
+  height: 100rpx;
+  margin: -15rpx auto 20rpx;
+}
+
+.dang-info {
+  width: 506rpx;
+  height: 82rpx;
+  padding: 28rpx 38rpx 25rpx;
+  background: #F8FBFD;
+  border-radius: 24rpx;
+  border: 1rpx solid #DAE4FF;
+  margin: 30rpx auto 20rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.dang-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.dang-one {
+  display: flex;
+  align-items: center;
+}
+
+.dang-textinfo {
+  font-size: 22rpx;
+  font-family: SourceHanSansCN, SourceHanSansCN;
+  font-weight: bold;
+  color: #1D2658;
+  line-height: 34rpx;
+  margin-right: 20rpx;
+}
+
+.dang-textfen {
+  font-size: 20rpx;
+  font-family: SourceHanSansCN, SourceHanSansCN;
+  font-weight: 500;
+  color: #7E839C;
+  display: flex;
+  align-items: center;
+}
+
+.defen {
+  font-size: 32rpx;
+  font-family: SourceHanSansCN, SourceHanSansCN;
+  font-weight: 800;
+  color: #F36A04;
+}
+
+.defen-two {
+  font-size: 20rpx;
+  font-family: SourceHanSansCN, SourceHanSansCN;
+  font-weight: 500;
+  color: #7E839C;
+  margin-top: 4rpx;
+}
+
+.xian {
+  width: 1rpx;
+  height: 82rpx;
+  border: 1rpx solid;
+  border-image: linear-gradient(149deg, rgba(255, 255, 255, 0), rgba(218, 228, 255, 1), #ffffff00) 2 2;
+}
+
+.content-list {
+  width: 100%;
+  height: 100%;
+  background-color: #F3F4F6;
+}
+
+.content-box {
+  width: 686rpx;
+  background-color: #fff;
+  border-radius: 16rpx;
+  margin: 60rpx auto;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.bhi-text {
+  /* position: relative;
+  top: 0; */
+  padding: 0 35rpx;
+  /* transform: translateY(-920rpx); */
+}
+
+.text-one {
+  font-size: 44rpx;
+  font-family: SourceHanSansCN-Bold, SourceHanSansCN;
+  font-weight: bold;
+  color: #FFFFFF;
+  line-height: 66rpx;
+  text-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.text-two {
+  font-size: 28rpx;
+  font-family: SourceHanSansCN-Medium, SourceHanSansCN;
+  font-weight: 500;
+  color: #FFFFFF;
+  line-height: 42rpx;
+  text-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.text-three {
+  width: 374rpx;
+  font-size: 20rpx;
+  font-family: SourceHanSansCN-Normal, SourceHanSansCN;
+  font-weight: 400;
+  color: #FFFFFF;
+  line-height: 32rpx;
+  text-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.text-four {
+  padding: 20rpx 0;
+  font-size: 20rpx;
+  font-family: PingFangSC-Semibold, PingFang SC;
+  font-weight: 600;
+  color: #FFFFFF;
+  line-height: 28rpx;
+  text-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+.content-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 22rpx;
+  border-bottom: 1rpx solid rgba(0, 0, 0, 0.1);
+}
+
+.content-title-left {
+  display: flex;
+  align-items: center;
+
+}
+
+.content-title-left text {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #222222;
+  margin-left: 15rpx;
+}
+
+.icon-title {
+  width: 36rpx;
+  height: 36rpx;
+}
+
+.right-title {
+  width: 32rpx;
+  height: 32rpx;
+}
+
+.content-img {
+  width: 350rpx;
+  height: 362rpx;
+  display: flex;
+  justify-content: center;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  margin: 30rpx auto 0;
+}
+
+.cont-yuan {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.detail-box {
+  width: 140rpx;
+  height: 45rpx;
+  text-align: center;
+  line-height: 45rpx;
+  border-radius: 22rpx;
+  font-size: 24rpx;
+  color: #FFF;
+  margin-top: -10rpx;
+}
+
+.box-text {
+  font-size: 20rpx;
+  color: #555555;
+}
+
+.box-zhi {
+  font-size: 70rpx;
+  color: #000000;
+  font-weight: 800;
+  margin-top: -15rpx;
+}
+
+.text-info {
+  padding: 20rpx;
+}
+
+.info-title {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.bin {
+  width: 7rpx;
+  height: 20rpx;
+  background: linear-gradient(180deg, #4AA7FF 0%, #2075FF 100%);
+  border-radius: 4rpx;
+  margin-right: 10rpx;
+}
+
+.info-title text {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #545454;
+}
+
+.info-item {
+  width: 590rpx;
+  background: linear-gradient(180deg, #FAFFFF 0%, #FAFEFF 100%);
+  box-shadow: inset 0rpx 2rpx 6rpx 0rpx rgba(0, 0, 0, 0.05);
+  border-radius: 20rpx;
+  border: 2rpx solid #F1F6FC;
+  padding: 30rpx 20rpx;
+  margin: 20rpx auto 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.zhan {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-right: 20rpx;
+}
+
+.zhan image {
+  width: 144rpx;
+  height: 144rpx;
+  position: relative;
+}
+
+.zhan view {
+  position: absolute;
+  font-size: 28rpx;
+  font-family: SourceHanSansCN-Medium, SourceHanSansCN;
+  font-weight: 500;
+  color: #222222;
+  line-height: 42rpx;
+  text-align: center;
+  line-height: 144rpx;
+  width: 144rpx;
+}
+
+.zhan-content {
+  width: 400rpx;
+  font-size: 22rpx;
+  font-family: SourceHanSansCN-Regular, SourceHanSansCN;
+  font-weight: 400;
+  color: #666666;
+  line-height: 36rpx;
+}
+
+.names {
+  font-size: 32rpx;
+  font-family: SourceHanSansCN, SourceHanSansCN;
+  font-weight: 500;
+  color: #222222;
+  line-height: 48rpx;
+}
+
+.names-two {
+  font-size: 20rpx;
+  font-family: SourceHanSansCN, SourceHanSansCN;
+  font-weight: 400;
+  color: #666666;
+  line-height: 32rpx;
+  text-align: justify;
+}
+
+.cadie-footer {
+  width: 585rpx;
+  background: #F4F9FE;
+  border-radius: 16rpx;
+  margin: 0 auto;
+  font-size: 24rpx;
+  font-family: PingFang-SC, PingFang-SC;
+  font-weight: 400;
+  color: #6583A0;
+  line-height: 36rpx;
+  text-align: left;
+  padding: 20rpx 26rpx;
+  margin-top: 24rpx;
+}
+
+.footer-title {
+  font-size: 24rpx;
+  font-family: PingFang-SC, PingFang-SC;
+  font-weight: bold;
+  color: #6583A0;
+}
+
+.disContent {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.disContent image {
+  width: 272rpx;
+  height: 370rpx;
+  margin: 50rpx auto 0;
+}
+
+.disText {
+  width: 582rpx;
+  height: 94rpx;
+  background: #F8FBFD;
+  border-radius: 24rpx;
+  border: 1rpx solid #DAE4FF;
+  line-height: 94rpx;
+  text-align: justify;
+  margin: 34rpx auto;
+}

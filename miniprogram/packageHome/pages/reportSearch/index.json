@@ -1,0 +1,12 @@
+{
+  "navigationBarTitleText": "搜索报告",
+  "usingComponents": {
+    "van-dialog":"vant-weapp/dialog/index",
+    "navigationBar": "../../../components/reportNavigate/reportNavigate"
+  },
+  "navigationStyle": "custom",
+  "enablePullDownRefresh":true,
+  "backgroundTextStyle":"dark",
+  "backgroundColor":"#efefef"
+
+}

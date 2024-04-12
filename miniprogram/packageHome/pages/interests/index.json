@@ -1,0 +1,13 @@
+{
+  "component": true,
+  "usingComponents": {
+    "van-dialog":"vant-weapp/dialog/index",
+    "load": "../../../components/load/load",
+    "navigationBar": "../../../components/intereBar/intereBar",
+    "van-toast": "vant-weapp/toast/index"
+  },
+  "navigationBarTitleText": "权益列表",
+  "window": {
+    "onReachBottomDistance": 10
+  }
+}

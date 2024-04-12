@@ -1,0 +1,32 @@
+<view class="photo-content" style="background-image: url({{ossHttpUrl}}images/bg.png);">
+  <view class="video" wx:if="{{videoShow}}">
+    <video class="video-box" id="videoNumber" controls autoplay src="{{ossHttpUrl}}video/video.mp4">
+    </video>
+  </view>
+
+  <view wx:if="{{!videoShow}}" style="box-sizing: border-box;">
+    <view class="check-number" wx:if="{{show}}">
+      <view class="num-count"></view>
+      <view class="con-start" bindtap="countClick">
+        <image src="{{ossHttpUrl}}images/ready.png" width="235" height="90" />
+      </view>
+    </view>
+
+    <view class="bigDiv" wx:if="{{!show}}">
+      <view class="number-box">
+        <view class="numberlist-box">
+          <view wx:for="{{useNumberArr}}" wx:key="index" data-item="{{item}}" bindtap="clickNumberBtn" class="list-content {{item%2!==0 ?'even-bg': ''}}{{ item===''? 'ishidebg': ''}}">
+            <view wx:if="{{item !== ''}}">{{item + 1}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <view class="doctor" wx:if="{{doctorShow}}">
+      <view class="doctor-text">{{text}}</view>
+      <view class="doctor-bg">
+        <image src="{{ossHttpUrl}}images/doctor-left.png" />
+      </view>
+    </view>
+  </view>
+</view>

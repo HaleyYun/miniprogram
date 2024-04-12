@@ -1,0 +1,12 @@
+{
+  "navigationBarTitleText": "干预方案",
+  "usingComponents": {
+    "van-tab": "@vant/weapp/tab/index",
+    "van-tabs": "@vant/weapp/tabs/index",
+    "van-circle": "@vant/weapp/circle/index",
+    "ec-canvas": "../../ec-canvas/ec-canvas"
+  },
+  "window": {
+    "onReachBottomDistance": 10
+  }
+}

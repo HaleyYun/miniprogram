@@ -1,0 +1,43 @@
+{
+  "name": "miniprogram",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "build-dev": "cross-env NODE_ENV=develop webpack --config webpack.config.js",
+    "build:test": "cross-env NODE_ENV=trial webpack --config webpack.config.js",
+    "build:pro": "cross-env NODE_ENV=release webpack --config webpack.config.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@miniprogram-component-plus/col": "^1.0.0",
+    "@miniprogram-component-plus/emoji": "^1.0.1",
+    "@miniprogram-component-plus/index-list": "^1.0.0",
+    "@miniprogram-component-plus/row": "^1.0.0",
+    "@miniprogram-component-plus/select-text": "^1.0.1",
+    "@miniprogram-component-plus/sticky": "^1.0.0",
+    "@miniprogram-component-plus/tabs": "^1.0.0",
+    "@miniprogram-component-plus/video-swiper": "^1.0.1",
+    "@miniprogram-component-plus/vtabs": "^1.0.0",
+    "@miniprogram-component-plus/vtabs-content": "^1.0.0",
+    "@vant/weapp": "^1.11.0",
+    "miniprogram-barrage": "^1.1.0",
+    "miniprogram-ci": "^1.9.10",
+    "miniprogram-recycle-view": "^0.1.5",
+    "moment": "^2.29.4",
+    "vant-weapp": "^0.5.29",
+    "wxml-to-canvas": "^1.1.1"
+  },
+  "description": "",
+  "uploadKey": "/key/private.wx8e2f798e37243e6d.key",
+  "devDependencies": {
+    "@babel/core": "^7.22.20",
+    "@babel/preset-env": "^7.22.20",
+    "babel-loader": "^9.1.3",
+    "cross-env": "^7.0.3",
+    "webpack": "^5.88.2",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^4.15.1"
+  }
+}

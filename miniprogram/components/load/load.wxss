@@ -1,0 +1,71 @@
+/* loading */
+.load-box{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.LoadingImg{
+  width: 476rpx;
+  height: 376rpx;
+  margin-bottom: 18rpx;
+}
+.progress-box{
+  width: 608rpx;
+  height: 62rpx;
+  border-radius: 31rpx;
+  border: 2rpx solid #3378FF;
+  padding: 8rpx;
+  box-sizing: border-box;
+}
+.progress{
+  height: 42rpx;
+  border-radius: 21rpx;
+  overflow: hidden;
+}
+.progressImg{
+  width: 592rpx;
+  height: 42rpx;
+}
+.schedule{
+  font-size: 40rpx;
+  font-weight: 500;
+  color: #9EA1A7;
+  line-height: 56rpx;
+  margin-top: 16rpx;
+}
+.schedule-text{
+  font-size: 28rpx;
+  font-weight: 500;
+  color: #9EA1A7;
+  line-height: 40rpx;
+  margin-top: 16rpx;
+}
+/* noData */
+.noDataImg{
+  width: 546rpx;
+  height: 378rpx;
+}
+.noData-text{
+  width: 280rpx;
+  height: 40rpx;
+  font-size: 28rpx;
+  font-weight: 500;
+  color: #9EA1A7;
+  line-height: 40rpx;
+  margin-top: -98rpx;
+}
+/* failure */
+.failureImg{
+  width: 444rpx;
+  height: 222rpx;
+}
+.failure-text{
+  font-size: 28rpx;
+  font-weight: 500;
+  color: #9EA1A7;
+  line-height: 40rpx;
+  margin-top: 24rpx;
+}

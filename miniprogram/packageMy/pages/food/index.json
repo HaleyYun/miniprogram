@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "van-stepper":"vant-weapp/stepper/index",
+    "van-dialog":"vant-weapp/dialog/index"
+  },
+  "navigationBarTitleText": "食材大全"
+}

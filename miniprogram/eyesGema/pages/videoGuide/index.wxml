@@ -1,0 +1,4 @@
+<!--eyesGema/pages/videoGuide/index.wxml-->
+<view class="videoGuide">
+  <video controls="{{false}}" autoplay object-fit="fill" enable-progress-gesture="{{false}}" src="{{stepData.steps[0].elements[0].content}}" bindended="nextPage" />
+</view>

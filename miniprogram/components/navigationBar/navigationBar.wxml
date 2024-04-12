@@ -1,0 +1,8 @@
+<view class="nav-bar-page">
+  <view class="nav-bar" style="height:{{navBarHeight}}px; padding-top:{{navBarHeight-44}}px;">
+    {{title}}
+  </view>
+  <view style="height:calc(100% - {{navBarHeight}}px);padding-top: {{navBarHeight}}px; width: 100%;">
+    <slot name="contentMain"></slot>
+  </view>
+</view>

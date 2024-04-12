@@ -1,0 +1,16 @@
+<!--packageTrain/pages/exercise/index.wxml-->
+<view class="page">
+  <view class="load" wx:if="{{ list.length==0}}">
+    <load status="{{ loadStatus }}" schedule="{{ schedule }}"></load>
+  </view>
+  <view class="exercise" wx:for="{{list}}" wx:key="">
+    <image src="{{item.imageUrl}}" class="exercise-img" mode=""/>
+    <view class="exercise-content">
+      <view class="exercise-title">{{item.title}}</view>
+      <view class="exercise-description">{{item.description}}</view>
+      <view class="record-box">
+        <view class="record" data-id="{{item.knowledgeBaseId}}" data-title="{{item.title}}" bindtap="record">去记录</view>
+      </view>
+    </view>
+  </view>
+</view>

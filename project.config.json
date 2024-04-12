@@ -1,0 +1,35 @@
+{
+  "miniprogramRoot": "miniprogram/",
+  "compileType": "miniprogram",
+  "setting": {
+    "coverView": true,
+    "es6": true,
+    "postcss": true,
+    "minified": true,
+    "enhance": true,
+    "showShadowRootInWxmlPanel": true,
+    "packNpmManually": true,
+    "packNpmRelationList": [],
+    "NODE_ENV": "development",
+    "babelSetting": {
+      "ignore": [],
+      "disablePlugins": [],
+      "outputPath": ""
+    },
+    "condition": false,
+    "ignoreUploadUnusedFiles": true
+  },
+  "condition": {},
+  "editorSetting": {
+    "tabIndent": "insertSpaces",
+    "tabSize": 2
+  },
+  "libVersion": "2.31.1",
+  "packOptions": {
+    "ignore": [],
+    "include": []
+  },
+  "appid": "wx8e2f798e37243e6d",
+  "projectname": "%E8%84%91%E5%80%8D%E4%BD%B3",
+  "srcMiniprogramRoot": "miniprogram/"
+}

@@ -1,0 +1,7 @@
+{
+    "navigationBarTitleText": "脑倍佳",
+    "usingComponents": {
+      "van-dialog":"vant-weapp/dialog/index"
+    },
+    "navigationStyle": "custom"
+}

@@ -1,0 +1,128 @@
+<view class="page">
+  <van-dialog class="addinfodialog" use-slot show="{{ popup }}" showConfirmButton="{{false}}">
+    <view class="popup">
+      <view class="popup-title">退款确认</view>
+      <view class="popup-tag">套餐总金额为</view>
+      <view class="popup-amount">{{currentItem.money}}</view>
+      <view class="popup-instructions">退款申请提交后此订单会取消，该操作无法撤回，请您确认是否要对此订单申请退款。</view>
+      <view class="popup-annotation">注：提交申请后您将在48小时内收到退款</view>
+      <view class="popup-but">
+        <view class="popup-cancel" bindtap="cancel">取消</view>
+        <view class="popup-verify" bindtap="verify">确认</view>
+      </view>
+    </view>
+  </van-dialog>
+  <view class="contentTips" wx:if="{{isSupport}}"><view class="tips">{{checkService}}量表筛查终止，评估记录请在报告查询查看~</view></view>
+  <!-- 生成失败isFailure -->
+<view class="procedureEnd"  wx:if="{{isFailure}}">
+    <view class="err-box">
+    <image class="err-bj-i" src="https://zskjobject.oss-cn-beijing.aliyuncs.com/zskj_nbj_mini/img/failure3x.png" mode="" />
+    <image class="close"  data-phone="4000125600" src="https://zskjobject.oss-cn-beijing.aliyuncs.com/zskj_nbj_mini/img/service3x.png"  bind:tap="nextPage" mode="" />
+    <image class="anew" src="https://zskjobject.oss-cn-beijing.aliyuncs.com/zskj_nbj_mini/img/OK@3x.png"  bind:tap="changePage" mode="" />
+  </view>
+  </view>
+  <!-- 生成成功isSuccessful -->
+  <view class="procedureEnd"  wx:if="{{isSuccessful}}">
+    <view class="err-box">
+    <image class="err-bj-i" src="https://zskjobject.oss-cn-beijing.aliyuncs.com/zskj_nbj_mini/img/generated3x.png" mode="" />
+    <image class="closes"  src="https://zskjobject.oss-cn-beijing.aliyuncs.com/zskj_nbj_mini/img/OK@3x.png"  bind:tap="confirm" mode="" />
+    <image class="anews" src="https://zskjobject.oss-cn-beijing.aliyuncs.com/zskj_nbj_mini/img/train3x.png"  bind:tap="cancel" mode="" />
+  </view>
+  </view>
+  <view class="procedureEnd"  wx:if="{{isShowicon}}">
+    <view class="err-box">
+      <image class="box-icon" src="https://zskjobject.oss-cn-beijing.aliyuncs.com/zskj_nbj_mini/img/load3x.png" mode="" />
+      <view class="box-title">数据加载中</view>
+    </view>
+ 
+  </view>
+  <view class="home-bg"></view>
+  <view class="video-list">
+    <view class="title-list" scroll-x="true" :show-scrollbar="false">
+      <view class="scroll-view-item_H" bindtap="change" data-id="{{item.status}}" wx:for="{{artcileTypeList}}" wx:key="id">
+        <view class="tab">
+          <view class="{{item.status===indexId ? 'tab-text-active': 'tab-text'}}">{{item.categoryName}}</view>
+        </view>
+      </view>
+    </view>
+    <view class="isData" wx:if="{{artcileList.length==0}}">
+      <image class="noData" src="{{ossImg}}noDataImg.png"></image>
+    </view>
+    <!-- 状态( 1 待支付 2 待使用 3 已使用 4 待退款 5 已退款 6订单已关闭 9 使用中 10 退款失败)catchtap -->
+    <view class="videobig" wx:for="{{artcileList}}" data-item="{{item}}" data-id="{{item.id}}" wx:key="index" bindtap="detail">
+      <view class="article-icon" wx:if="{{item.status==1}}">
+        <image class="icon" src="{{ossImg}}paymentX.png"></image>
+        <view class="statusName">{{item.statusName}}
+          <view class="statusTimebg" wx:if="{{item.newData.minutes > 0}}">
+            <view class="statusTime">
+              <view class="waitTime">等待支付{{item.newData.minutes}}:{{item.newData.seconds}}</view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="article-icon" wx:if="{{item.status==2}}">
+        <image class="icon" src="{{ossImg}}waitingX.png"></image>
+        <view class="statusName">待使用
+        </view>
+      </view>
+      <view class="article-icon" wx:if="{{item.status==3}}">
+        <image class="icon" src="{{ossImg}}completeX.png"></image>
+        <view class="statusName">{{item.statusName}}</view>
+      </view>
+      <view class="article-icon" wx:if="{{item.status==4}}">
+        <image class="icon" src="{{ossImg}}refundX.png"></image>
+        <view class="statusName">{{item.statusName}}</view>
+      </view>
+      <view class="article-icon" wx:if="{{item.status==5}}">
+        <image class="icon" src="{{ossImg}}refundX.png"></image>
+        <view class="statusName">{{item.statusName}}</view>
+      </view>
+      <view class="article-icon" wx:if="{{item.status==6}}">
+        <image class="icon" src="{{ossImg}}cancelX.png"></image>
+        <view class="statusName">已取消</view>
+      </view>
+      <view class="article-icon" wx:if="{{item.status==9}}">
+        <image class="icon" src="{{ossImg}}serveX.png"></image>
+        <view class="statusName">{{item.statusName}}</view>
+      </view>
+      <view class="article-icon" wx:if="{{item.status==10}}">
+        <image class="icon" src="{{ossImg}}refundX.png"></image>
+        <view class="statusName">{{item.statusName}}</view>
+      </view>
+      <!-- 用户 -->
+      <view class="userName">{{item.clientName}}</view>
+      <view class="usePhone">联系方式：{{item.phone}}</view>
+      <view class="useOrder">服务单号：{{item.ticketsCode}}</view>
+      <view class="product">
+        <view>
+          <image class="productImg" src="{{item.product.mainPic}}"></image>
+        </view>
+
+        <view class="productRight">
+          <view class="productTitle">{{item.product.prodName}}</view>
+          <view class="productDec"> 描述{{item.product.prodDescribe }}</view>
+          <view class="productPrice"> ￥{{item.money }}</view>
+        </view>
+      </view>
+
+      <view class="prodPlace">
+        <view> 下单时间：</view>
+        <view class="prodContent">{{item.createTime}}</view>
+      </view>
+
+      <view class="allBtn">
+        <view class="customer" catchtap="call">联系客服</view>
+        <view class="payment" data-item="{{item}}" wx:if="{{item.status==1}}" catchtap="payment">去支付</view>
+        <view class="service" data-item="{{item}}" catchtap="use" wx:if="{{item.ticketsType==2 &&(item.status==2 ||item.status==9)}}">
+          <view wx:if="{{item.status==2 ||item.status==9}}">去使用</view>
+        </view>
+        <view class="payment" data-item="{{item}}" catchtap="refund" wx:if="{{item.status==2}}">
+          <view>申请退款</view>
+        </view>
+        <view class="service" data-item="{{item}}" catchtap="detail" wx:if="{{item.status==3 || item.status==4 || item.status==5 }}">查看详情</view>
+      </view>
+
+    </view>
+
+  </view>
+</view>

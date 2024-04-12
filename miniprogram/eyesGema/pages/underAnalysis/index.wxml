@@ -1,0 +1,5 @@
+<view class="underAnalysis">
+  <view class="text-box">
+    <text>{{stepData.steps[0].elements[0].content}}</text>
+  </view>
+</view>

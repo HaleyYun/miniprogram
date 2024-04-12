@@ -1,0 +1,11 @@
+<view class="box">
+  <view class="bookImg animate__bounceIn">
+    <image src="{{ossHttpUrl}}images/book1.png" />
+  </view>
+  <view class="doctor"> 
+    <view class="doctor-text">现在我们面前有一本相册，我们一共有两本相册；请注意，这是第一本，先来跟着我看看第一本相册里的6张照片。</view>
+    <view class="doctor-bg">
+      <image src="{{ossHttpUrl}}images/doctor-left.png" />
+    </view>
+  </view>
+</view>

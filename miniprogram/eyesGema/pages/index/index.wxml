@@ -1,0 +1,29 @@
+<!--eyesGema/index.wxml-->
+<view class="eyes-gema-page-index">
+  <view class="video-box">
+    <video id="myVideo" src="{{stepData.steps[0].elements[0].content || '#'}}" objectFit='cover' autoplay="{{true}}" show-center-play-btn="{{false}}" autoplay="{{true}}" initial-time="0" controls="{{false}}" play-btn-position="center" bindended="videoEnded"></video>
+    <!-- enable-progress-gesture="{{false}}" autoplay="{{true}}" loop="{{isLoop}}"  -->
+    <!-- 播放按钮 -->
+    <!-- wx:if="{{isPlay}}" -->
+    <cover-view class="model" wx:if="{{isPlay&&!errShow}}">
+      <cover-image bind:tap="relook" class='video-btn' src='{{ossImg}}video-playbg.png' />
+    </cover-view>
+    <image class="img-gif" src="{{imgGif}}" mode="" />
+  </view>
+  <!-- <video id="myVideo" src="{{stepData.steps[0].elements[0].content || '#'}}" autoplay="{{true}}" show-center-play-btn="{{false}}" autoplay="{{true}}" initial-time="0" controls="{{false}}" play-btn-position="center" bindended="videoEnded"></video>
+  <cover-view class="model" wx:if="{{isPlay}}">
+    <cover-image bind:tap="relook" class='video-btn' src='{{ossImg}}video-playbg.png' />
+  </cover-view> -->
+
+  <view class="schedule-box" wx:if="{{schedule != 100}}">
+    <view style="width:{{492 * preloadCount / preloadList.length}}rpx;"></view>
+    加载中…{{ schedule }}%
+  </view>
+  <image class="btn-img" wx:if="{{reloadShow && schedule == 100}}" src="https://neuroweave.oss-cn-hangzhou.aliyuncs.com/zskj-app-test/img/eyesgema/i-reload-bt.png" bind:tap="reload" mode="" />
+  <image class="btn-img" wx:if="{{!reloadShow && schedule == 100}}" src="https://neuroweave.oss-cn-hangzhou.aliyuncs.com/zskj-app-test/img/eyesgema/i-start-bt.png" bind:tap="nextPage" mode="" />
+  <view class="err-box" wx:if="{{errShow}}">
+    <image class="err-bj-i" src="https://zskjobject.oss-cn-beijing.aliyuncs.com/zskj_nbj_mini/img/abnormal3x.png" mode="" />
+    <image class="close" src="https://zskjobject.oss-cn-beijing.aliyuncs.com/zskj_nbj_mini/img/quit3x.png" bind:tap="changeErrShow" mode="" />
+    <image class="anew" src="https://zskjobject.oss-cn-beijing.aliyuncs.com/zskj_nbj_mini/img/anew3x.png" bind:tap="changeAnew" mode="" />
+  </view>
+</view>

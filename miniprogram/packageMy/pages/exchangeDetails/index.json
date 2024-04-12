@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "load": "../../../components/load/load"
+  },
+  "navigationBarTitleText": "兑换详情"
+}

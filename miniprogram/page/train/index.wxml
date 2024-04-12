@@ -1,0 +1,104 @@
+<view class="page">
+<view class="load" wx:if="{{ situation.length==0 }}">
+  <load status="{{ loadStatus }}" schedule="{{ schedule }}"></load>
+</view>
+  <view class="situation" wx:for="{{situation}}" wx:key="interventionOrderNumber">
+    <view class="name">
+      <view class="name-name">
+        <image src="{{item.interventionOrderStatus=='UN_APPROVAL'||item.interventionOrderStatus=='UN_START'?mildImg:normalImg}}" class="mild-image" mode="heightFix" />
+        <text class="name-text">{{item.customerName}}</text>
+      </view>
+      <view class="OpenClos" data-id="{{item.interventionOrderNumber}}" data-index="{{index}}" bindtap="packUp"  wx:if="{{item.interventionOrderStatus!='UN_APPROVAL'&&item.interventionOrderStatus!='UN_START' && item.turnUp}}">
+        收起
+        <image src="{{ossImg}}upup.png" class="updown" mode=""/>
+      </view>
+      <view class="OpenClos" data-id="{{item.interventionOrderNumber}}" data-index="{{index}}" bindtap="unfold" wx:if="{{!item.turnUp}}"  wx:if="{{item.interventionOrderStatus!='UN_APPROVAL'&&item.interventionOrderStatus!='UN_START' && !item.turnUp}}">
+        展开
+        <image src="{{ossImg}}downdown.png" class="updown" mode=""/>
+      </view>
+    </view>
+    <view class="situation-code {{item.interventionOrderStatus=='UN_APPROVAL'?'mild-codeBackgroundColor':''||item.interventionOrderStatus=='UN_START'?'mild-codeBackgroundColor':''||item.interventionOrderStatus=='TO_EXPIRED'?'normal-codeBackgroundColor':''||item.interventionOrderStatus=='TRAINING'?'normal-codeBackgroundColor':''||item.interventionOrderStatus=='EXPIRED'?'gray-codeBackgroundColor':''||item.interventionOrderStatus=='DEFAULT'?'normal-codeBackgroundColor':''}}">
+      <view class="code">
+        干预编号：{{item.interventionOrderNumber}}
+      </view>
+      <view class="state {{item.interventionOrderStatus=='UN_APPROVAL'?'mild-state':''||item.interventionOrderStatus=='UN_START'?'mild-state':''||item.interventionOrderStatus=='TO_EXPIRED'?'normal-state':''||item.interventionOrderStatus=='TRAINING'?'normal-state':''||item.interventionOrderStatus=='EXPIRED'?'gray-state':''||item.interventionOrderStatus=='DEFAULT'?'normal-state':''}}">
+        {{item.interventionOrderStatus=='UN_APPROVAL'?'待审核':''||item.interventionOrderStatus=='UN_START'?'待开始':''||item.interventionOrderStatus=='TO_EXPIRED'?'快到期':''||item.interventionOrderStatus=='TRAINING'?'训练中':''||item.interventionOrderStatus=='EXPIRED'?'已过期':''}}
+      </view>
+    </view>
+    <view class="situation-content {{item.interventionOrderStatus=='UN_APPROVAL'?'redbg':''||item.interventionOrderStatus=='UN_START'?'redbg':''||item.interventionOrderStatus=='TO_EXPIRED'?'bluebg':''||item.interventionOrderStatus=='TRAINING'?'bluebg':''||item.interventionOrderStatus=='EXPIRED'?'bluebg':''||item.interventionOrderStatus=='DEFAULT'?'bluebg':''}}">
+      <view class="period">
+        <view class="period-label">
+          干预周期(周)：
+        </view>
+        <view class="period-concrete">
+          {{item.interventionStart}}~{{item.interventionEnd}}
+        </view>
+      </view>
+      <view class="scheme">
+        <view class="scheme-label">
+          干预方案：
+        </view>
+        <view class="scheme-concrete">
+          {{item.interventionPlan}}
+        </view>
+      </view>
+      <view class="complete">
+        <view class="complete-label">
+          完成情况：
+        </view>
+        <view class="complete-concrete {{item.interventionOrderStatus=='UN_APPROVAL'?'normal-complete-color':''||item.interventionOrderStatus=='UN_START'?'normal-complete-color':''||item.interventionOrderStatus=='TO_EXPIRED'?'reduction':''||item.interventionOrderStatus=='TRAINING'?'reduction':''||item.interventionOrderStatus=='EXPIRED'?'reduction':''||item.interventionOrderStatus=='DEFAULT'?'reduction':''}}">
+          {{item.completedStatus}}
+        </view>
+      </view>
+    </view>
+    <view class="con" wx:if="{{item.turnUp}}">
+    <view class="intervention">
+      <view class="statistics-title">
+        干预方案
+      </view>
+      <view class="section">
+        <picker mode="selector"  value="{{index}}" range="{{weekList}}" range-key="weekName" bindchange="bindDateChange">
+          <view class="picker">
+            {{weekName}}<image src="{{ossImg}}pullDown.png" class="pullDown" mode=""/>
+          </view>
+        </picker>
+      </view>
+    </view>
+    <view class="option">
+      <van-tabs active="{{ active }}" bind:change="TabsChange">
+        <van-tab wx:for="{{ item.optionList}}" wx:key="id" title="{{item.title}}"></van-tab>
+      </van-tabs>
+    </view>
+    <view class="cognition">
+      <view class="cognition-title" wx:if="{{legType!='game'}}">
+        {{comboName}}
+      </view>
+      <view class="cognition-progress">
+        <van-circle 
+        value="{{ cognition.value }}" 
+        stroke-width="25" 
+        color="{{ cognition.gradientColor }}" 
+        size="120" 
+        text="{{state}}"
+        />
+        <!-- <view class="container">
+          <ec-canvas id="mychart-dom-gauge" canvas-id="mychart-gauge" ec="{{ ec }}" force-use-old-canvas="true"  class="{{dialog?'hidden':''}}"></ec-canvas>
+        </view> -->
+      </view>
+      <cover-view class="cognition-period">
+        {{startTime}}~{{endTime}}
+      </cover-view>
+      <view class="menu">
+        <view class="menu-column" wx:for="{{menuList}}" wx:key="index">
+          <view class="menu-name">{{item.name}}</view>
+          <view class="menu-count">{{item.count}}{{legType=='diet'?'份':''||legType=='sports'?'组':''||legType=='game'?'次':''}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  </view>
+
+  <view class="bottom"  wx:if="{{!doctor}}">
+    <image src="{{ossImg}}end.png" class="bottom-end" mode="" />
+  </view>
+</view>

@@ -1,0 +1,50 @@
+<view class="page">
+  <scroll-view class="scroll-box" scroll-y>
+    <view class="page">
+      <view class="search">
+        <view class="search-input">
+          <image src="{{ossImg}}search.png" class="search-image" />
+          <input class="input" type="text" model:value="{{equity}}" placeholder="请输入权益名称" bind:input="changeInput" />
+        </view>
+      </view>
+      <view class="load" wx:if="{{ setMeal.length==0 }}">
+        <load status="{{ loadStatus }}" schedule="{{ schedule }}"></load>
+      </view>
+      <view class="setMeal" wx:for="{{setMeal}}" wx:key="equityId" bindtap="goDetail" data-item="{{item}}">
+        <view class="setMeal-title" style="background-image: url({{ossImg}}hexiao-headerlan.png);background-size: 100% 100%;">
+          <view class="setName">{{item.equityName}}</view>
+          <view class="setdes">{{item.productResponse.prodDescribe}}</view>
+          <view class="jiao" style="background-image: url({{xians}});background-size: 100% 100%;">
+            {{'线上'}}
+          </view>
+        </view>
+        <view class="setContent">
+          <view class="intitle">
+            <view class="introduce">
+              <view class="lable">筛查次数：<text class="period">{{item.checkCount}}次</text></view>
+            </view>
+            <view class="price">
+              {{item.productResponse.prodPrice}}
+            </view>
+          </view>
+          <view class="intitle">
+            <view class="introduce">
+              <view class="lable">关联产品：</view>
+              <view class="period">{{item.productResponse.prodName}}产品</view>
+            </view>
+          </view>
+          <view class="inth">
+            <view class="inth-state">总发放数量:</view>
+            <view class="period">{{item.releaseCount}}</view>
+          </view>
+          <view class="int-time">
+            <view class="lable">有效期：<text class="period">{{item.validity}}天</text></view>
+          </view>
+        </view>
+        <view class="operation" data-item="{{item}}" catchtap="use">
+          生成海报
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+</view>

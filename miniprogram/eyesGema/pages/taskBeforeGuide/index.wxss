@@ -1,0 +1,51 @@
+/* eyesGema/pages/taskBeforeGuide/index.wxss */
+.people-correct-page {
+  width: 100vw;
+  height: 100vh;
+  background-image: url(https://zskjobject.oss-cn-beijing.aliyuncs.com/zskj_nbj_mini/games/images/tip-bg.png);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: 0 0;
+}
+
+.box-content{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.text-box {
+  width: 630rpx;
+  height: 300rpx;
+  font-size: 60rpx;
+  font-family: SourceHanSansCN, SourceHanSansCN;
+  font-weight: bold;
+  color: #7D4E1F;
+  line-height: 100rpx;
+  margin: 380rpx auto 50rpx;
+  text-align: center;
+}
+
+.timing-box {
+  width: 218rpx;
+  height: 216rpx;
+  background-image: url(https://neuroweave.oss-cn-hangzhou.aliyuncs.com/zskj-app-test/img/eyesgema/timing-bj.png);
+  background-size: 100%;
+  font-size: 120rpx;
+  line-height: 216rpx;
+  color: #FFFFFF;
+  text-align: center;
+  font-weight: bold;
+  position: absolute;
+  top: 750rpx;
+}
+
+image {
+  width: 412rpx;
+  height: 148rpx;
+  position: absolute;
+  bottom: 250rpx;
+  left: 50%;
+  transform: translateX(-50%);
+}

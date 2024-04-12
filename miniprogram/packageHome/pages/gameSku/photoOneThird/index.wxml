@@ -1,0 +1,20 @@
+<view class="photo-content" style="background-image: url({{ossHttpUrl}}images/bg.png);">
+  <view class="bigDiv">
+    <view class="picture animate__animated animate__fadeInRight" wx:if="{{show}}">
+      <view class="ph-picturebg" wx:for="{{imgList}}" wx:key="index" >
+        <image src="{{item.url}}" class="pic" />
+      </view>
+    </view>
+    <view class="picture animate__animated animate__flipInY" wx:if="{{!show}}">
+      <view class="ph-picture" style="background-image: url({{ossHttpUrl}}images/picture.png);" wx:for="{{picArr}}" wx:key="index" >
+        <image src="{{item.url}}" class="pic" />
+      </view>
+    </view>
+  </view>
+  <view class="doctor">
+    <view class="doctor-text">{{text}}</view>
+    <view class="doctor-bg">
+      <image src="{{ossHttpUrl}}images/doctor-left.png" />
+    </view>
+  </view>
+</view>

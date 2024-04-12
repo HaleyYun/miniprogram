@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "干预记录",
+  "usingComponents": {
+    "van-dialog":"vant-weapp/dialog/index",
+    "load": "../../../components/load/load"
+  }
+}

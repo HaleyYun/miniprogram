@@ -1,0 +1,55 @@
+<view class="photo-content" style="background-image: url({{ossHttpUrl}}images/bg.png);">
+  <view class="bigDiv animate__animated animate__fadeInRight">
+    <view class="picture">
+      <view class="ph-picture" style="background-image: url({{ossHttpUrl}}images/picture.png);" wx:if="{{showPicArr.url}}">
+        <image src="{{showPicArr.url}}" />
+      </view>
+    </view>
+
+    <view class="picture fix animate__animated animate__fadeOutBottomLeft animate__infinite" wx:if="{{anmiationLeft}}">
+      <view class="ph-picture" style="background-image: url({{ossHttpUrl}}images/picture.png);" style="background-image: url({{ossHttpUrl}}images/picture.png);" wx:if="{{showPicArr.url}}">
+        <image src="{{showPicArr.url}}" />
+      </view>
+    </view>
+
+    <view class="picture fix_right animate__animated animate__fadeOutBottomRight animate__infinite" wx:if="{{anmiationRight}}">
+      <view class="ph-picture" style="background-image: url({{ossHttpUrl}}images/picture.png);" wx:if="{{showPicArr.url}}">
+        <image src="{{showPicArr.url}}" />
+      </view>
+    </view>
+
+    <view class="open" wx:if="{{showBtn}}">
+      <button class="open-one" style="background:none;" disabled="{{disabled}}" data-check="1" bindtap="openBook">
+        <image src="{{bookOneSrc}}" />
+      </button>
+      <button class="open-two" style="background:none;" disabled="{{disabled}}" data-check="2" bindtap="openBook">
+        <image src="{{bookTwoSrc}}" />
+      </button>
+    </view>
+
+  </view>
+  <view class="doctor">
+    <view class="doctor-text">{{showText}}</view>
+    <view class="doctor-bg" bindtap="touch">
+      <image src="{{ossHttpUrl}}images/doctor-left.png" />
+      <!-- <view class="hand animate__animated animate__bounceIn animate__infinite" wx:if="{{show}}" bindtap="touch">
+        <image src="{{ossHttpUrl}}images/hand.png" />
+      </view> -->
+    </view>
+  </view>
+  <!-- <view class="procedureEnd" wx:if="{{isModel}}">
+    <view class="popup-box">
+      <view class="title-name">提示</view>
+      <view class="popup-content">您本次筛查服务已完成，可前往报告解读查看您的评估结果~</view>
+      <button class="out-home" bind:tap="nextPage" data-type="1">回首页</button>
+      <button class="go-details" bind:tap="nextPage" data-type="2">看报告</button>
+    </view>
+  </view> -->
+  <view class="procedureEnd"  wx:if="{{isModel}}">
+    <view class="err-box">
+    <image class="err-bj-i" src="https://zskjobject.oss-cn-beijing.aliyuncs.com/zskj_nbj_mini/img/complete3x.png" mode="" />
+    <image class="close" src="https://zskjobject.oss-cn-beijing.aliyuncs.com/zskj_nbj_mini/img/Home3x.png" data-type="1" bind:tap="nextPage" mode="" />
+    <image class="anew" src="https://zskjobject.oss-cn-beijing.aliyuncs.com/zskj_nbj_mini/img/details3x.png" data-type="2" bind:tap="nextPage" mode="" />
+  </view>
+  </view>
+</view>

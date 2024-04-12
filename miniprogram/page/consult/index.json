@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "load": "../../../components/load/load"
+  },
+  "navigationStyle": "custom",
+  "window": {
+    "onReachBottomDistance": 10
+  }
+}

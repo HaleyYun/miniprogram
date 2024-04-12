@@ -1,0 +1,7 @@
+<!--eyesGema/pages/albumEnd/index.wxml-->
+<view class="albumEnd">
+  <view class="text-box">
+    {{stepData.steps[0].elements[0].content}}
+  </view>
+  <image src="https://neuroweave.oss-cn-hangzhou.aliyuncs.com/zskj-app-test/img/eyesgema/next.png" bind:tap="nextPage" mode=""/>
+</view>

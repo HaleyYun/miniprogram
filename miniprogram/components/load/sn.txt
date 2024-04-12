@@ -1,0 +1,49 @@
+*****  wxml  list.length==0 列表无数据不显示  *****
+<view class="load" wx:if="{{ list.length==0 }}">
+  <load status="{{ loadStatus }}" schedule="{{ schedule }}"></load>
+</view>
+
+
+*****  wxss  根据页面设置 margin-top: 多少vh;  *****
+.load{
+  height: 582rpx;
+  width: 100%;
+  margin-top: vh;
+}
+
+
+*****  js  *****
+data: {
+  loadStatus:'loading', //loading-加载中,noData-无数据,failure-加载失败,
+  schedule:0, //加载中进度
+},
+
+  api.request.then(res=>{
+    if (res.code==200) { //接口正常
+      if (res.data.total==0) { //无数据
+        this.setData({
+          loadStatus:'noData',
+          list:[]
+        })
+      } else { //正常逻辑
+        if (res.data.data.length<10) {
+          this.setData({
+            status:false
+          })
+        } else {
+          this.setData({
+            status:true
+          })
+        }
+        let arr = this.data.list.concat(res.data.data)
+        this.setData({
+          list:arr,
+        })
+      }
+    } else { //接口报错
+      this.setData({
+        loadStatus:'failure',
+        list:[]
+      })
+    }
+  })

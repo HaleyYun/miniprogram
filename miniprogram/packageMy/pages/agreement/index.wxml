@@ -1,0 +1,8 @@
+<view class="page">
+  <view class="title">
+    <rich-text nodes="{{conment}}"></rich-text>
+  </view>
+  <view class="btn" bindtap="goBack">
+    <button>我已了解</button>
+  </view>
+</view>

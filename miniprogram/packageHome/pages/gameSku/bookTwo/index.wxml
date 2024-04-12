@@ -1,0 +1,11 @@
+<view class="box">
+  <view class="bookImg animate__bounceIn">
+    <image src="{{ossHttpUrl}}images/book2.png" />
+  </view>
+  <view class="doctor"> 
+    <view class="doctor-text">这是第二本相册</view>
+    <view class="doctor-bg">
+      <image src="{{ossHttpUrl}}images/doctor-left.png" />
+    </view>
+  </view>
+</view>

@@ -1,0 +1,42 @@
+<view class="photo-content" style="background-image: url({{ossHttpUrl}}images/bg.png);">
+  <view class="bigDiv animate__animated animate__fadeInRight">
+    <view class="picture">
+      <view class="ph-picture" style="background-image: url({{ossHttpUrl}}images/picture.png);" wx:if="{{showPicArr.url}}">
+        <image src="{{showPicArr.url}}" />
+      </view>
+    </view>
+
+    <view class="picture fix animate__animated animate__fadeOutBottomLeft animate__infinite" wx:if="{{anmiationLeft}}">
+      <view class="ph-picture" style="background-image: url({{ossHttpUrl}}images/picture.png);" style="background-image: url({{ossHttpUrl}}images/picture.png);" wx:if="{{showPicArr.url}}">
+        <image src="{{showPicArr.url}}" />
+      </view>
+    </view>
+
+    <view class="picture fix_right animate__animated animate__fadeOutBottomRight animate__infinite" wx:if="{{anmiationRight}}">
+      <view class="ph-picture" style="background-image: url({{ossHttpUrl}}images/picture.png);" wx:if="{{showPicArr.url}}">
+        <image src="{{showPicArr.url}}" />
+      </view>
+    </view>
+
+    <view class="btn" wx:if="{{showBtn}}">
+      <button style="border:0;background:none;" disabled="{{disabled}}" class="btn-yes animate__animated {{yespulse}} animate__infinite" data-check="yes" bindtap="checkBtn">
+        <image src="{{ossHttpUrl}}images/yes.png" />
+      </button>
+      <button style="border:0;background:none;" disabled="{{disabled}}" class="btn-no animate__animated {{nopulse}} animate__infinite" data-check="no" bindtap="checkBtn">
+        <image src="{{ossHttpUrl}}images/no.png" />
+      </button>
+    </view>
+
+
+  </view>
+
+  <view class="doctor">
+    <view class="doctor-text">{{text}}</view>
+    <view class="doctor-bg" bindtap="touch">
+      <image src="{{ossHttpUrl}}images/doctor-left.png" />
+      <!-- <view class="hand animate__animated animate__bounceIn animate__infinite" wx:if="{{show}}" bindtap="touch">
+        <image src="{{ossHttpUrl}}images/hand.png" />
+      </view> -->
+    </view>
+  </view>
+</view>

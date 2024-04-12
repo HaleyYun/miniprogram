@@ -1,0 +1,305 @@
+/* packageHome/pages/orderDetails/index.wxss */
+.page{
+  background: #F3F4F6;
+}
+.state{
+  height: 128rpx;
+  padding: 36rpx;
+  box-sizing: border-box;
+  background-color: white;
+  display: flex;
+  align-items: center;
+}
+.warn{
+  font-size: 20rpx;
+  font-weight: 400;
+  color: #FF0101;
+}
+.van-step__title view:nth-child(1){
+  font-size: 28rpx;
+  font-weight: bold;
+  line-height: 40rpx;
+}
+.van-step__title view:nth-child(2){
+  font-size: 24rpx;
+  font-weight: 400;
+  line-height: 34rpx;
+  color: #818899;
+}
+.van-icon{
+  background-color: #3476ff !important;
+  border-radius: 50%;
+  width: 24rpx !important;
+  height: 24rpx !important;
+}
+.van-step__circle{
+  background-color: #C9C9C9 !important;
+  border-radius: 50%;
+  width: 24rpx !important;
+  height: 24rpx !important;
+}
+.van-step__line{
+  background-color: #EBEBEB !important;
+}
+.state-image{
+ width: 72rpx;
+ height: 72rpx;
+}
+.state text{
+  font-size: 40rpx;
+  font-family: PingFang-SC-Bold, PingFang-SC;
+  font-weight: bold;
+  color: #222222;
+  margin-left: 20rpx;
+}
+.list{
+  padding: 28rpx 32rpx 16rpx;
+  font-size: 28rpx;
+  font-family: PingFang-SC-Bold, PingFang-SC;
+  font-weight: bold;
+  color: #222222;
+}
+.information-name{
+  font-size: 32rpx;
+  font-family: PingFang-SC-Bold, PingFang-SC;
+  font-weight: bold;
+  color: #222222;
+  margin-bottom: 20rpx;
+}
+.phone{
+  margin-left: 20rpx;
+}
+.card-card{
+  width: 638rpx;
+  height: 194rpx;
+  background: #F6F6F6;
+  border-radius: 16rpx;
+  display: flex;
+  padding: 16rpx;
+  box-sizing: border-box;
+  justify-content: space-between;
+}
+.card-image{
+  width: 160rpx;
+  height: 160rpx;
+  border-radius: 16rpx;
+}
+.card-content{
+  width: 430rpx;
+}
+.card-title{
+  font-size: 28rpx;
+  font-weight: bold;
+  color: #222222;
+  -webkit-line-clamp: 1;				/* 文本位置只保留两行 */
+  text-overflow: ellipsis;			/* 溢出文本省略号代替 */
+  display: -webkit-box;				/*  */
+  -webkit-box-orient: vertical;		/*  */
+  overflow: hidden;					/* 溢出隐藏 */
+}
+.card-introduce{
+  height: 70rpx;
+  font-size: 16rpx;
+  font-weight: bold;
+  color: #222222;
+  -webkit-line-clamp: 3;				/* 文本位置只保留两行 */
+  text-overflow: ellipsis;			/* 溢出文本省略号代替 */
+  display: -webkit-box;				/*  */
+  -webkit-box-orient: vertical;		/*  */
+  overflow: hidden;					/* 溢出隐藏 */
+}
+.price{
+  font-size: 40rpx;
+  font-family: Oswald-Medium, Oswald;
+  font-weight: bold;
+  color: #222222;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+.addressLabel{
+  font-size: 22rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #7D7D7D;
+  line-height: 32rpx;
+}
+.address{
+  font-size: 24rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #222222;
+}
+.consultation{
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20rpx;
+}
+.consultation-button{
+  width: 220rpx;
+  height: 68rpx;
+  background-color: #F3F4F6;
+  border-radius: 34rpx;
+  font-size: 28rpx;
+  font-family: PingFang-SC-Bold, PingFang-SC;
+  font-weight: bold;
+  color: #222222;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.phone-image{
+  width: 28rpx;
+  height: 28rpx;
+}
+.card{
+  width: 686rpx;
+  background: #FFFFFF;
+  border-radius: 16rpx;
+  margin: 0 auto;
+  padding: 24rpx;
+  box-sizing: border-box;
+}
+.order-details view{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10rpx;
+}
+.order-option{
+  font-size: 22rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #808080;
+}
+.order-content{
+  font-size: 22rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #222222;
+}
+.amount{
+  border-top: 1rpx solid #97979731;
+  margin-top: 20rpx;
+}
+.amount view{
+  display: flex;
+  justify-content: space-between;
+  padding-top: 20rpx;
+}
+.amount-option{
+  font-size: 22rpx;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #222222;
+}
+.amount-discount{
+  font-size: 24rpx;
+  font-family: Oswald-Medium, Oswald;
+  font-weight: 400;
+  color: #222222;
+}
+.amount-discountprice{
+  font-size: 34rpx;
+  font-family: Oswald-Medium, Oswald;
+  color: #FB2F25;
+  font-weight: bold;
+}
+.amount-discountprices{
+  font-size: 34rpx;
+  font-family: Oswald-Medium, Oswald;
+  color: #FB2F25;
+  font-weight: bold;
+}
+
+.amount-total{
+  font-size: 32rpx;
+  font-family: Oswald-Medium, Oswald;
+  font-weight: bold;
+  color: #222222;
+}
+.amount-total::before{
+  content: '¥';
+  font-size: 32rpx;
+  font-family: PingFang-SC-Bold, PingFang-SC;
+  font-weight: bold;
+  color: #222222;
+}
+.mount-discount{
+  font-size: 34rpx;
+  font-family: Oswald-Medium, Oswald;
+  font-weight: bold;
+  color: #FB2F25;
+}
+.mount-discount::before{
+  font-size: 34rpx;
+  font-family: PingFang-SC-Bold, PingFang-SC;
+  font-weight: bold;
+  color: #FB2F25;
+}
+.amount-actual{
+  font-size: 34rpx;
+  font-family: Oswald-Medium, Oswald;
+  font-weight: bold;
+  color: #FB2F25;
+}
+.amount-actual::before{
+  content: '¥';
+  font-size: 34rpx;
+  font-family: PingFang-SC-Bold, PingFang-SC;
+  font-weight: bold;
+  color: #FB2F25;
+}
+.thod{
+  height: 300rpx;
+}
+.method{
+  width: 686rpx;
+  background: #FFFFFF;
+  border-radius: 16rpx;
+  margin:  20rpx auto;
+  padding: 30rpx;
+  box-sizing: border-box;
+}
+.method-title{
+  font-size: 32rpx;
+  font-family: PingFang-SC-Bold, PingFang-SC;
+  font-weight: bold;
+  color: #222222;
+  margin-bottom: 10rpx;
+}
+.method-list{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 40rpx;
+}
+.method-mode{
+  display: flex;
+  align-items: center;
+  color:#333;
+}
+.method-icon{
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 10rpx;
+}
+.tick{
+  display: flex;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+}
+.tick-deactive{
+  width: 34rpx;
+  height: 34rpx;
+  border: 2rpx solid gray;
+}
+.tick-active{
+  width: 36rpx;
+  height: 36rpx;
+  background-color: #FF5A00;
+}
+.tick-image{
+  width: 22rpx;
+  height: 22rpx;
+}

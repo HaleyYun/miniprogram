@@ -1,0 +1,64 @@
+<!--packageHome/pages/detail/index.wxml-->
+<view class="page">
+  <van-dialog
+  class="addinfodialog"
+  use-slot
+  show="{{ addInfoShow }}"
+  showConfirmButton="{{false}}"
+  width='582rpx'
+>
+  <image src="{{ossImg}}addforbtn.png" class="addinfobg"/>
+  <view class="addinfobut-box">
+    <image src="{{ossImg}}addinfobtn.png" bindtap="toAddinfo" class="addinfobut" mode=""/>
+  </view>
+  <view class="deleteicon">
+    <image src="{{ossImg}}deleteIcon.png" bindtap="deleteinfo" class="deleteItem" mode=""/>
+  </view>
+</van-dialog>
+  <view class="introduce">
+    <swiper class="swiper" bindchange="bindchange">
+      <block wx:for="{{swiperImg}}" wx:key="*this">
+        <swiper-item>
+          <image src="{{item}}" class="swiper-image"  mode="widthFix"/>
+        </swiper-item>
+      </block>
+    </swiper>
+    <view class="indicator">
+      <view class="indicate">{{index}}/{{swiperImg.length}}</view>
+    </view>
+    <view class="bookmark">
+      <view>
+        <view class="price">
+          {{price}}
+        </view>
+        <!-- <view class="volume">
+          已售{{sold}}
+        </view> -->
+      </view>
+      <view class="name">
+        {{introduction}}
+      </view>
+    </view>
+  </view>
+
+  <view class="detailPic-box">
+    <view class="detailtitle">
+      <view class="barre"></view>
+      <view class="word">商品详情</view>
+      <view class="barre"></view>
+    </view>
+    <image mode='widthFix' src="{{detailPic}}" class="detailPic" />
+  </view>
+  <view class="purchase">
+    <view bindtap="call" wx:if="{{type==1 || type==3}}">
+      <image src="{{ossImg}}contact.png" class="contact" mode=""/>
+      <view class="service" >联系客服</view>
+    </view>
+    <view class="purchase-button" wx:if="{{type==1 || type==3}}" bindtap="gopayment">
+      立即购买
+    </view>
+    <view class="purchase-ment" wx:if="{{type==2}}" bindtap="getAppointment">
+      立即预约
+    </view>
+  </view>
+</view>

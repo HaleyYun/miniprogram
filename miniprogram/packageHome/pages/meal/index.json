@@ -1,0 +1,11 @@
+{
+  "usingComponents": {
+    "van-dialog":"vant-weapp/dialog/index"
+  },
+  "window": {
+    "onReachBottomDistance": 10
+  },
+  
+   "navigationBarTitleText": "我的订单"
+  
+}

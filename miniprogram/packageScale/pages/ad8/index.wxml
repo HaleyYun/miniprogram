@@ -1,0 +1,25 @@
+<view class="ad8-index-c">
+  <image class="out-btn" bind:tap="outPage" style="top:{{outBtntop}}px" src="https://zskjobject.oss-cn-beijing.aliyuncs.com/zskj_nbj_mini/img/scale/ad8/out.png" mode="" />
+  <view class="ad8-title">早期失智筛查量表AD-8</view>
+  <view class="ad8-content" wx:for="{{scaleData}}" wx:key="index" wx:if="{{scaleIndex === index}}">
+    <text>第{{index + 1}}题（单选）</text>
+    <text>共{{scaleData.length}}题</text>
+    <view class="ad8-content-text">{{item.content}}</view>
+    <video id="myVideo" class="ad8-content-v" src="{{item.appletVoicePath}}" show-fullscreen-btn="{{false}}" show-bottom-progress="{{false}}" play-btn-position="center" autoplay="{{true}}" object-fit="{{'cover'}}" enable-progress-gesture="{{false}}"></video>
+    <view class="ad8-content-i" bind:tap="selectScaleItem" data-index="{{index}}" data-index_c="{{index_c}}" wx:for="{{item.children}}" wx:for-item="item_c" wx:for-index="index_c" wx:key="index_c">{{item_c.content}}</view>
+  </view>
+  <view class="mask-box" wx:if="{{maskStatus}}">
+    <view class="mask-box-content" wx:if="{{maskStatus === 'ok'}}">
+      <image bind:tap="nextPage" data-type="1" src="https://zskjobject.oss-cn-beijing.aliyuncs.com/zskj_nbj_mini/img/scale/ad8/out_home.png" mode="" />
+      <image bind:tap="nextPage" data-type="2" src="https://zskjobject.oss-cn-beijing.aliyuncs.com/zskj_nbj_mini/img/scale/ad8/look_d.png" mode="" />
+    </view>
+    <view class="mask-box-content mask-box-content-e" wx:if="{{maskStatus === 'tip'}}">
+      <image bind:tap="nextPage" data-type="3" src="https://zskjobject.oss-cn-beijing.aliyuncs.com/zskj_nbj_mini/img/scale/ad8/ad8_tip_e_continue.png" mode="" />
+      <image bind:tap="nextPage" data-type="4" src="https://zskjobject.oss-cn-beijing.aliyuncs.com/zskj_nbj_mini/img/scale/ad8/ad8_tip_e_e.png" mode="" />
+      <image bind:tap="nextPage" data-type="5" src="https://zskjobject.oss-cn-beijing.aliyuncs.com/zskj_nbj_mini/img/scale/ad8/ad8_tip_e_out.png" mode="" />
+    </view>
+  </view>
+  <view class="loading-mask" wx:if="{{loadingMaskStatus}}">
+    <van-loading type="spinner" color="#1989fa" size="54px" />
+  </view>
+</view>

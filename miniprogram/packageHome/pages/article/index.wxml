@@ -1,0 +1,44 @@
+<view class="page" wx:if="{{allInfo.articleMold==1}}">
+  <view class="top">
+    <view class="top-l">
+      <!-- <image  class="img" src="{{allInfo.articleSourceUrl}}"></image> -->
+      <view class="cont">
+        <view class="souce">{{allInfo.articleSource}}</view>
+        <view class="time">{{allInfo.releaseTime}} 发布</view>
+      </view>
+    </view>
+    <view class="read">阅读:{{allInfo.playbackNum>999?'999+':allInfo.playbackNum}}</view>
+  </view>
+  <view class="title">{{allInfo.theme}}</view>
+  <view class="rich-content">
+    <rich-text nodes="{{allInfo.contentDetails}}"></rich-text>
+  </view>
+</view>
+<view class="reverse" wx:if="{{allInfo.articleMold==2}}">
+  <video class="video" id="video" src="{{allInfo.videoUrl}}" controls="{{false}}" autoplay="{{true}}" show-center-play-btn="{{false}}" object-fit="{{'contain'}}" bind:tap="playPause" bindtimeupdate="timeupdate" bindloadedmetadata="loadedmetadata" bindended="ended" />
+  <view class="video-msg">
+    <view class="video-content z-index">
+      <view class="video-articleSource">{{allInfo.articleSource}}
+        <image class="playnum-img" src="{{ossImg}}playbackNum.png" mode="" />
+        <text class="playnum-text">{{allInfo.playbackNum}}播放量</text>
+      </view>
+      <view class="video-theme">{{allInfo.theme}}</view>
+      <view class="{{!unpack?'video-contentDetails':'video-contentDetails height0'}}">{{allInfo.contentDetails}}</view>
+      <view class="{{!unpack?'video-unpack height0':'video-unpack'}}">
+        <view class="{{!unpack?'unpack-t':'unpack-b'}}" bind:tap="unpack">{{unpack?'展开':'收起'}}</view>
+      </view>
+      <view class="video-releaseTime">{{allInfo.releaseTime}}</view>
+      <view class="controls">
+        <image class="playPause" bind:tap="playPause" src="{{!playPause?ossImg+'playicon.png':ossImg+'pauseicon.png'}}" mode="" />
+        <view class="schedule">
+          <view class="time">{{scheduleHMS}}</view>
+          <view class="progressbar">
+            <view class="progress" style="width: {{(schedule/duration*100)+'%'}};"></view>
+            <view class="ball"></view>
+          </view>
+          <view class="time">{{durationHMS}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

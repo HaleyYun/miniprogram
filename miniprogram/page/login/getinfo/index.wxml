@@ -1,0 +1,10 @@
+<view class="page">
+    <view class="logo"><image src="../../../image/icobg.png" class="img"></image></view>
+
+    <view class="login">
+      <button class="btn" disabled="{{disabled}}" wx:if="{{canIUse}}" open-type="getUserInfo"  bindgetuserinfo="bindGetUserInfo">授权登录</button>
+      <view wx:else>请升级微信版本</view>
+    </view>
+
+    <view class="bottom"><image src="{{ossImg}}botbg.png" class="botimg"></image></view>
+</view>

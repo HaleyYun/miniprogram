@@ -1,0 +1,171 @@
+<!-- <navigationBar path="/page/home/index"> -->
+<!-- 这个地方为啥要用插槽 -->
+  <!-- <view class="page" slot="contentMain" style="width: 100%;height: 100%;"> -->
+    <view class="page" style="width: 100%;height: 100%;" >
+      <image class="out-btn" bind:tap="outPage" style="top:{{outBtntop}}px" src="https://zskjobject.oss-cn-beijing.aliyuncs.com/zskj_nbj_mini/img/scale/ad8/out.png" mode="" />
+    <!-- <image src="{{ossImg}}reportBg3x.png" class="addinfobg" /> -->
+    <view class="reportTitle" style="top:{{outBtntop}}px">报告列表</view>
+    <scroll-view class="scroll-box" scroll-y>
+   
+      <view>
+        <view class="bhi-search">
+          <view class="search">
+            <view class="search-box" bindtap="search">
+              <image class="search-icon" src="{{ossImg}}viewSee3x.png" ></image>
+              <input class="search-input" placeholder-class="placeholderStyle"  bindconfirm="bindconfirm"   placeholder="搜索报告名称" />
+            </view>
+          </view>
+        </view>
+        <view class="userBg">
+          <view class="userName">
+            <view class="Name">{{data.name}}</view>
+            <view class="Time">{{nowTime}}</view>
+          </view>
+          <view class="userTips">
+            <view class="glideIcon">
+              <image class="glideIcon" src="{{ossImg}}glide3x.png" mode="" />
+            </view>
+            <view class="tittle">下划查看所有已评估列表吧！</view>
+          </view>
+          <view class="userContent">
+            <view class="quantity">
+              <view class="evaluated">
+                <view class="figure">{{data.evaluatedNum}}</view>
+                <view class="evaluatedColor">
+                  <view class="fontStyle evaluatedfont">已评估</view>
+                </view>
+              </view>
+              <view class="analysis">
+                <view class="figure">{{data.analysisNum}}</view>
+                <view class="evaluatedColor">
+                  <view class="fontStyle analysisfont">分析中</view>
+                </view>
+              </view>
+              <view class="lose">
+                <view class="figure">{{data.failNum}}</view>
+                <view class="evaluatedColor">
+                  <view class="fontStyle losesfont">失败</view>
+                </view>
+              </view>
+            </view>
+            <view class="reveal">
+              <view class="revealA" wx:if="{{data.bhi}}" bindtap="godetails">
+                <view class="revealHealth">综合脑健康指数</view>
+                <view class="revealExponent">
+                  <view class="revealScore">{{data.bhi}}</view>
+                  <image class="revealSrc" src="{{ossImg}}RightSlide3x.png" />
+                </view>
+              </view>
+              <view class="revealA" wx:if="{{data.score}}" bindtap="goCaide">
+                <view class="revealHealth">CAIDE指数</view>
+                <view class="revealExponent">
+                  <view class="revealScore">{{data.score}}</view>
+                  <image class="revealSrc" src="{{ossImg}}RightSlide3x.png" />
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+
+
+        <view class="liang" wx:if="{{data}}">
+          <view class="liang-icon"></view>已评估量表
+        </view>
+        <scroll-view scroll-x="true" class="scroll-view_H">
+          <view wx:for="{{typeList}}" wx:key="index" data-value="{{item.dictValue}}" bindtap="tabToggle" class="scroll-view-item_H">
+            <view class="tab">
+              <view class="{{acquiesce==item.dictValue?'tab-text-active':'tab-text'}}">{{item.dictLabel}}</view>
+            </view>
+          </view>
+        </scroll-view>
+    <view class="load" wx:if="{{ isShow===true  ? overList.length==0 : dataList.length==0 }}">
+      <image src="{{ossImg}}noData3x.png" class="reminder" mode=""/>
+      <view class="coupon">暂无评估报告</view>
+        </view>
+        <view class="data-item" wx:for="{{ isShow==true ? overList : dataList }}" wx:for-item="item" wx:key="index">
+          <view class="data-title">
+            <view class="data-info">
+              <view class="bhi-topItem">
+                <view class="bhi-img" >
+                  <view class="bhi-code">{{item.estimateServeCode}}</view>
+                </view>
+                <view class="bhi-leftItem">
+                  <view class="bhi-serveName">{{item.estimateServeName}}</view>
+                  <view class="bhi-custom">
+                    <!-- <image class="customSrc" src="{{ossImg}}mark3x.png" /> -->
+                    <view>{{item.customOrigin}}</view>
+                  </view>
+                  <view class="bhi-time">
+                    <!-- <image class="timeSrc" src="{{ossImg}}alarm3x.png" /> estimateTime-->
+                    <view>{{item.estimateTime}}</view>
+                  </view>
+                </view>
+              </view>
+            </view>
+            <view class="data-state" style="background: #EFF0FD;color: #3476FF;" wx:if="{{item.status == 1}}">评估中</view>
+            <view class="data-state" style="background: #FF9B34;color: #ffffff;" wx:if="{{item.status == 2}}">分析中</view>
+            <view class="data-state" style="background: #3476FF;;color: #ffffff;" wx:if="{{item.status == 3}}">已评估</view>
+            <view class="data-state" style="background: #FF3434;;color: #ffffff;" wx:if="{{item.status == 4}}">失败</view>
+            <view class="data-state" style="background: #8C8C8C;;color: #ffffff;" wx:if="{{item.status == 5}}">无法作答</view>
+            <view class="data-state" style="background: #3476FF;;color: #ffffff;" wx:if="{{item.status == 9}}">已评估</view>
+          </view>
+        
+          <scroll-view scroll-x="true" class="data-reveal">
+      
+            <view class="{{ (item.riskLabel > 0 && item.riskLabel2 > 0 && item.riskLabel3 > 0) ? 'reveal-nameB' : 'reveal-name'}}">
+              
+              <view class="reveal-val" wx:for="{{item.riskLabelList}}" wx:key="index" wx:for-item="val">
+                <view class="reveal-content">{{val.name}}</view>
+
+                <image class="img-label" wx:if="{{item.estimateServeCode === 'EDB-AD-LIET' || item.estimateServeCode === 'SMALL-GAME' || item.estimateServeCode ==='EDB-AD' || item.estimateServeCode ==='YY0001'}}" src="{{defaultLabelImg[item.riskLabel]}}" mode="heightFix" />
+                <image class="img-label" wx:if="{{item.estimateServeCode === 'MoCA' || item.estimateServeCode === 'MMSE'}}" src="{{riskLabelImg[item.riskLabel]}}" mode="heightFix" />
+                <image class="img-label" wx:if="{{item.estimateServeCode === 'AD-8' || item.estimateServeCode === 'AD-8-LIET'}}" src="{{adRiskLabelImg[item.riskLabel]}}" mode="heightFix" />
+                <image class="img-label" wx:if="{{item.estimateServeCode === 'HAMA'}}" src="{{hAMAriskLabelImg[item.riskLabel]}}" mode="heightFix" />
+                <image class="img-label" src="{{hAMDriskLabelImg[item.riskLabel]}}" wx:if="{{item.estimateServeCode === 'HAMD-24'}}" mode="heightFix" />
+                <image class="img-label" src="{{aDLriskLabelImg[item.riskLabel]}}" wx:if="{{item.estimateServeCode === 'ADL'}}" mode="heightFix" />
+                <image class="img-label" src="{{jlRiskLabelImg[val.riskLabel]}}" wx:if="{{item.estimateServeCode === 'HADS' && val.riskLabel>=0}}" mode="heightFix" />
+                <image class="img-label" src="{{yyRiskLabelImg[val.riskLabel2]}}" wx:if="{{item.estimateServeCode === 'HADS' && val.riskLabel2>=0}}" mode="heightFix" />
+                <image class="img-label" src="{{fAQRiskLabelImg[item.riskLabel]}}" wx:if="{{item.estimateServeCode === 'FAQ'}}" mode="heightFix" />
+                <image class="img-label" src="{{pHQRiskLabelImg[item.riskLabel]}}" wx:if="{{item.estimateServeCode === 'PHQ-9'}}" mode="heightFix" />
+                <image class="img-label" src="{{gADRiskLabelImg[item.riskLabel]}}" wx:if="{{item.estimateServeCode === 'GAD-7'}}" mode="heightFix" />
+                <image class="img-label" src="{{nPIRiskLabelImg[item.riskLabel]}}" wx:if="{{item.estimateServeCode === 'NPI-Q'}}" mode="heightFix" />
+                <image class="img-label" src="{{miniCogRiskLabelImg[item.riskLabel]}}" wx:if="{{item.estimateServeCode === 'Mini-cog'}}" mode="heightFix" />
+                <image class="img-label" src="{{cFTRiskLabelImg[val.riskLabel]}}" wx:if="{{item.estimateServeCode === 'CFT' && val.riskLabel>=0}}" mode="heightFix" />
+                <image class="img-label" src="{{cFTRiskLabelImg[val.riskLabel2]}}" wx:if="{{item.estimateServeCode === 'CFT' && val.riskLabel2>=0}}" mode="heightFix" />
+                <image class="img-label" src="{{cFTRiskLabelImg[val.riskLabel3]}}" wx:if="{{item.estimateServeCode === 'CFT' && val.riskLabel3>=0}}" mode="heightFix" />
+                <image class="img-label" src="{{nINDSCSNRiskLabelImg[item.riskLabel]}}" wx:if="{{item.estimateServeCode === 'NINDS-CSN'}}" mode="heightFix" />
+                <image class="img-label" src="{{dSRiskLabelImg[val.riskLabel]}}" wx:if="{{item.estimateServeCode === 'DS' && val.riskLabel>=0}}" mode="heightFix" />
+                <image class="img-label" src="{{dSRiskLabelImg[val.riskLabel2]}}" wx:if="{{item.estimateServeCode === 'DS' && val.riskLabel2>=0}}" mode="heightFix" />
+
+              </view>
+              <view class="reveal-val">
+                <view class="reveal-content">评估员</view>
+                <text class="reveal-contentName">{{item.assessor==null?'--':item.assessor}}</text>
+              </view>
+            </view>
+
+
+          </scroll-view>
+          <view class="data-content"  >
+               <!-- <image src="{{ossImg}}btn3x.png" class="addinfobg" /> -->
+            <!-- ststus= 1-评估中，2-数据解析中，3-评估完成，4评估失败 -->
+            <!-- type= 1-游戏，2-量表，3-眼动，4-抑郁' -->
+            <!-- userSource= 'APPLET'-小程序，'PAD'-pad端 -->
+              <!-- <image src="{{ossImg}}btn3x.png" class="addinfobg" /> -->
+            <button   class="btn btn-one" wx:if="{{item.status==3 && item.userSource=='APPLET'}}" data-index="1" data-item="{{item}}" bindtap="goReport">查看报告</button>
+            <button class="btn btn-one" wx:if="{{item.status==9 && item.userSource=='APPLET'}}" data-index="1" data-item="{{item}}" bindtap="goReport">查看报告</button>
+            <button class="btn btn-two" wx:if="{{(item.status==1 || item.status==2 || item.status==9) && item.userSource=='APPLET'}}" disabled="true" bindtap="goReport">查看报告</button>
+          
+            <button class="btn btn-three" wx:if="{{item.status==4 && item.userSource=='APPLET'&&item.type==3}}" data-index="2" data-item="{{item}}" bindtap="goReport">重新评估</button>
+            <button class="btn btn-three" wx:if="{{item.status==4 && item.type==3 && item.userSource=='PAD'}}" data-index="2" data-item="{{item}}" disabled="true" bindtap="goReport">联系客服 4000125600</button>
+            <button class="btn btn-three" wx:if="{{item.status==5}}" data-index="2" data-item="{{item}}" catchtap="call">联系客服 4000125600</button>
+            <button class="btn btn-one" wx:if="{{ item.status==3 && item.userSource=='PAD'}}" data-index="3" data-item="{{item}}" bindtap="goReport">查看报告</button>
+             <button class="btn btn-one"  wx:if="{{item.status==9 && item.userSource=='APPLET'}}" data-index="1" data-item="{{item}}" bindtap="goReport">查看报告</button>
+             <button class="btn btn-three" wx:if="{{item.status==4  && item.type==4  && item.userSource=='PAD'}}" data-index="2" data-item="{{item}}" disabled="true" catchtap="call">联系客服 4000125600</button>
+             
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+<!-- </navigationBar> -->

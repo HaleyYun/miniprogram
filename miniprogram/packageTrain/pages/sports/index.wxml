@@ -1,0 +1,52 @@
+<view class="page">
+<!-- <video src="{{videoUrl}}" id="video" controls="{{true}}" show-play-btn="{{true}}" autoplay="{{true}}" show-center-play-btn="{{false}}" bindended="videoEnd" bindloadedmetadata="videoData" bindtimeupdate="duration"/> -->
+  <view class="video-box">
+    <t-video 
+    id="video" 
+    src="{{videoUrl}}" 
+    style="width: 694rpx;height: 400rpx;" 
+    controls="{{true}}"
+    enable_danmu="{{true}}"
+    show_fullscreen_btn="{{true}}" 
+    show_progress="{{true}}" 
+    autoplay="{{true}}"
+    bindEnded="videoEnd" 
+    bindLoadedmetadata="videoData" 
+    bindTimeupdate="duration"/>
+  </view>
+  <view class="sportsData" style="background: url({{ossImg}}motion-video-bg.png) no-repeat center center; background-size: cover;">
+      <view class="sportsData-title">
+        <image src="{{ossImg}}dataPoint.png" class="dataPoint" mode=""/>
+        当日运动数据
+      </view>
+      <view class="sportsData-list">
+        <view class="sportsData-each" wx:for="{{sportsDataList}}" wx:key="id">
+          <text class="sportsData-quantity">{{item.quantity}}</text>
+          <text class="sportsData-option">{{item.option}}</text>
+        </view>
+      </view>
+  </view>
+  <view class="training-title">{{title}}</view>
+  <view class="training" wx:for="{{training}}" wx:key="videoUrl" data-videourl="{{item.videoUrl}}" data-index="{{index}}" bindtap="startTraining">
+    <view class="training-card {{item.videoUrl==videoUrl?'training-card-border':''}}" >
+      <video src="{{item.videoUrl}}"  controls="{{false}}" show-play-btn="{{false}}" initial-time="0.1" show-center-play-btn="{{false}}" class="training-image"/>
+      <view class="training-content">
+        <view class="training-content-project">{{item.videoDesc}}</view>
+        <!-- <view class="training-content-label"> -->
+          <!-- <text class="training-content-tag group">{{item.videoDesc}}</text> -->
+          <!-- <text class="training-content-tag stretch">{{item.stretch}}</text>
+          <text class="training-content-tag healthy">{{item.healthy}}</text> -->
+        <!-- </view> -->
+        <view class="training-content-article">
+          {{item.urlDesc}}
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="box"></view>
+  <!-- <view class="start-box">
+    <view class="start" bindtap="startTraining">
+      播放视频
+    </view>
+  </view> -->
+</view>

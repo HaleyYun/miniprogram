@@ -1,0 +1,155 @@
+.photo-content {
+  width: 100%;
+  min-height: 812rpx;
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+.top {
+  width: 100%;
+  height: 90rpx;
+  display: flex;
+  padding: 20rpx;
+}
+
+.top-back {
+  width: 40rpx;
+  height: 40rpx;
+  background-size: 20rpx 36rpx;
+  background-repeat: no-repeat;
+}
+
+.top-text {
+  margin: auto;
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #333;
+}
+
+.picture {
+  height: auto;
+  display: flex;
+  align-content: center;
+  flex-wrap: wrap;
+  padding: 20rpx 50rpx;
+}
+
+.ph-picture {
+  width: 48%;
+  height: 320rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-repeat: no-repeat;
+  position: relative;
+  background-size: 100% 100%;
+}
+
+
+.desk {
+  width: 87%;
+  height: 284rpx;
+  background-color: none;
+  position: absolute;
+  top: 12rpx;
+  left: 6%;
+  z-index: 9;
+  opacity: 0.5;
+}
+
+.picture-all {
+  width: 100%;
+  height: auto;
+  margin-top: 40rpx;
+}
+
+.all-picture {
+  margin: auto;
+  width: 50%;
+  height: 360rpx;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+.pic {
+  width: 220rpx;
+  height: 220rpx;
+  position: absolute;
+}
+
+.doctor {
+  display: flex;
+  margin-top: 100rpx;
+}
+
+.doctor-bg {
+  width: 98%;
+  height: 320rpx;
+}
+
+.doctor-bg image {
+  margin-top: 30rpx;
+  width: 212rpx;
+  height: 312rpx;
+}
+
+.doctor-text {
+  height: 190rpx;
+  border-radius: 50rpx;
+  margin-top: 100rpx;
+  margin-left: 30rpx;
+  padding: 24rpx;
+  text-align: left;
+  background: linear-gradient(133deg, #FFF7EA 0%, #FFF7EA 100%);
+  box-shadow: 0px 4rpx 6rpx 0 rgba(0, 0, 0, 0.12), inset 0px -6rpx 6rpx 2rpx #E1CEBB;
+  border: 6rpx solid #968273;
+  font-size: 32rpx;
+  color: #7D4742;
+  line-height: 44rpx;
+  letter-spacing: 2rpx;
+  position: relative;
+  z-index: 0;
+}
+
+.doctor-text:before {
+  border-style: solid;
+  border-width: 20rpx 0 20rpx 20rpx;
+  border-color: transparent transparent transparent #FFF7EA;
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: -16rpx;
+  margin-top: -18rpx;
+  display: block;
+  width: 0;
+  height: 0;
+  z-index: 0;
+}
+
+.doctor-text:after {
+  border-style: solid;
+  border-width: 22rpx 0 22rpx 22rpx;
+  border-color: transparent transparent transparent #968273;
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: -24rpx;
+  margin-top: -20rpx;
+  display: block;
+  width: 0;
+  height: 0;
+  z-index: -1;
+}
+
+.fadeInRight {
+  -webkit-animation-name: fadeInRight;
+  animation-name: fadeInRight;
+  animation-iteration-count: 1;
+  -webkit-animation-iteration-count: 1;
+}
+
+.bigDiv {
+  width: 100%;
+  position: relative;
+  top: 160rpx;
+}

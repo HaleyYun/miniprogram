@@ -1,0 +1,78 @@
+<view class="page">
+  <view class="search">
+    <view class="search-box">
+      <image class="search-icon" src="{{ossImg}}search.png" bindtap="search"></image>
+      <input class="search-input" placeholder-class="placeholderStyle" model:value="{{search}}" bindblur="search" placeholder="搜索机构名称关键词"/>
+    </view>
+    <view class="choose-address">
+      <view class="textOne">{{address[0]}}{{address[1]==''?'':'/'}}{{address[1]}}{{address[2]==''?'':'/'}}{{address[2]}}</view>
+      <view class="choose" bindtap="choose">筛选</view>
+    </view>
+  </view>
+  <view class="load" wx:if="{{ list.length==0 }}">
+    <load status="{{loadStatus}}" schedule="{{schedule}}"></load>
+  </view>
+  <view class="list">
+    <view class="list-one" wx:for="{{list}}" wx:key="organizationId">
+      <view class="topbg-box"><image class="topbg" src="{{item.theme}}"></image></view>
+      <view class="lis-cont">
+        <view class="distanced">
+          <view class="count">
+            <view class="blue-box">{{item.score}}</view>
+          </view>
+          <view class="distance">距离{{item.distance}}km</view>
+        </view>
+        <view class="cont-title">{{item.organName}}</view>
+        <view class="tags-list">
+          <view class="tags-org" wx:for="{{item.label}}" wx:key="*this">{{item}}</view>
+        </view>
+        <view class="cont-remark top20">
+            <view class="label">机构描述：</view>
+            <view class="remarks">{{item.description}}</view>
+        </view>
+        <view class="cont-remark">
+            <view class="label">服务时间：</view>
+            <view class="time">
+            上午{{item.amTime}},
+            下午{{item.pmTime}}
+            </view>
+        </view>
+        <view class="cont-remark height100">
+            <view class="label">服务地址：</view>
+            <view class="address">{{item.address}}</view>
+        </view>
+        <view class="bot top20">
+          <view class="phone">
+            <image class="phonebg" src="{{ossImg}}phone.png"></image>
+            <view class="phone-text" bindtap="tel" data-phone="{{item.phone}}">电话咨询</view>
+          </view>
+          <view class="btn" data-id="{{item.organNum}}" bindtap="checkOne" wx:if="{{url!=''?false:true}}">选择机构</view>
+        </view>
+      </view>
+    </view>
+  </view>
+    <view class="botttom" wx:if="{{list.length!=0}}">
+      <image class="botbg" src="{{ossImg}}bottom.png"></image>
+    </view>
+
+
+    <view class="desk" hidden="{{show}}">
+      <view class="addressBox">
+        <view class="top">
+          <view bindtap="close">取消</view>
+          <view bindtap="sure">确定</view>
+        </view>
+        <view class="country">
+          <view class="province">
+            <view class="p-list" wx:for="{{provinceList}}" wx:key="code" data-item="{{item}}" bindtap="province">{{item.label}}</view>
+          </view>
+          <view class="province">
+            <view class="p-list" wx:for="{{cityList}}" wx:key="code" data-item="{{item}}" bindtap="city">{{item.label}}</view>
+          </view>
+          <view class="province">
+            <view class="p-list" wx:for="{{areaList}}" wx:key="code" data-item="{{item}}" bindtap="area">{{item.label}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>

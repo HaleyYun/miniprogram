@@ -1,0 +1,4 @@
+<!--eyesGema/pages/albumContent/index.wxml-->
+<view wx:for="{{images}}" wx:key="index" style="z-index: {{images.length - index}};" wx:if="{{index >= stepShowIndex}}" class="albumContent {{index === stepIndex-1 ? 'animation-c' : ''}}">
+  <image wx:for="{{item}}" wx:for-item="val" wx:for-index='i' wx:key="i" src="{{val.content}}" style="top: {{val.y}}rpx;left: {{val.x}}rpx; width: {{val.imageSize}}rpx;" mode="aspectFit" />
+</view>

@@ -1,0 +1,15 @@
+<!--eyesGema/pages/eyesGame/index.wxml-->
+<view class="eyesGame">
+  <camera id="camera" bindinitdone="changeStepNew" class="camera" style="width: {{width}}px; height: {{height}}px;" device-position="front" flash="off" resolution="low" frame-size="{{frameSize}}"></camera>
+
+  <!-- <view style="width:750rpx;text-align:center;font-size:red;font-size:20px;font-weight:900;position: fixed;top:120px;left:10%;z-index:999;">{{endVideoTimeStampNew}}</view> -->
+
+  <view class="loading-mask" wx:if="{{stepNum === 4}}">
+    <van-loading type="spinner" color="#1989fa" size="54px" />
+    <!-- <image src="https://zskjobject.oss-cn-beijing.aliyuncs.com/zskj_nbj_mini/games/images/game-loading.png" mode="" /> -->
+  </view>
+  <view class="schedule-box" wx:if="{{stepNum === 1}}">{{stepDataIndex + 1 +"/" + stepData.length}}</view>
+  <image class="position-c" src="{{stepData[stepDataIndex].center.content}}" style="width:{{stepData[stepDataIndex].center.size}}rpx;height: {{stepData[stepDataIndex].center.size}}rpx;left:{{stepData[stepDataIndex].center.x}}rpx;top:{{stepData[stepDataIndex].center.y}}rpx;" mode="" wx:if="{{stepNum === 2}}" />
+  <image class="position-c" src="{{stepData[stepDataIndex].pointAction.brownPoint.content}}" style="width:{{stepData[stepDataIndex].pointAction.brownPoint.pointSize}}rpx;height:{{stepData[stepDataIndex].pointAction.brownPoint.pointSize}}rpx;left:{{stepData[stepDataIndex].pointAction.brownPoint.x}}rpx;top:{{stepData[stepDataIndex].pointAction.brownPoint.y}}rpx;" mode="" wx:if="{{stepNum === 3}}" />
+  <image class="position-c" src="{{stepData[stepDataIndex].pointAction.redPoint.content}}" style="width:{{stepData[stepDataIndex].pointAction.redPoint.pointSize}}rpx;height:{{stepData[stepDataIndex].pointAction.redPoint.pointSize}}rpx;left:{{stepData[stepDataIndex].pointAction.redPoint.x}}rpx;top:{{stepData[stepDataIndex].pointAction.redPoint.y}}rpx;" mode="" wx:if="{{stepNum === 3}}" />
+</view>

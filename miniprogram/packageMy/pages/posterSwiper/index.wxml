@@ -1,0 +1,25 @@
+<view class="page" style="background: {{noSwiper?'#101010af':'#F9F9F9'}};">
+  <view wx:if="{{!noSwiper}}" class="noSwiper">
+    <image src="{{ossImg}}noSwiper-bg.png" wx:if="{{!noSwiper}}" />
+    <view class="noText" wx:if="{{!noSwiper}}">暂无海报模版配置</view>
+  </view>
+  <view wx:else>
+    <view class="btn" wx:if="{{imgArr.length>=1}}">
+      <view bindtap="prevSwiper" name="arrow-left" class="arrow-right" color="#c09d75" wx:if="{{currentIndex}}">
+        <image src="{{ossImg}}swiper-right.png" class="img-left"/>
+      </view>
+      <view bindtap="nextSwiper" name="arrow" class="arrow-left" color="#c09d75" wx:if="{{imgArr.length>1}}">
+        <image src="{{ossImg}}swiper-right.png" />
+      </view>
+    </view>
+    <swiper current="{{currentIndex}}" class="swiper-container" circular layout-type="transformer" transformer-type="deepthPage" bindchange="changeIndex" indicator-color='rgba(255,255,255,1)' indicator-active-color="#3476FF">
+      <swiper-item class="swiper-box" wx:for="{{imgArr}}" wx:key="*this" catchtouchmove="stopTouchMove">
+        <image class="img" src="data:image/png;base64,{{item}}" mode="scaleToFill" />
+      </swiper-item>
+    </swiper>
+    <view class="btn-box" bindtap="saveImage">
+      <image src="{{ossImg}}baocun-icon.png" />
+      <view class="btn-text">保存到本地</view>
+    </view>
+  </view>
+</view>

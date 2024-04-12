@@ -1,0 +1,9 @@
+<!--eyesGema/pages/albumOne/index.wxml-->
+<view>
+  <navigationBar title="脑健康体检">
+    <view slot="contentMain" style="width: 100%;height: 100%;" class="album-one">
+      <view class="text-box">{{stepData.steps[0].elements[0].content}}</view>
+      <view class="countdown-box" wx:if="{{countdownStatus}}">{{countdownNum}}</view>
+    </view>
+  </navigationBar>
+</view>

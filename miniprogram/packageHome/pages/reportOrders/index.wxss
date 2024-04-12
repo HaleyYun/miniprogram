@@ -1,0 +1,319 @@
+.page {
+  width: 100%;
+  background: #F3F4F6;
+}
+
+.box-bg {
+  width: 100%;
+  height: 704rpx;
+}
+.box-content{
+  width: 100%;
+  height: 100%;
+  background: #F3F4F6;
+  padding-bottom: 320rpx;
+}
+.content {
+  width: 710rpx;
+  margin: 0 auto;
+  transform: translateY(-520rpx);
+  z-index: 9;
+}
+
+.top-cont {
+  width: 710rpx;
+  height: 1366rpx;
+}
+
+.times {
+  width: 184rpx;
+  height: 66rpx;
+  font-size: 66rpx;
+  font-family: SourceHanSansCN, SourceHanSansCN;
+  color: #EE2319;
+  transform: translateY(25rpx);
+  margin-left: 40rpx;
+  font-weight: bolder;
+}
+
+.cont-pic {
+  display: flex;
+  flex-direction: column;
+  transform: translateY(675rpx);
+  margin-left: 170rpx;
+}
+
+.pic-text {
+  display: flex;
+  align-items: center;
+}
+
+.pic-textO {
+  font-size: 46rpx;
+  font-family: SourceHanSansCN, SourceHanSansCN;
+  font-weight: bold;
+  color: #FFFFFF;
+  text-shadow: 0px 4px 8px rgba(0, 0, 0, 0.21);
+}
+
+.pic-new {
+  font-size: 42rpx;
+  font-family: SourceHanSansCN, SourceHanSansCN;
+  font-weight: 800;
+  color: #FFFFFF;
+  text-shadow: 0px 4px 6px rgba(0, 0, 0, 0.15);
+  margin-left: 40rpx;
+}
+
+.pic-textT {
+  font-size: 22rpx;
+  font-family: SourceHanSansCN, SourceHanSansCN;
+  font-weight: 500;
+  color: #FFFFFF;
+  text-shadow: 0px 4px 8px rgba(0, 0, 0, 0.21);
+}
+
+.pic-old {
+  font-size: 28rpx;
+  font-family: SourceHanSansCN, SourceHanSansCN;
+  font-weight: 500;
+  color: #FFFFFF;
+  margin-left: 80rpx;
+  text-decoration: line-through;
+}
+
+.lock-number {
+  font-size: 46rpx;
+  font-family: SourceHanSansCN, SourceHanSansCN;
+  font-weight: bold;
+  color: #3D6287;
+  transform: translateY(900rpx);
+  margin-left: 130rpx;
+}
+
+.amount-pic {
+  transform: translateY(970rpx);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.amount-top {
+  width: 85%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.mount-textO {
+  font-size: 28rpx;
+  font-family: PingFangSC, PingFang SC;
+  font-weight: 400;
+  color: #111111;
+}
+
+.amount-picO {
+  font-size: 28rpx;
+  font-family: SourceHanSansCN, SourceHanSansCN;
+  font-weight: 800;
+  color: #EE2319;
+}
+
+.amount-textT {
+  font-size: 32rpx;
+  font-family: PingFang-SC, PingFang-SC;
+  font-weight: bold;
+  color: #222222;
+}
+
+.amount-picT {
+  font-size: 34rpx;
+  font-family: SourceHanSansCN, SourceHanSansCN;
+  font-weight: 800;
+  color: #EE2319;
+}
+
+
+
+.middel-cont {
+  width: 710rpx;
+  height: 326rpx;
+  margin-top: 22rpx;
+}
+
+.bottom-cont {
+  width: 710rpx;
+  height: 326rpx;
+  margin-top: 14rpx;
+}
+.bottom-cont image {
+  width: 242rpx;
+  height: 242rpx;
+  margin: 50rpx 0 0 30rpx;
+}
+
+.box-btn {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 200rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background: #FFFFFF;
+  box-shadow: 0rpx 0rpx 6rpx 0rpx rgba(0, 0, 0, 0.15);
+}
+
+.btn-one {
+  width: 302rpx;
+  height: 104rpx;
+  background: linear-gradient(142deg, #FFFFFF 0%, #FFFCED 100%);
+  box-shadow: inset 0rpx 2rpx 6rpx 8rpx rgba(255, 254, 236, 0.5);
+  border-radius: 52rpx;
+  border: 3rpx solid;
+  border-image: radial-gradient(circle, rgba(248, 73, 54, 1), rgba(254, 129, 123, 1)) 52rpx 3;
+  text-align: center;
+  line-height: 50rpx;
+  font-size: 30rpx;
+  font-family: SourceHanSansCN, SourceHanSansCN;
+  font-weight: bold;
+  color: #EE1919;
+  margin: 0;
+}
+
+.sharText {
+  font-size: 30rpx;
+  font-family: SourceHanSansCN, SourceHanSansCN;
+  font-weight: bold;
+  color: #EE1919;
+  margin-top: 8rpx;
+}
+
+.sharNum {
+  font-size: 24rpx;
+  font-family: SourceHanSansCN, SourceHanSansCN;
+  font-weight: 500;
+  color: #EE1919;
+  margin-top: -10rpx;
+}
+
+.btn-two {
+  width: 360rpx;
+  height: 108rpx;
+}
+
+
+
+
+
+.model {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(16, 16, 16, 0.69);
+  z-index: 9999;
+}
+
+.model-success {
+  width: 602rpx;
+  height: 660rpx;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  position: absolute;
+  top: 250rpx;
+  left: 65rpx;
+}
+
+.title {
+  margin: 30rpx auto;
+  text-align: center;
+  font-size: 36rpx;
+  font-family: PingFang-SC, PingFang-SC;
+  font-weight: bold;
+  color: #222222;
+  line-height: 50rpx;
+}
+
+.model-content {
+  font-size: 36rpx;
+  font-family: PingFang-SC, PingFang-SC;
+  font-weight: bold;
+  color: #222222;
+  text-align: center;
+}
+
+.btn-box {
+  display: flex;
+  justify-content: center;
+  margin-top: 385rpx;
+  padding: 0 20rpx;
+}
+
+.clean {
+  width: 246rpx;
+  height: 72rpx;
+  background: #FFFFFF;
+  border-radius: 16rpx;
+  border: 2rpx solid #3476FF;
+  line-height: 76rpx;
+  text-align: center;
+  font-size: 28rpx;
+  font-family: PingFang-SC, PingFang-SC;
+  font-weight: bold;
+  color: #3476FF;
+}
+
+.confim {
+  width: 246rpx;
+  height: 76rpx;
+  background: #3476FF;
+  border-radius: 16rpx;
+  line-height: 76rpx;
+  font-size: 28rpx;
+  font-family: PingFang-SC, PingFang-SC;
+  font-weight: bold;
+  color: #FFFFFF;
+  text-align: center;
+  margin-left: 28rpx;
+}
+
+.model-coupon {
+  width: 706rpx;
+  height: 590rpx;
+  margin: 250rpx auto;
+  margin-left: 40rpx;
+}
+
+.model-fail {
+  width: 602rpx;
+  height: 698rpx;
+  margin: 180rpx auto;
+}
+
+.model-fail .title {
+  font-size: 36rpx;
+  font-family: PingFang-SC, PingFang-SC;
+  font-weight: bold;
+  color: #222222;
+  position: relative;
+  top: 270rpx;
+}
+
+.model-fail .model-content {
+  padding: 0 40rpx;
+  position: relative;
+  top: 275rpx;
+  font-size: 36rpx;
+  font-family: PingFang-SC, PingFang-SC;
+  font-weight: bold;
+  color: #222222;
+}
+
+.model-fail .btn-box {
+  display: flex;
+  justify-content: center;
+  margin-top: 335rpx;
+  padding: 0 20rpx;
+}

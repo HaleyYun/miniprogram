@@ -1,0 +1,14 @@
+<view class="page">
+  <view class="swiper">
+    <swiper class="box" indicator-dots="true" autoplay="{{true}}"  interval='{{3000}}' bindchange="change">
+        <block wx:for="{{list}}">
+          <swiper-item style="background: url({{item.bgUrl}});background-size: cover;">
+            <image class="img" src="{{item.imgUrl}}"></image>
+            <view class="swiper-title">{{item.title}}</view>
+            <view class="swiper-text">{{item.text}}</view>
+          </swiper-item>
+        </block>
+    </swiper>
+  </view>
+    
+</view>

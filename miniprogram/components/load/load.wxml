@@ -1,0 +1,21 @@
+<!--loading-->
+<view class="load-box" wx:if="{{status=='loading'}}">
+  <image src="{{ossImg}}LoadingImg.png" class="LoadingImg" mode="" />
+  <view class="progress-box">
+    <view class="progress" style="width: {{schedule+'%'}}">
+      <image src="{{ossImg}}progressImg.png" class="progressImg" mode="" />
+    </view>
+  </view>
+  <view class="schedule">{{schedule}}%</view>
+  <view class="schedule-text">正在快马加鞭～</view>
+</view>
+<!--noData-->
+<view class="load-box" wx:if="{{status=='noData'}}">
+  <image src="{{ossImg}}noDataImg.png" class="noDataImg" mode="" />
+  <view class="noData-text">暂未探寻到相关数据～</view>
+</view>
+<!--failure-->
+<view class="load-box" wx:if="{{status=='failure'}}">
+  <image src="{{ossImg}}failureImg.png" class="failureImg" mode="" />
+  <view class="failure-text">加载失败～</view>
+</view>

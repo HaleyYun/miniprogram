@@ -1,0 +1,38 @@
+
+ 
+<navigationBar path="/pages/interests/index">
+ 
+ <view class="procedureEnd" wx:if="{{isShow}}" slot="content"  style="width: 100%;height: 100%;">
+  <view class="popup-box">
+    <view class="title">提示</view>
+    <view class="content">
+        <view>您当前服务包还存在未完成的服务！</view>
+      </view>
+      <view class="btn-box">
+        <view class="confim" bindtap="commits">稍后继续</view>
+        <view class="confim" bindtap="confimTrue">继续</view>
+      </view>
+  </view>
+  </view>
+ 
+<view class="page" slot="contentMain" style="width: 100%;height: 100%;">
+  <view class="contentTips" wx:if="{{isSupport}}"><view class="tips">{{checkService}}量表已完成，请继续完成筛查服务页项目</view></view>
+  <view class="equity-box">
+    <view class="load" wx:if="{{ data.length==0 }}">
+      <load status="{{loadStatus}}" schedule="{{schedule}}"></load>
+    </view>
+    <!-- <view class="contentTips" wx:if="{{isSupport}}"><view class="tips">{{checkService}}量表筛查终止，评估记录请在报告查询查看~</view></view> -->
+    <view class="item-content" wx:for="{{data}}" wx:key="index" data-id="{{item}}" style="background-image: url({{item.backgroundPicUrl}});background-size: 100% 100%;" bindtap="goGame">
+      <view class="states" style="background-image: url({{ossImg}}equity-state1.png);" wx:if="{{item.status==1}}">未开始</view>
+      <view class="states" style="background-image: url({{ossImg}}equity-state2.png);" wx:if="{{item.status==2}}">处理中</view>
+      <view class="states" style="background-image: url({{ossImg}}equity-state3.png);" wx:if="{{item.status==3 || item.status==9}}">已完成</view>
+      <view class="states" style="background-image: url({{ossImg}}equity-state4.png);" wx:if="{{item.status==4}}">分析失败</view>
+      <view class="states" style="background-image: url({{ossImg}}equity-state4.png);" wx:if="{{item.status==5}}">无法作答</view>
+      <view class="item-name" style="{{item.status==4?'margin-top:90rpx;padding-bottom:0rpx':''}}">
+        {{item.checkServiceName}}
+      </view>
+      <image wx:if="{{item.status==4}}" src="https://neuroweave.oss-cn-hangzhou.aliyuncs.com/zskj-app-test/img/chongxin-bg.png" data-id="{{item}}" bindtap="goGame" />
+    </view>
+  </view>
+</view>
+</navigationBar>

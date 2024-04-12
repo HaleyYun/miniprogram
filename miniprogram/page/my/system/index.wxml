@@ -1,0 +1,52 @@
+<view class="page">
+  <view class="syst-info">
+    <view class="syst-title">
+      <view class="line"></view>
+      <view class="line-text">系统设置</view>
+    </view>
+    <view class="syst-content">
+      <view class="syst-content-left">
+        <view class="cont-text">型号：</view>
+        <!-- <view class="cont-info">{{model}}</view> -->
+        <view class="cont-info">NW-LITE-2023</view>
+      </view>
+      <view class="syst-content-left">
+        <view class="cont-text">软件版本：</view>
+        <view class="cont-info">Version{{accountInfo.miniProgram.version}}</view>
+      </view>
+    </view>
+  </view>
+  <view class="link" wx:for="{{agrList}}" wx:key="index" data-item="{{item}}" data-index="{{index}}" bindtap="goDetail">
+    <view class="link-left">
+      <image src="{{item.img}}" mode="" />
+      <view class="name">{{item.name}}</view>
+    </view>
+    <image class="img" src="{{ossImg}}system-rightbg.png" mode="" />
+  </view>
+  <view class="btn">
+    <view class="button" bindtap="logout">退出登录</view>
+  </view>
+
+  <view class="model" catchtouchmove='true' wx:if="{{isShowModel}}">
+    <view class="model-info" style="background: url({{ossImg}}empower-bg.png) no-repeat center center; background-size: contain;">
+      <view class="title">员工授权</view>
+      <view class="content">
+        <view>授权账户：</view>
+        <input class="content-input" value="{{account}}" disabled="{{employeeId}}" bindinput="bindAccount" placeholder="请输入账户" type="text" maxlength="20" />
+      </view>
+      <view class="content">
+        <view>授权密码：</view>
+        <view class="content-input">
+          <input name="password" class="page-input2" placeholder="请输入密码" password="{{passwordType}}" value="{{password}}" disabled="{{employeeId}}" bindinput="bindPassword" maxlength="20"></input>
+          <image class="password-icon" src="{{ossImg}}yan-xian.png" bindtap="seeTap" wx:if="{{show_pass}}" />
+          <image class="password-icon" src="{{ossImg}}yan-yin.png" bindtap="seeTap" wx:else />
+        </view>
+      </view>
+      <view class="btn-box">
+        <view class="clean" bindtap="close">取消</view>
+        <view class="confim" bindtap="commits" wx:if="{{!employeeId}}">一键授权</view>
+        <view class="confim" bindtap="unCommits" wx:else>取消授权</view>
+      </view>
+    </view>
+  </view>
+</view>

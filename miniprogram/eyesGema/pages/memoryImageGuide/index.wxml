@@ -1,0 +1,5 @@
+<!--eyesGema/pages/memoryImageGuide/index.wxml-->
+<view class="memoryImageGuide">
+  <view>{{stepData.steps[0].elements[0].content}}</view>
+  <image src="https://neuroweave.oss-cn-hangzhou.aliyuncs.com/zskj-app-test/img/eyesgema/next.png" mode="" bind:tap="nextPage" />
+</view>

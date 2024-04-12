@@ -1,0 +1,31 @@
+/* page/login/guide/index.wxss */
+.swiper{
+  height:100vh;
+}
+.box{
+  height:100%;
+  width: 100%;
+  margin: auto;
+  text-align: center;
+}
+.img{
+  height: 721rpx;
+  width: 557rpx;
+  margin: 100rpx 0 0 0;
+}
+.wx-swiper-dots{
+  margin-bottom: 100rpx;
+}
+.wx-swiper-dots .wx-swiper-dot:nth-child(4){
+  display: none !important; 
+}
+.swiper-title{
+  font-size: 30px;
+  color:#2C90FF;
+  font-weight: bold;
+}
+.swiper-text{
+  font-size: 15px;
+  color:#2C90FF;
+  margin-top:10rpx;
+}

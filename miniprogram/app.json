@@ -1,0 +1,200 @@
+{
+  "pages": [
+    "page/home/index",
+    "page/brain/index",
+    "page/login/start/index",
+    "page/login/phone/index",
+    "page/login/message/index",
+    "page/login/guide/index",
+    "page/train/index",
+    "page/my/index",
+    "page/my/infoEdit/index",
+    "page/my/system/index",
+    "components/editBar/index",
+    "custom-tab-bar/index",
+    "page/consult/index",
+    "components/speciBar/index"
+  ],
+  "subpackages": [
+    {
+      "root": "packageHome",
+      "pages": [
+        "pages/order/index",
+        "pages/confirmOrder/index",
+        "pages/serve/index",
+        "pages/organization/index",
+        "pages/success/index",
+        "pages/report/index",
+        "pages/interests/index",
+        "pages/booking/index",
+        "pages/meal/index",
+        "pages/orderDetails/index",
+        "pages/article/index",
+        "pages/gameWebview/index",
+        "pages/gameSku/bookOne/index",
+        "pages/gameSku/bookTwo/index",
+        "pages/gameSku/photoOneFirst/index",
+        "pages/gameSku/photoOneSecond/index",
+        "pages/gameSku/photoOneThird/index",
+        "pages/gameSku/photoTwoFirst/index",
+        "pages/gameSku/photoTwoSecond/index",
+        "pages/gameSku/photoTwoThird/index",
+        "pages/gameSku/stepFour/index",
+        "pages/gameSku/stepThree/index",
+        "pages/gameSku/checkNumber/index",
+        "pages/gameSku/testHome/index",
+        "pages/selective/index",
+        "pages/servicepage/index",
+        "pages/newReport/index",
+        "pages/bhiInfo/index",
+        "pages/equityDetails/index",
+        "pages/equityList/index",
+        "pages/cadie/index",
+        "pages/marketing/index",
+        "pages/reportOrders/index",
+        "pages/reportSearch/index"
+      ]
+    },
+    {
+      "root": "packageTrain",
+      "pages": [
+        "pages/sports/index",
+        "pages/exercise/index",
+        "pages/record/index"
+      ]
+    },
+    {
+      "root": "packageMy",
+      "pages": [
+        "pages/detail/index",
+        "pages/agreement/index",
+        "pages/dishesDetails/index",
+        "pages/food/index",
+        "pages/scale/index",
+        "pages/coupon/index",
+        "pages/mechanism/index",
+        "pages/equityCenter/index",
+        "pages/equityCenterDetails/index",
+        "pages/exchangeDetails/index",
+        "pages/posterSwiper/index"
+      ]
+    },
+    {
+      "root": "packageScale",
+      "pages": [
+        "pages/ad8/index",
+        "pages/ad8Index/index"
+      ]
+    },
+    {
+      "root": "eyesGema",
+      "pages": [
+        "pages/index/index",
+        "pages/peopleCorrect/index",
+        "pages/calibration/index",
+        "pages/memoryImageGuide/index",
+        "pages/albumOne/index",
+        "pages/albumContent/index",
+        "pages/albumtwo/index",
+        "pages/albumEnd/index",
+        "pages/videoGuide/index",
+        "pages/eyesGame/index",
+        "pages/memoryGuide/index",
+        "pages/albumMemory/index",
+        "pages/underAnalysis/index",
+        "pages/procedureEnd/index",
+        "pages/tipPage/index",
+        "pages/taskBeforeGuide/index",
+        "pages/specification/index"
+      ]
+    }
+  ],
+  "preloadRule": {
+    "page/home/index": {
+      "network": "all",
+      "packages": [
+        "eyesGema"
+      ]
+    }
+  },
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "脑倍佳",
+    "backgroundColor": "@backgroundColor"
+  },
+  "usingComponents": {
+    "tab-bar": "custom-tab-bar/index"
+  },
+  "tabBar": {
+    "custom": true,
+    "color": "@tabBarColor",
+    "selectedColor": "@tabBarSelectedColor",
+    "borderStyle": "@tabBarBorderStyle",
+    "backgroundColor": "@tabBarBackgroundColor",
+    "list": [
+      {
+        "pagePath": "page/home/index",
+        "text": "首页"
+      },
+      {
+        "pagePath": "page/brain/index",
+        "text": "训练"
+      },
+      {
+        "pagePath": "page/consult/index",
+        "text": "咨询"
+      },
+      {
+        "pagePath": "page/my/index",
+        "text": "我的"
+      }
+    ]
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "connectSocket": 10000,
+    "uploadFile": 10000,
+    "downloadFile": 10000
+  },
+  "debug": false,
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    },
+    "scope.camera": {
+      "desc": "采集信息进行ai数据模型分析"
+    },
+    "scope.writePhotosAlbum": {
+      "desc": "你的相册将用于保存图片到本地"
+    }
+  },
+  "requiredPrivateInfos": [
+    "getLocation",
+    "chooseLocation"
+  ],
+  "cloud": true,
+  "sitemapLocation": "sitemap.json",
+  "themeLocation": "demo.theme.json",
+  "darkmode": true,
+  "resizable": true,
+  "useExtendedLib": {
+    "weui": true
+  },
+  "frameset": true,
+  "requiredBackgroundModes": [
+    "audio",
+    "location"
+  ],
+  "embeddedAppIdList": [
+    "wx8e2f798e37243e6d"
+  ],
+  "lazyCodeLoading": "requiredComponents",
+  "plugins": {
+    "t-video": {
+      "version": "1.0.8",
+      "provider": "wx5474241b2a65b906"
+    }
+  }
+}

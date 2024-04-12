@@ -1,0 +1,12 @@
+{
+  "usingComponents": {
+    "load": "../../../components/load/load",
+    "navigationBar": "../../../components/reportNavigate/reportNavigate"
+  },
+  "navigationBarTitleText": "筛查服务",
+  "navigationStyle": "custom",
+  "enablePullDownRefresh":true,
+  "backgroundTextStyle":"dark",
+  "backgroundColor":"#efefef"
+}
+

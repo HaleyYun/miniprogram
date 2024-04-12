@@ -1,0 +1,29 @@
+<navigationBar path="./../index/index" title="规范告知说明" style="width: 100%;height: 100%; overflow-y: hidden;">
+  <view style="padding-top: 180rpx;" slot="contentMain">
+    <view class="page">
+      <view class="box">
+        <view class="title">在测试过程中，请务必按照规范要求进行，以确保结果的准确性和可靠性。</view>
+        <view class="opinion">
+          <view class="line_title">
+            <view class="line"></view>
+            <view class="txt">规范建议</view>
+          </view>
+          <view class="txt-content">
+            <view class="txt-two">1、推荐使用手机支架进行测试，在开始测试之前，请调整手机音量确保您能听到指导语音。\n</view>
+            <view class="txt-two">
+              2、任务过程中保持身体姿态及手机相对稳定，尽量避免出现摇晃、变换姿势等情况。\n
+            </view>
+            <view class="txt-two">
+              3、请尽量不要佩戴口罩，佩戴眼镜时注意避免镜片反光。\n
+            </view>
+            <view class="txt-two">
+              4、测试的过程中，保持视线不偏离屏幕，尽量避免转头和他人说话或分散注意力。\n
+            </view>
+          </view>
+        </view>
+        <view class="btn" bindtap="goIndex">我已了解规范</view>
+        <view class="txt-info">感谢参与认知健康测评。结果基于专业量表。我们致力于提供最优质的服务，保障您的脑健康。</view>
+      </view>
+    </view>
+  </view>
+</navigationBar>

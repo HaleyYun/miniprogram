@@ -1,0 +1,66 @@
+<!--packageHealth/pages/food/index.wxml-->
+<van-dialog
+  class="dialog"
+  use-slot
+  show="{{ dialog }}"
+  showConfirmButton="{{false}}"
+>
+  <view class="dialog-box" style="background: url({{ossImg}}recordsbg.png) no-repeat center center; background-size: contain;">
+    <view class="dialog-tag">提示</view>
+    <view class="dialog-title">请记录</view>
+    <view class="dialog-text">早餐、午餐、晚餐后进行饮食分析～</view>
+    <view class="dialog-but" bindtap="confirm">确定</view>
+  </view>
+</van-dialog>
+<!-- <view class="page" style="padding: {{statusBarHeight+44}}px 0 0 0;"> -->
+<view class="page">
+  <view class="search-box">
+    <image class="search-icon" src="{{ossImg}}yy-search.png" bindtap="search"></image>
+    <input class="search-input" model:value="{{search}}" bindblur="search" placeholder="请输入食材名称关键字～"/>
+  </view>
+
+  <view class="select">
+    <view class="select-sort">
+      <view class="{{sortActive==item.id?'select-sort-item-active':'select-sort-item'}}" wx:for="{{sort}}" wx:key="id" bindtap="toggle" data-id="{{item.id}}">{{item.label}}</view>
+    </view>
+    <scroll-view class="select-content" scroll-y="true">
+      <view class="select-item" wx:for="{{content}}" wx:key="id">
+        <image src="{{item.imgUrl}}" class="select-item-img" mode=""/>
+        <view class="select-item-content">
+          <view class="select-title">{{item.name}}</view>
+          <view class="select-component">{{item.weight}}{{item.unit}}/份</view>
+          <view class="add-box">
+            <view class="add-but" bindtap="add" data-data="{{item}}">添加</view>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+
+  <view class="selected-box">
+    <view class="selected-tab">
+      <view class="tab-item {{item.id==tabActive?'tabActive':'untab'}}" wx:for="{{tab}}" wx:key="id" data-id="{{item.id}}" bindtap="tab">{{item.options}}</view>
+    </view>
+    <view class="selected-title">
+      <!-- <view class="selected-title-tag"></view> -->
+      我已选
+    </view>
+    <view class="selected-item" wx:for="{{tabActive==0?morning.infoList:''||tabActive==1?middle.infoList:''||tabActive==2?evening.infoList:''}}" wx:key="id">
+      <image src="{{item.imgUrl}}" class="select-item-img" mode=""/>
+      <view class="selected-item-content">
+        <view class="select-title">{{item.name}}</view>
+        <view class="select-component">{{item.weight}}{{item.unit}}/份</view>
+        <view class="selected-item-stepper">
+          <van-stepper value="{{ item.num }}" data-index="{{index}}" bind:change="onChange" bind:overlimit="overlimit"/>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view style="height: 164rpx;"></view>
+
+  <view class="verify-box">
+    <view class="verify" bindtap="initiate">开始分析</view>
+  </view>
+
+</view>

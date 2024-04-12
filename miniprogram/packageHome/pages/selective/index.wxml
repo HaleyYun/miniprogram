@@ -1,0 +1,19 @@
+<view class="page">
+    <view class="person" wx:if="{{personShow}}">
+        <image class="bg" src="{{avatarUrl}}"></image>
+        <view class="person-title">
+          <view class="name">{{userInfo.name}}</view>
+          <view class="phone">联系方式：{{userInfo.phone}}</view>
+        </view>
+    </view>
+    <view class="showPerson">
+    <view class="showUrl">
+      <image class="showBg" src="{{iconUrl}}"></image>
+      <view class="deleteicon">
+       <image src="{{iconBtn}}" bindtap="deleteinfo" class="deleteItem" mode=""/>
+  </view>
+    </view>
+     
+       
+    </view>
+</view>

@@ -1,0 +1,151 @@
+<!--packageHome/pages/confirmOrder/index.wxml-->
+<view class="page">
+  <!-- <view class="subscribe-person">
+    <view class="top">
+      <view class="title">预约成员</view>
+      <view class="choose">
+        <navigator url="/packageHome/pages/person/index?serve=detail" hover-class="navigator-hover">
+          <view class="text">去选择<image class="img" src="{{ossImg}}right.png"></image>
+          </view>
+        </navigator>
+      </view>
+    </view>
+
+    <view class="person" wx:if="{{personShow}}">
+      <view class="person-img">
+        <view class="headbg"><image class="bg" src="{{ossImg}}run.png"></image></view>
+        <view class="person-title">
+          <view class="per-name">
+            <view class="name">{{userInfo.name}}</view>
+            <view class="box">{{userInfo.relations=='1'?'本人':''||userInfo.relations=='2'?'父亲':''||userInfo.relations=='3'?'母亲':''||userInfo.relations=='4'?'其他':''}}</view>
+          </view>
+          <view class="phone1">联系方式：{{userInfo.phone}}</view>
+        </view>
+      </view>
+      <view class="person-btn">已选</view>
+    </view>
+  </view> -->
+
+  <view class="from">
+    <view class="notice">
+      <image src="{{ossImg}}reminder.png" class="reminder" mode=""/>
+      请确定订单信息，根据提示实名填写信息！
+    </view>
+    <view class="purchaser">
+      <text class="purchaser-title">购买人：</text>
+      <input class="purchaser-input" type="text" model:value="{{userInfo.name}}" placeholder="请输入购买人的姓名" bindinput="inputChange"/>
+    </view>
+    <view  class="phone">
+      <text class="phone-title">手机号：</text>
+      <input class="phone-input" type="number" disabled="disabled"  maxlength="11" model:value="{{userInfo.phone}}" placeholder="请填写购买人的手机号码"/>
+    </view>
+  </view>
+  <view class="details">
+    <view class="details-title">
+      订单详情
+    </view>
+    <view class="details-center">
+      <image src="{{serveData.mainPic}}" class="details-image" mode=""/>
+      <view  class="details-content">
+        <view class="content-title">
+          <text>{{serveData.prodName}}</text>
+          <text class="content-title-price">{{serveData.prodPrice}}</text>
+        </view>
+        <view class="introduce">
+          {{serveData.prodDescribe}}
+        </view>
+      </view>
+    </view>
+    <view class="details-subtotal">
+      {{serveData.prodPrice}}
+    </view>
+  </view>
+  <view class="method">
+    <view class="method-title">
+      价格明细
+    </view>
+  <view class="amount">商品金额 <view class="goodamount">￥{{serveData.prodPrice}}</view></view>
+  <view class="favorable" >
+  用券优惠
+   <view wx:if="{{serveList.length}}" class="goodfavorable" bindtap="showModal">
+   <text wx:if="{{showPrice}}">-￥{{sealPrice}}</text>
+   <text class="goodPrice" wx:if="{{!showPrice}}">请选择</text>
+  <image class="goodicon" bindtap="showModal" src="{{ossImg}}iuicon.png" mode=""/>
+   </view>
+   <view wx:if="{{serveList.length<1}}" class="goodNot">
+    暂无优惠券
+   </view>
+   </view>
+
+
+   <view class="total">合计<view class="goodtotal">￥{{conutAll}}</view></view>
+  </view>
+  <view class="methods">
+    <view class="method-title">
+      支付方式
+    </view>
+    <view class="method-list" wx:for="{{methodList}}" wx:key="id">
+      <view class="method-mode">
+        <image src="{{item.iconUrl}}" class="method-icon" mode=""/>
+        <view>{{item.option}}</view>
+      </view>
+      <view class="tick {{method==item.option?'tick-active':'tick-deactive'}}" bindtap="method" data-id="{{item.id}}">
+        <image src="{{ossImg}}tick.png" wx:if="{{method==item.option}}" class="tick-image" mode=""/>
+      </view>
+    </view>
+  </view>
+  <view class="payment">
+    <view class="payment-unit">
+      <view class="payment-subtotal">
+        小计：
+      </view>
+      <view  class="payment-price">
+        {{conutAll}}
+      </view>
+    </view>
+    <view  class="payment-purchase" bindtap="pay">
+      立即购买
+    </view>
+  </view>
+
+    <!-- 啊实打实打算  -->
+  <view class="wrap">
+  <view class="modal modal-bottom-dialog" hidden="{{hideFlag}}">
+    <view class="modal-cancel" bindtap="hideModal"></view>
+    <view class="bottom-dialog-body bottom-positon" animation="{{animationData}}">
+      <!--   <scroll-view class="Mselect" scroll-y="true" style="height: 800rpx;">-->
+        <scroll-view  scroll-y="true" style="height: 750rpx;padding-bottom: 140rpx;">
+          <view class="chooseorder">优惠券</view>
+          <view class="map" style="background: url({{ossImg}}notfold.png);background-size:692rpx 240rpx" wx:for="{{serveList}}" wx:key="id">
+      <view  class="eye-card" wx:if="{{ item.couponType==2 }}">满减券</view>
+      <view  class="eye-card" wx:if="{{ item.couponType==1 }}">折扣券</view>
+      <view class="eyes-box"  bindtap="goCommodityDetails" data-id="{{item.id}}">
+      <view class="eyes-img"><view class="eyesbg" wx:if="{{ item.couponType==2 }}">{{item.discount}}</view>
+      <view class="eyesbg" wx:if="{{ item.couponType==1 }}">{{item.discount}}折</view>
+        <view class="eyeTitie" >满￥{{item.afterDiscountPrice}}使用</view>
+        </view>
+        <view class="eye-serve">
+        <view class="eye-conpon">
+          <view class="eyes-title">{{item.couponName}}</view>
+          <view class="eyes-text">{{item.beginTime}}-{{item.endTime}}</view>
+        </view>
+
+    <view class="eyes-count" data-item='{{item}}' bindtap="choose">
+            <label class="radio">
+              <radio value="r1" checked="{{item.couponCode==ischeckId}}"/>
+             </label>
+          </view>
+        </view>
+      </view>
+      
+        </view>
+     
+      </scroll-view>
+      <view wx:if="{{serveList.length>0}}" class='Mcancel' bindtap='mCancel'>
+        <text>不使用</text>
+         </view>
+    </view>
+  </view>
+ 
+</view>
+</view>

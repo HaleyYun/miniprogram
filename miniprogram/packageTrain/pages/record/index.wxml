@@ -1,0 +1,109 @@
+<!--packageTrain/pages/record/index.wxml-->
+<view class="page">
+  <van-dialog
+  class="addinfodialog"
+  use-slot
+  show="{{ addInfoShow }}"
+  showConfirmButton="{{false}}"
+>
+  <image src="{{ossImg}}addinfobg.png" class="addinfobg"/>
+  <view class="addinfobut-box">
+    <image src="{{ossImg}}addinfobut.png" bindtap="toAddinfo" class="addinfobut" mode=""/>
+  </view>
+</van-dialog>
+
+  <!-- <scroll-view class="info" scroll-x="true">
+    <view class="img" wx:for="{{infoList}}" wx:key="archivesNo" bindtap="toggle" data-id="{{item.archivesNo}}">
+      <view class="imgimg">
+        <image class="bg  {{archivesNo==item.archivesNo?'border':''}}" src="{{ossImg}}person-bg.png"></image>
+        <image src="{{ossImg}}duihaoduihao.png" class="duihao" hidden="{{archivesNo!=item.archivesNo}}" mode=""/>
+      </view>
+      <view class="name">{{item.relations ==1?'本人':''||item.relations ==2?'父亲':''||item.relations ==3?'母亲':''||item.relations ==4?'其他':''}}</view>
+    </view>
+  </scroll-view> -->
+<view class="load" wx:if="{{ list.length==0 }}">
+  <load status="{{ loadStatus }}" schedule="{{ schedule }}"></load>
+</view>
+  <view class="state" wx:for="{{list}}" wx:key="*this">
+    <view class="namee">
+      <view class="namee-name">
+        <image src="{{item.gameRecordResponse.interventionOrderStatus=='UN_APPROVAL'?ossImg+'zhuangtai3.png':''||item.gameRecordResponse.interventionOrderStatus=='UN_START'?ossImg+'zhuangtai3.png':''||item.gameRecordResponse.interventionOrderStatus=='TO_EXPIRED'?ossImg+'zhuangtai2.png':''||item.gameRecordResponse.interventionOrderStatus=='TRAINING'?ossImg+'zhuangtai2.png':''||item.gameRecordResponse.interventionOrderStatus=='EXPIRED'?ossImg+'zhuangtai1.png':''||item.gameRecordResponse.interventionOrderStatus=='DEFAULT'?ossImg+'zhuangtai2.png':''}}" class="mild-image" mode="heightFix" />
+        <text class="state-date">{{item.gameRecordResponse.interventionStart}}~{{item.gameRecordResponse.interventionEnd}}</text>
+      </view>
+      <view class="OpenClos" data-index="{{index}}" data-id="{{item.gameRecordResponse.interventionOrderNumber}}"  bindtap="packUp" wx:if="{{item.gameRecordResponse.interventionOrderStatus!='UN_APPROVAL'&&item.gameRecordResponse.interventionOrderStatus!='UN_START' && item.turnUp }}">
+        收起
+        <image  src="{{ossImg}}upup.png" class="updown" mode=""/>
+      </view>
+      <view class="OpenClos" data-index="{{index}}" data-id="{{item.gameRecordResponse.interventionOrderNumber}}"  bindtap="unfold" wx:if="{{ item.gameRecordResponse.interventionOrderStatus!='UN_APPROVAL'&&item.gameRecordResponse.interventionOrderStatus!='UN_START' && !item.turnUp  }}">
+        展开
+        <image src="{{ossImg}}downdown.png" class="updown" mode=""/>
+      </view>
+    </view>
+    <view class="state-number {{item.gameRecordResponse.interventionOrderStatus=='UN_APPROVAL'?'state-backgroundColor1':''||item.gameRecordResponse.interventionOrderStatus=='UN_START'?'state-backgroundColor1':''||item.gameRecordResponse.interventionOrderStatus=='TO_EXPIRED'?'state-backgroundColor2':''||item.gameRecordResponse.interventionOrderStatus=='TRAINING'?'state-backgroundColor2':''||item.gameRecordResponse.interventionOrderStatus=='EXPIRED'?'state-backgroundColor3':''||item.gameRecordResponse.interventionOrderStatus=='DEFAULT'?'state-backgroundColor2':''}}">
+      干预编号：{{item.gameRecordResponse.interventionOrderNumber}}
+    </view>
+    <view wx:if="{{item.turnUp}}">
+      <view class="statistics-title" wx:if="{{show}}">
+      训练统计
+      </view>
+    <view class="statistics-day" wx:if="{{show}}">
+      <view class="statistics-round-margin">
+        <view class="statistics-round" style="background:url('{{ossImg}}circle.png') white;background-size:cover;">
+        <view class="training-days">
+          {{item.gameRecordResponse.gameCompletedDaysCount}}/{{item.gameRecordResponse.gameTotalDaysCount}}
+        </view>
+        <view class="training-days-suffix">
+          训练天数
+        </view>
+      </view>
+      </view>
+    </view>
+    <view class="statistics-underway"  wx:if="{{show}}">
+      <view class="duration-quantity">
+        <view class="duration">
+          <view class="duration-quantity-label">
+            累计时长
+          </view>
+          <view class="duration-quantity-number">
+            {{item.gameRecordResponse.gameTotalMin}}分钟
+          </view>
+        </view>
+        <view class="quantity">
+          <view class="duration-quantity-label">
+            激活数量
+          </view>
+          <view class="duration-quantity-number">
+            {{item.gameRecordResponse.gameActiveCount}}个
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="statistics-title-t">
+      每周干预情况
+      <view class="section">
+        <picker mode="selector"  value="{{index}}" range="{{weekList}}" class="c" range-key="weekName" bindchange="bindDateChange">
+          <view class="picker">
+            {{weekName}}<image src="{{ossImg}}pullDown.png" class="pullDown" mode=""/>
+          </view>
+        </picker>
+      </view>
+    </view>
+    
+      <view class="tab-list">
+        <view class="tab-list-content" wx:for="{{trainingList}}" wx:key="id">
+          <view class="tab-list-before" style="background-color: {{item.color}};background-size:cover;box-shadow: 0 0 0rpx  10rpx {{item.backgroundColor}};"></view>
+          <view class="tab-list-one" style="color: {{item.color}};background: {{item.backgroundColor}};">
+            <view class="title" style="color: {{item.color}};">
+              {{item.title}}
+            </view>
+            <view>
+              <text  class="qualified">{{item.standard}}</text>
+              <text class="title">{{item.complete}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+
+    </view>
+  </view>
+</view>

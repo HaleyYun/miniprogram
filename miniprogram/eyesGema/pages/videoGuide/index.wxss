@@ -1,0 +1,12 @@
+/* eyesGema/pages/videoGuide/index.wxss */
+.videoGuide {
+  width: 100%;
+  height: 100%;
+  background-image: url(https://neuroweave.oss-cn-hangzhou.aliyuncs.com/zskj-app-test/img/eyesgema/flow-path-bj.png);
+  background-size: 100% 100%;
+}
+
+video {
+  width: 100%;
+  height: 100%;
+}

@@ -1,0 +1,113 @@
+<navigationBar  path="/page/my/index">
+  <view class="page" slot="contentMain" style="width: 750rpx;height:100%;position: relative;">
+    <scroll-view class="scroll-box" scroll-y>
+      <view wx:if="{{userInfo.age>=18}}">
+        <image src="{{ossImg}}cadie-bg.png" class="addinfobg" wx:if="{{userInfo.riskType===1}}" />
+        <image src="{{ossImg}}cadie-zhongbg.png" class="addinfobg" wx:if="{{userInfo.riskType===2}}" />
+        <image src="{{ossImg}}cadie-gaobg.png" class="addinfobg" wx:if="{{userInfo.riskType===3}}" />
+      </view>
+      <view class="cadie-list">
+        <view class="cadie-header">
+          <view class="cadie-title">
+            <view class="shu"></view>
+            <view class="title-text">CAIDE指数分析报告</view>
+          </view>
+          <view class="cadie-contnent" style="background: url({{ossImg}}a-abc.png) no-repeat center center; background-size: contain;">
+            <view class="info-texts">
+              <view>
+                <view class="info-name">{{userInfo.name}} 您好</view>
+                <view class="info-time">更新时间 {{userInfo.lastUpdateTime}}</view>
+              </view>
+              <view class="bian" bindtap="toUpdateInfo">编辑资料</view>
+            </view>
+          </view>
+          <view class="fen" wx:if="{{userInfo.age>=18}}">{{userInfo.expertAnalysis}}</view>
+        </view>
+        <view class="cadie-zhi" wx:if="{{userInfo.age>=18}}">
+          <image src="{{ossImg}}cadie-zheng.png" wx:if="{{userInfo.riskType===1}}" />
+          <image src="{{ossImg}}cadie-di.png" wx:if="{{userInfo.riskType===2}}" />
+          <image src="{{ossImg}}cadie-gao.png" wx:if="{{userInfo.riskType===3}}" />
+          <view class="image-zhi">
+            <view class="zhi-num">{{userInfo.score}}</view>
+            <view class="zhi-text">CAIDE指数</view>
+          </view>
+        </view>
+        <view style="display: flex;" wx:if="{{userInfo.age>=18}}">
+          <image class="cadie-fen" src="{{ossImg}}label-di.png" wx:if="{{userInfo.riskType ===1}}" />
+          <image class="cadie-fen" src="{{ossImg}}label-zhong.png" wx:if="{{userInfo.riskType ===2}}" />
+          <image class="cadie-fen" src="{{ossImg}}label-gao.png" wx:if="{{userInfo.riskType ===3}}" />
+        </view>
+        <view class="dang-info" wx:if="{{userInfo.age>=18}}">
+          <view class="dang-item">
+            <view class="dang-one">
+              <view class="dang-textinfo">基本信息</view>
+              <view class="dang-textfen"><text class="defen">{{userInfo.baseInfoScore}}</text>
+                <text class="defen-two">/{{userInfo.baseInfoScoreMax}}分</text>
+              </view>
+            </view>
+            <view class="dang-one">
+              <view class="dang-textinfo">病史档案</view>
+              <view class="dang-textfen"><text class="defen">{{userInfo.diseaseScore}}</text>
+                <text class="defen-two">/{{userInfo.diseaseScoreMax}}分</text>
+              </view>
+            </view>
+          </view>
+          <view class="xian"></view>
+          <view class="dang-item">
+            <view class="dang-one">
+              <view class="dang-textinfo">运动习惯</view>
+              <view class="dang-textfen"><text class="defen">{{userInfo.sportsScore}}</text>
+                <text class="defen-two">/{{userInfo.sportsScoreMax}}分</text>
+              </view>
+            </view>
+            <view class="dang-one">
+              <view class="dang-textinfo">健康档案</view>
+              <view class="dang-textfen"><text class="defen">{{userInfo.healthScore}}</text>
+                <text class="defen-two">/{{userInfo.healthScoreMax}}分</text>
+              </view>
+            </view>
+          </view>
+        </view>
+        <view class="content-list">
+          <view class="content-box" wx:if="{{userInfo.age>=18}}">
+            <view class="content-title" bindtap="toBhiInfo">
+              <view class="content-title-left">
+                <image class="icon-title" src="{{ossImg}}njk-title-icon.png" mode="" />
+                <text>本次认知风险评估过程记录</text>
+              </view>
+            </view>
+            <view class="text-info">
+              <view class="info-title" wx:if="{{userInfo.riskPointItemList.length>0}}">
+                <view class="bin"></view>
+                <text>风险因素解读</text>
+              </view>
+              <view class="info-content" wx:if="{{userInfo.riskPointItemList.length>0}}">
+                <view class="info-item" wx:for="{{userInfo.riskPointItemList}}" wx:for-item="item" wx:key="index">
+                  <view class="zhan">
+                    <image src="{{ossImg}}cadie-lquan.png" wx:if="{{userInfo.riskType ===1}}" />
+                    <image src="{{ossImg}}cadie-cquan.png" wx:if="{{userInfo.riskType ===2}}" />
+                    <image src="{{ossImg}}cadie-hquan.png" wx:if="{{userInfo.riskType ===3}}" />
+                    <view>{{item.score}}分</view>
+                  </view>
+                  <view class="zhan-content">
+                    <view class="names">{{item.label}}</view>
+                    <view class="names-two">{{item.desc}}</view>
+                  </view>
+                </view>
+              </view>
+              <view class="cadie-footer">
+                <view class="footer-title">结果解读：</view>
+                <br />
+                您的CAIDE指数分析结果是根据您在资料中实际填写的个人信息数据得出，它反映了您脑健康风险能力的整体状态，评估得分在5分以上可能存在脑健康能力不足的风险。您的得分值为“{{userInfo.score}}”<text wx:if="{{userInfo.riskType>=1}}">，{{userInfo.expertAnalysis}}。</text>
+              </view>
+            </view>
+          </view>
+        </view>
+        <view class="disContent" wx:if="{{userInfo.age<18}}">
+          <image src="{{ossImg}}naojiank-logo.png" mode="" />
+          <view class="disText">18岁以下无CAIDE指数分析报告详情～</view>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+</navigationBar>

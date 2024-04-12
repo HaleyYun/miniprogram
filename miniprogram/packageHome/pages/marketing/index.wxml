@@ -1,0 +1,17 @@
+<navigationBar path="/page/home/index">
+  <view class="page" slot="contentMain" style="width: 100%;height: 100%;">
+    <view class="page" style="background-image: url({{ossImg}}marketing-bg.png);background-size: 100% 100%;">
+      <view class="btn" style="background-image: url({{ossImg}}marketing-btnbg.png);background-size: 100% 100%;" bindtap="goDetail"></view>
+    </view>
+  </view>
+</navigationBar>
+
+<van-dialog class="addinfodialog" use-slot show="{{ addInfoShow }}" showConfirmButton="{{false}}" width='582rpx'>
+  <image src="{{ossImg}}addforbtn.png" class="addinfobg" />
+  <view class="addinfobut-box">
+    <image src="{{ossImg}}addinfobtn.png" bindtap="toAddinfo" class="addinfobut" mode="" />
+  </view>
+  <view class="deleteicon">
+    <image src="{{ossImg}}deleteIcon.png" bindtap="deleteinfo" class="deleteItem" mode="" />
+  </view>
+</van-dialog>

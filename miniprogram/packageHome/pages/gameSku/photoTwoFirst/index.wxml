@@ -1,0 +1,17 @@
+<view class="photo-content" style="background-image: url({{ossHttpUrl}}images/bg.png);">
+  <view class="bigDiv">
+    <view class="picture animate__bounceIn">
+      <view class="ph-picture" style="background-image: url({{ossHttpUrl}}images/picture.png);" wx:for="{{picArr}}" wx:key="index" data-index="{{index}}" data-item="{{item}}" bindtap="chooseTureType">
+        <image src="{{item.url}}" class="pic" />
+        <view class="desk" style="background: {{currentIndex===index && isChooseTypeTure ?'green':currentIndex===index&& !isChooseTypeTure?'red':''}}">
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="doctor">
+    <view class="doctor-text">{{ showQuestion }}</view>
+    <view class="doctor-bg">
+      <image src="{{ossHttpUrl}}images/doctor-left.png" />
+    </view>
+  </view>
+</view>

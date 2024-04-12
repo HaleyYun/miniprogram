@@ -1,0 +1,74 @@
+<view class="page">
+  <scroll-view class="scroll-box">
+    <view class="page">
+      <view class="info-card">
+        <view class="info-title">
+          <view class="shu"></view>
+          <view class="title-text">权益信息</view>
+        </view>
+        <view class="info-content">
+          <view class="info-content-left">
+            <view class="name">权益名称：</view>
+            <view class="name-content">{{data.equityName}}</view>
+          </view>
+          <view class="info-content-right">
+            <view class="name">筛查次数：</view>
+            <view class="name-content">{{data.checkCount}}次</view>
+          </view>
+        </view>
+        <view class="info-content">
+          <view class="info-content-left">
+            <view class="name">有效期：</view>
+            <view class="name-content">{{data.validity}}天</view>
+          </view>
+          <view class="info-content-right">
+            <view class="name">干预周期：</view>
+            <view class="name-content">{{data.interveneCycle?data.interveneCycle:'- -'}}</view>
+          </view>
+        </view>
+      </view>
+      <view class="info-card">
+        <view class="info-title">
+          <view class="shu"></view>
+          <view class="title-text">海报信息</view>
+        </view>
+        <view class="data-state" bindtap="goExchange">兑换详情</view>
+        <view class="data-content">
+          <view class="data-cont">
+            <view class="titles">已使用数量：</view>
+            <view class="conts">{{data.useCount}}</view>
+          </view>
+          <view class="data-cont">
+            <view class="titles">发放数量：</view>
+            <view class="conts">{{data.releaseCount}}</view>
+          </view>
+        </view>
+        <view class="data-content" wx:if="{{data.canReleaseCount!=null}}">
+          <view class="data-cont">
+            <view class="titles">本月剩余可用发放数量：</view>
+            <view class="conts">{{data.canReleaseCount}}</view>
+          </view>
+        </view>
+      </view>
+      <view class="info-card">
+        <view class="info-title">
+          <view class="shu"></view>
+          <view class="title-text">关联服务产品</view>
+        </view>
+        <view class="srv-product">
+          <view class="srv-content" bindtap="goEquiyDetails">
+            <image src="{{data.productResponse.mainPic}}" mode="" />
+            <view class="cont-right">
+              <view class="cont-tit">{{data.productResponse.prodName}}</view>
+              <view class="cont-des">{{data.productResponse.prodDescribe}}</view>
+              <view class="price">{{data.productResponse.prodPrice}}</view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="btn">
+      <button class="btn-use" bindtap="goSwiper">生成海报</button>
+    </view>
+  </scroll-view>
+</view>

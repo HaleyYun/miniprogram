@@ -1,0 +1,41 @@
+/* components/intereBar/intereBar.wxss */
+
+.nav-bar-page {
+  width: 100%;
+  height: 100%;
+  background: url('https://zskjobject.oss-cn-beijing.aliyuncs.com/zskj-app/2d368c35-a299-4134-ac02-0b9d8e316787.png') #fff; 
+  background-size: 100% 100%;
+  background-color: #fff;
+}
+
+.nav-bar {
+  width: 100vw;
+  color: #222;
+  text-align: center;
+  font-size: 32rpx;
+  font-weight: 600;
+  box-sizing: border-box;
+  line-height: 44px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9;
+  display: flex;
+  align-items: center;
+}
+
+.nav-bar view {
+  width: 152rpx;
+  height: 50rpx;
+  font-size: 36rpx;
+  font-family: PingFang-SC, PingFang-SC;
+  font-weight: bold;
+  color: #222222;
+  line-height: 50rpx;
+}
+
+.nav-bar image {
+  width: 42rpx;
+  height: 40rpx;
+  margin-left: 25rpx;
+}
